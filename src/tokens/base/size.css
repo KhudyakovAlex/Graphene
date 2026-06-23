@@ -1,0 +1,11 @@
+:root {
+  --g-size-icon-sm: 16px;
+  --g-size-icon-md: 20px;
+  --g-size-icon-lg: 24px;
+
+  --g-size-control-sm: 28px;
+  --g-size-control-md: 36px;
+  --g-size-control-lg: 44px;
+
+  --g-size-touch-min: 44px;
+}

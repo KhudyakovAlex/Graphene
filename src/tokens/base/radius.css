@@ -1,0 +1,10 @@
+:root {
+  --g-radius-none: 0;
+  --g-radius-xs: 2px;
+  --g-radius-sm: 4px;
+  --g-radius-md: 8px;
+  --g-radius-lg: 12px;
+  --g-radius-xl: 16px;
+  --g-radius-2xl: 24px;
+  --g-radius-full: 9999px;
+}

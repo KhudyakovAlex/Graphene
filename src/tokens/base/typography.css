@@ -1,0 +1,34 @@
+:root {
+  --g-font-family-base: 'IBM Plex Sans', Arial, sans-serif;
+
+  --g-font-size-11: 11px;
+  --g-font-size-12: 12px;
+  --g-font-size-14: 14px;
+  --g-font-size-16: 16px;
+  --g-font-size-18: 18px;
+  --g-font-size-20: 20px;
+  --g-font-size-24: 24px;
+  --g-font-size-28: 28px;
+  --g-font-size-32: 32px;
+  --g-font-size-36: 36px;
+  --g-font-size-40: 40px;
+  --g-font-size-48: 48px;
+  --g-font-size-56: 56px;
+
+  --g-font-weight-regular: 400;
+  --g-font-weight-medium: 500;
+  --g-font-weight-semibold: 600;
+
+  --g-line-height-14: 14px;
+  --g-line-height-16: 16px;
+  --g-line-height-18: 18px;
+  --g-line-height-20: 20px;
+  --g-line-height-24: 24px;
+  --g-line-height-28: 28px;
+  --g-line-height-32: 32px;
+  --g-line-height-36: 36px;
+  --g-line-height-40: 40px;
+  --g-line-height-48: 48px;
+  --g-line-height-56: 56px;
+  --g-line-height-64: 64px;
+}

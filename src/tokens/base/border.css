@@ -1,0 +1,6 @@
+:root {
+  --g-border-width-none: 0;
+  --g-border-width-sm: 1px;
+  --g-border-width-md: 2px;
+  --g-border-width-lg: 4px;
+}

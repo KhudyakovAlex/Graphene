@@ -1,0 +1,8 @@
+:root {
+  --g-z-index-base: 0;
+  --g-z-index-header: 100;
+  --g-z-index-dropdown: 200;
+  --g-z-index-overlay: 300;
+  --g-z-index-modal: 400;
+  --g-z-index-tooltip: 500;
+}
