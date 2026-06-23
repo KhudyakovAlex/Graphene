@@ -32,6 +32,7 @@
 - `--g-field-placeholder`
 - `--g-field-helper`
 - `--g-field-label`
+- `--g-field-label-weight`
 - `--g-field-border`
 - `--g-field-border-hover`
 - `--g-field-border-focus`

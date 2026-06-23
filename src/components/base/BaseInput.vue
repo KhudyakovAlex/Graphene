@@ -94,7 +94,7 @@ function handleInput(event: Event) {
   color: var(--g-field-label);
   font-size: var(--g-font-size-14);
   line-height: var(--g-line-height-20);
-  font-weight: var(--g-font-weight-regular);
+  font-weight: var(--g-field-label-weight);
 }
 
 .g-base-input__field {
