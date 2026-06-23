@@ -5,21 +5,13 @@ import { BaseButton, BaseInput } from '../../../src/components'
 
 const smInput = ref('')
 const mdInput = ref('Filled value')
+const invalidInput = ref('Invalid value')
 const disabledInput = ref('Disabled value')
 </script>
 
 <template>
-  <section class="panel page-heading" aria-labelledby="baseComponentsTitle">
-    <p class="eyebrow">Компоненты</p>
-    <h1 id="baseComponentsTitle">Базовые компоненты</h1>
-    <p class="page-heading__text">
-      Простые элементы Graphene, импортированные напрямую из `src/components`.
-    </p>
-  </section>
-
   <section class="panel component-preview" aria-labelledby="buttonTitle">
     <div>
-      <p class="eyebrow">Первый компонент</p>
       <h2 class="component-preview__title" id="buttonTitle">BaseButton</h2>
     </div>
 
@@ -50,7 +42,6 @@ const disabledInput = ref('Disabled value')
 
   <section class="panel component-preview" aria-labelledby="inputTitle">
     <div>
-      <p class="eyebrow">Второй компонент</p>
       <h2 class="component-preview__title" id="inputTitle">BaseInput</h2>
     </div>
 
@@ -73,6 +64,13 @@ const disabledInput = ref('Disabled value')
         size="lg"
         label="Label lg"
         helper-text="Optional helper text"
+      />
+      <BaseInput
+        v-model="invalidInput"
+        size="md"
+        label="Invalid"
+        helper-text="Invalid helper text"
+        invalid
       />
       <BaseInput
         v-model="disabledInput"
@@ -102,20 +100,6 @@ const disabledInput = ref('Disabled value')
   font-size: var(--g-font-size-14);
   line-height: var(--g-line-height-20);
   font-weight: var(--g-font-weight-semibold);
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(var(--g-font-size-32), 6vw, var(--g-font-size-56));
-  line-height: var(--g-line-height-64);
-  font-weight: var(--g-font-weight-semibold);
-}
-
-.page-heading__text {
-  margin: var(--g-space-5) 0 0;
-  color: var(--g-text-secondary);
-  font-size: var(--g-font-size-18);
-  line-height: var(--g-line-height-28);
 }
 
 .component-preview {
@@ -157,8 +141,5 @@ h1 {
     padding: var(--g-space-5);
   }
 
-  h1 {
-    line-height: var(--g-line-height-40);
-  }
 }
 </style>

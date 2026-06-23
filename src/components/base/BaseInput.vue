@@ -12,6 +12,7 @@ const props = withDefaults(
     size?: BaseInputSize
     disabled?: boolean
     readonly?: boolean
+    invalid?: boolean
   }>(),
   {
     modelValue: '',
@@ -22,6 +23,7 @@ const props = withDefaults(
     size: 'md',
     disabled: false,
     readonly: false,
+    invalid: false,
   },
 )
 
@@ -47,6 +49,7 @@ function handleInput(event: Event) {
       {
         'g-base-input--filled': props.modelValue.length > 0,
         'g-base-input--disabled': props.disabled,
+        'g-base-input--invalid': props.invalid,
       },
     ]"
   >
@@ -60,6 +63,7 @@ function handleInput(event: Event) {
         :placeholder="props.placeholder"
         :disabled="props.disabled"
         :readonly="props.readonly"
+        :aria-invalid="props.invalid || undefined"
         @input="handleInput"
         @change="emit('change', $event)"
         @focus="emit('focus', $event)"
@@ -144,13 +148,15 @@ function handleInput(event: Event) {
 }
 
 .g-base-input--disabled .g-base-input__label,
-.g-base-input--disabled .g-base-input__helper,
-.g-base-input--disabled .g-base-input__trailing {
+.g-base-input--disabled .g-base-input__helper {
+  opacity: var(--g-opacity-disabled);
   color: var(--g-field-placeholder);
 }
 
 .g-base-input--disabled .g-base-input__field {
-  background: var(--g-field-bg-disabled);
+  border-bottom-color: var(--g-field-border);
+  opacity: var(--g-opacity-disabled);
+  background: var(--g-field-bg);
   cursor: not-allowed;
 }
 
@@ -160,6 +166,23 @@ function handleInput(event: Event) {
   font-size: var(--g-font-size-12);
   line-height: var(--g-line-height-16);
   font-weight: var(--g-font-weight-regular);
+}
+
+.g-base-input--invalid:not(.g-base-input--disabled) .g-base-input__field {
+  border-bottom-color: var(--g-field-invalid);
+}
+
+.g-base-input--invalid:hover:not(.g-base-input--disabled) .g-base-input__field,
+.g-base-input--invalid:focus-within:not(.g-base-input--disabled) .g-base-input__field {
+  border-bottom-color: var(--g-field-invalid);
+}
+
+.g-base-input--invalid:not(.g-base-input--disabled) .g-base-input__control {
+  color: var(--g-field-invalid);
+}
+
+.g-base-input--invalid:not(.g-base-input--disabled) .g-base-input__helper {
+  color: var(--g-field-invalid);
 }
 
 .g-base-input--sm .g-base-input__field {

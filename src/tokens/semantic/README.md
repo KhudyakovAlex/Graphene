@@ -14,6 +14,7 @@
 - `--g-bg-surface`
 - `--g-text-primary`
 - `--g-text-secondary`
+- `--g-text-tertiary`
 - `--g-border-primary`
 - `--g-border-secondary`
 - `--g-action-primary-bg`
@@ -34,5 +35,4 @@
 - `--g-field-border`
 - `--g-field-border-hover`
 - `--g-field-border-focus`
-- `--g-field-border-invalid`
-- `--g-field-text-invalid`
+- `--g-field-invalid`

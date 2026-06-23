@@ -2,9 +2,10 @@
   --g-bg-base: var(--g-gray-200);
   --g-bg-surface: var(--g-gray-300);
   --g-text-primary: var(--g-gray-950);
-  --g-text-secondary: var(--g-gray-900);
-  --g-border-primary: var(--g-gray-500);
-  --g-border-secondary: var(--g-gray-400);
+  --g-text-secondary: var(--g-gray-800);
+  --g-text-tertiary: var(--g-gray-600);
+  --g-border-primary: var(--g-gray-800);
+  --g-border-secondary: var(--g-gray-700);
   --g-action-primary-bg: var(--g-orange-500);
   --g-action-primary-bg-hover: var(--g-orange-600);
   --g-action-primary-border: var(--g-orange-500);
@@ -14,13 +15,11 @@
   --g-action-secondary-border: var(--g-border-primary);
   --g-field-text: var(--g-text-primary);
   --g-field-placeholder: var(--g-text-secondary);
-  --g-field-helper: var(--g-text-secondary);
-  --g-field-label: var(--g-text-primary);
-  --g-field-border: var(--g-border-secondary);
+  --g-field-helper: var(--g-text-tertiary);
+  --g-field-label: var(--g-text-tertiary);
   --g-field-border-hover: var(--g-border-primary);
   --g-field-border-focus: var(--g-orange-500);
-  --g-field-border-invalid: var(--g-red-500);
-  --g-field-text-invalid: var(--g-red-500);
+  --g-field-invalid: var(--g-red-500);
 }
 
 :root,
@@ -28,7 +27,8 @@
   --g-action-primary-text: var(--g-gray-50);
   --g-field-bg: var(--g-gray-400);
   --g-field-bg-hover: var(--g-gray-500);
-  --g-field-bg-disabled: var(--g-gray-300);
+  --g-field-bg-disabled: var(--g-gray-200);
+  --g-field-border: var(--g-gray-600);
 }
 
 [data-theme='light'] {
@@ -36,4 +36,5 @@
   --g-field-bg: var(--g-gray-50);
   --g-field-bg-hover: var(--g-gray-200);
   --g-field-bg-disabled: var(--g-gray-200);
+  --g-field-border: var(--g-gray-600);
 }

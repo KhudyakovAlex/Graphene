@@ -12,6 +12,6 @@
 `BaseInput.vue`
 
 Базовое поле ввода Graphene.
-Поддерживает размеры `sm`, `md`, `lg`, состояния `default`, `hover`, `focused`, `filled`, `disabled`, label и helper text.
+Поддерживает размеры `sm`, `md`, `lg`, состояния `default`, `hover`, `focused`, `filled`, `invalid`, `disabled`, label и helper text.
 
 Для правой зоны действия поддерживает slot `trailing`.
