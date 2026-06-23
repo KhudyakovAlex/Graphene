@@ -25,6 +25,10 @@
 - `--g-action-secondary-bg-hover`
 - `--g-action-secondary-text`
 - `--g-action-secondary-border`
+- `--g-checkbox-border`
+- `--g-checkbox-border-hover`
+- `--g-checkbox-mark`
+- `--g-checkbox-size`
 - `--g-field-bg`
 - `--g-field-bg-hover`
 - `--g-field-bg-disabled`

@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import { BaseButton, BaseInput } from '../../../src/components'
+import { BaseButton, BaseCheckbox, BaseInput } from '../../../src/components'
 
 const smInput = ref('')
 const mdInput = ref('Filled value')
 const invalidInput = ref('Invalid value')
 const disabledInput = ref('Disabled value')
+const uncheckedCheckbox = ref(false)
+const checkedCheckbox = ref(true)
+const disabledCheckbox = ref(true)
 </script>
 
 <template>
@@ -37,6 +40,21 @@ const disabledInput = ref('Disabled value')
       <BaseButton variant="primary" size="lg" disabled>Primary disabled</BaseButton>
       <BaseButton size="lg">Secondary</BaseButton>
       <BaseButton size="lg" disabled>Secondary disabled</BaseButton>
+    </div>
+  </section>
+
+  <section class="panel component-preview" aria-labelledby="checkboxTitle">
+    <div>
+      <h2 class="component-preview__title" id="checkboxTitle">BaseCheckbox</h2>
+    </div>
+
+    <div class="checkbox-row" aria-label="Состояния чекбокса">
+      <span class="button-row__label">default</span>
+      <BaseCheckbox v-model="uncheckedCheckbox" aria-label="Unchecked checkbox" />
+      <span class="button-row__label">checked</span>
+      <BaseCheckbox v-model="checkedCheckbox" aria-label="Checked checkbox" />
+      <span class="button-row__label">disabled</span>
+      <BaseCheckbox v-model="disabledCheckbox" aria-label="Disabled checkbox" disabled />
     </div>
   </section>
 
@@ -119,6 +137,13 @@ const disabledInput = ref('Disabled value')
   flex-wrap: wrap;
   align-items: center;
   gap: var(--g-space-3);
+}
+
+.checkbox-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--g-space-2);
 }
 
 .button-row__label {

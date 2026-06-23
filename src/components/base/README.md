@@ -15,3 +15,8 @@
 Поддерживает размеры `sm`, `md`, `lg`, состояния `default`, `hover`, `focused`, `filled`, `invalid`, `disabled`, label и helper text.
 
 Для правой зоны действия поддерживает slot `trailing`.
+
+`BaseCheckbox.vue`
+
+Базовый чекбокс Graphene без встроенного label.
+Поддерживает состояния `unchecked`, `checked`, `disabled`.

@@ -8,6 +8,7 @@
 @import url('../tokens/base/opacity.css');
 @import url('../tokens/base/z-index.css');
 @import url('../tokens/semantic/colors.css');
+@import url('../tokens/semantic/size.css');
 @import url('../tokens/semantic/typography.css');
 
 *,

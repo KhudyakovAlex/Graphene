@@ -64,6 +64,7 @@ Vue-компоненты Graphene.
 Сейчас в проекте уже есть первые базовые компоненты:
 
 - `BaseButton` - кнопка с вариантами `primary` и `secondary`, размерами `sm`, `md`, `lg` и состоянием `disabled`;
+- `BaseCheckbox` - чекбокс без встроенного label, состояниями `unchecked`, `checked`, `disabled`;
 - `BaseInput` - поле ввода с label, helper text, размерами `sm`, `md`, `lg` и состояниями `default`, `hover`, `focused`, `filled`, `invalid`, `disabled`.
 
 `src/components/layout/`
