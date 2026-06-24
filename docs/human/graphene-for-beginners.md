@@ -59,11 +59,12 @@ Vue-компоненты Graphene.
 
 `src/components/base/`
 
-Самые простые компоненты: кнопки, поля ввода, чекбоксы, иконки, бейджи.
+Самые простые компоненты: кнопки, ссылки, поля ввода, чекбоксы и другие базовые элементы.
 
 Сейчас в проекте уже есть первые базовые компоненты:
 
 - `BaseButton` - кнопка с вариантами `primary` и `secondary`, размерами `sm`, `md`, `lg` и состоянием `disabled`;
+- `BaseLink` - текстовая ссылка для навигации внутри текста или отдельной строкой; использует `--g-link-*`;
 - `BaseCheckbox` - чекбокс без встроенного label, состояниями `unchecked`, `checked`, `disabled`;
 - `BaseRadio` - радиокнопка без встроенного label, состояниями `unchecked`, `checked`, `disabled`;
 - `BaseInput` - поле ввода с label, helper text, размерами `sm`, `md`, `lg` и состояниями `default`, `hover`, `focused`, `filled`, `invalid`, `disabled`;

@@ -15,6 +15,8 @@
 - `--g-text-primary`
 - `--g-text-secondary`
 - `--g-text-tertiary`
+- `--g-link-text`
+- `--g-link-text-hover`
 - `--g-border-primary`
 - `--g-border-secondary`
 - `--g-action-primary-bg`

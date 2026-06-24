@@ -6,6 +6,7 @@ import {
   BaseButton,
   BaseCheckbox,
   BaseInput,
+  BaseLink,
   BaseRadio,
   BaseSelect,
   BaseSlider,
@@ -70,6 +71,23 @@ const selectOptions = [
       <BaseButton variant="primary" size="lg" disabled>Primary disabled</BaseButton>
       <BaseButton size="lg">Secondary</BaseButton>
       <BaseButton size="lg" disabled>Secondary disabled</BaseButton>
+    </div>
+  </section>
+
+  <section class="panel component-preview" aria-labelledby="linkTitle">
+    <div>
+      <h2 class="component-preview__title" id="linkTitle">BaseLink</h2>
+    </div>
+
+    <p class="text-preview">
+      BaseLink can be used inline in text, for example to open the
+      <BaseLink href="#icons">icons catalog</BaseLink>.
+    </p>
+
+    <div class="button-row" aria-label="Состояния ссылки">
+      <BaseLink href="#icons">Open icons view</BaseLink>
+      <BaseLink href="#base-components">Open base components</BaseLink>
+      <BaseLink href="#icons" disabled>Disabled link</BaseLink>
     </div>
   </section>
 
@@ -324,6 +342,13 @@ const selectOptions = [
   font-size: var(--g-font-size-24);
   line-height: var(--g-line-height-32);
   font-weight: var(--g-font-weight-semibold);
+}
+
+.text-preview {
+  margin: 0;
+  color: var(--g-text-secondary);
+  font-size: var(--g-font-size-14);
+  line-height: var(--g-line-height-20);
 }
 
 .button-row {

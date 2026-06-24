@@ -5,6 +5,8 @@
   --g-text-secondary: var(--g-gray-800);
   --g-text-tertiary: var(--g-gray-600);
   --g-text-accent: var(--g-orange-500);
+  --g-link-text: var(--g-orange-500);
+  --g-link-text-hover: var(--g-orange-600);
   --g-border-primary: var(--g-gray-800);
   --g-border-secondary: var(--g-gray-700);
   --g-selection-text: var(--g-gray-50);
