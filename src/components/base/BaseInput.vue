@@ -124,6 +124,11 @@ function handleInput(event: Event) {
   color: var(--g-field-placeholder);
 }
 
+.g-base-input__control[type='search']::-webkit-search-cancel-button,
+.g-base-input__control[type='search']::-webkit-search-decoration {
+  appearance: none;
+}
+
 .g-base-input:hover:not(.g-base-input--disabled) .g-base-input__field {
   border-bottom-color: var(--g-field-border-hover);
   background: var(--g-field-bg-hover);

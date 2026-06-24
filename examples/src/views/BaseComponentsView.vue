@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+import searchIcon from '../../../src/assets/icons/search.svg?raw'
 import { BaseButton, BaseCheckbox, BaseInput } from '../../../src/components'
 
 const smInput = ref('')
 const mdInput = ref('Filled value')
 const invalidInput = ref('Invalid value')
 const disabledInput = ref('Disabled value')
+const searchInput = ref('')
 const uncheckedCheckbox = ref(false)
 const checkedCheckbox = ref(true)
 const disabledCheckbox = ref(true)
@@ -101,6 +103,17 @@ const disabledCheckbox = ref(true)
         placeholder="Input without label"
         helper-text="Layout stays stable without label"
       />
+      <BaseInput
+        v-model="searchInput"
+        type="search"
+        label="Search"
+        placeholder="Search by name"
+        helper-text="Search icon is passed through trailing slot"
+      >
+        <template #trailing>
+          <span class="input-icon" aria-hidden="true" v-html="searchIcon" />
+        </template>
+      </BaseInput>
     </div>
   </section>
 </template>
@@ -159,6 +172,20 @@ const disabledCheckbox = ref(true)
   display: grid;
   gap: var(--g-space-4);
   max-width: 560px;
+}
+
+.input-icon {
+  width: var(--g-size-icon-md);
+  height: var(--g-size-icon-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--g-field-placeholder);
+}
+
+.input-icon :deep(svg) {
+  width: var(--g-size-icon-md);
+  height: var(--g-size-icon-md);
 }
 
 @media (max-width: 760px) {
