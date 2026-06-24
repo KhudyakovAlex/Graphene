@@ -20,6 +20,9 @@
   --g-checkbox-border: var(--g-border-secondary);
   --g-checkbox-border-hover: var(--g-border-primary);
   --g-checkbox-mark: var(--g-text-primary);
+  --g-radio-border: var(--g-border-primary);
+  --g-radio-border-hover: var(--g-border-primary);
+  --g-radio-mark: var(--g-text-primary);
   --g-field-text: var(--g-text-primary);
   --g-field-placeholder: var(--g-text-secondary);
   --g-field-helper: var(--g-text-tertiary);

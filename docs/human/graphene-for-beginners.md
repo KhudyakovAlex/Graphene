@@ -65,7 +65,12 @@ Vue-компоненты Graphene.
 
 - `BaseButton` - кнопка с вариантами `primary` и `secondary`, размерами `sm`, `md`, `lg` и состоянием `disabled`;
 - `BaseCheckbox` - чекбокс без встроенного label, состояниями `unchecked`, `checked`, `disabled`;
+- `BaseRadio` - радиокнопка без встроенного label, состояниями `unchecked`, `checked`, `disabled`;
 - `BaseInput` - поле ввода с label, helper text, размерами `sm`, `md`, `lg` и состояниями `default`, `hover`, `focused`, `filled`, `invalid`, `disabled`.
+
+`BaseInput` поддерживает правую зону через slot `trailing`.
+Так можно показать иконку поиска из `src/assets/icons/search.svg` без копирования иконки в приложение.
+Для `type="search"` нативный browser clear-крестик отключен, чтобы справа оставались только элементы Graphene.
 
 `src/components/layout/`
 

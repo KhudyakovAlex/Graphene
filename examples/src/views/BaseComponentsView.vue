@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 import searchIcon from '../../../src/assets/icons/search.svg?raw'
-import { BaseButton, BaseCheckbox, BaseInput } from '../../../src/components'
+import { BaseButton, BaseCheckbox, BaseInput, BaseRadio } from '../../../src/components'
 
 const smInput = ref('')
 const mdInput = ref('Filled value')
@@ -12,6 +12,8 @@ const searchInput = ref('')
 const uncheckedCheckbox = ref(false)
 const checkedCheckbox = ref(true)
 const disabledCheckbox = ref(true)
+const selectedRadio = ref('checked')
+const disabledRadio = ref('disabled-checked')
 </script>
 
 <template>
@@ -57,6 +59,45 @@ const disabledCheckbox = ref(true)
       <BaseCheckbox v-model="checkedCheckbox" aria-label="Checked checkbox" />
       <span class="button-row__label">disabled</span>
       <BaseCheckbox v-model="disabledCheckbox" aria-label="Disabled checkbox" disabled />
+    </div>
+  </section>
+
+  <section class="panel component-preview" aria-labelledby="radioTitle">
+    <div>
+      <h2 class="component-preview__title" id="radioTitle">BaseRadio</h2>
+    </div>
+
+    <div class="checkbox-row" aria-label="Состояния радиокнопки">
+      <span class="button-row__label">default</span>
+      <BaseRadio
+        v-model="selectedRadio"
+        name="radioDefault"
+        value="unchecked"
+        aria-label="Unchecked radio"
+      />
+      <span class="button-row__label">checked</span>
+      <BaseRadio
+        v-model="selectedRadio"
+        name="radioDefault"
+        value="checked"
+        aria-label="Checked radio"
+      />
+      <span class="button-row__label">disabled</span>
+      <BaseRadio
+        model-value="disabled-checked"
+        name="radioDisabled"
+        value="disabled-unchecked"
+        aria-label="Disabled unchecked radio"
+        disabled
+      />
+      <span class="button-row__label">disabled checked</span>
+      <BaseRadio
+        v-model="disabledRadio"
+        name="radioDisabled"
+        value="disabled-checked"
+        aria-label="Disabled checked radio"
+        disabled
+      />
     </div>
   </section>
 
