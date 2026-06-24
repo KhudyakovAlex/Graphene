@@ -2,13 +2,27 @@
 import { ref } from 'vue'
 
 import searchIcon from '../../../src/assets/icons/search.svg?raw'
-import { BaseButton, BaseCheckbox, BaseInput, BaseRadio, BaseTextarea } from '../../../src/components'
+import {
+  BaseButton,
+  BaseCheckbox,
+  BaseInput,
+  BaseRadio,
+  BaseSelect,
+  BaseSlider,
+  BaseTextarea,
+} from '../../../src/components'
 
 const smInput = ref('')
 const mdInput = ref('Filled value')
 const invalidInput = ref('Invalid value')
 const disabledInput = ref('Disabled value')
 const searchInput = ref('')
+const smSelect = ref('')
+const mdSelect = ref('process')
+const invalidSelect = ref('archive')
+const disabledSelect = ref('disabled')
+const clearableSelect = ref('draft')
+const multipleSelect = ref(['draft', 'process'])
 const textareaValue = ref('Multiline value')
 const invalidTextarea = ref('Invalid multiline value')
 const disabledTextarea = ref('Disabled multiline value')
@@ -17,6 +31,15 @@ const checkedCheckbox = ref(true)
 const disabledCheckbox = ref(true)
 const selectedRadio = ref('checked')
 const disabledRadio = ref('disabled-checked')
+const sliderValue = ref(40)
+const disabledSliderValue = ref(72)
+
+const selectOptions = [
+  { value: 'draft', label: 'Draft' },
+  { value: 'process', label: 'In process' },
+  { value: 'archive', label: 'Archived' },
+  { value: 'disabled', label: 'Disabled option', disabled: true },
+]
 </script>
 
 <template>
@@ -161,6 +184,93 @@ const disabledRadio = ref('disabled-checked')
     </div>
   </section>
 
+  <section class="panel component-preview" aria-labelledby="selectTitle">
+    <div>
+      <h2 class="component-preview__title" id="selectTitle">BaseSelect</h2>
+    </div>
+
+    <div class="input-grid">
+      <BaseSelect
+        v-model="smSelect"
+        :options="selectOptions"
+        size="sm"
+        label="Label sm"
+        placeholder="Placeholder text"
+        helper-text="Native select with Graphene field tokens"
+      />
+      <BaseSelect
+        v-model="mdSelect"
+        :options="selectOptions"
+        size="md"
+        label="Label md"
+        helper-text="Optional helper text"
+      />
+      <BaseSelect
+        model-value="process"
+        :options="selectOptions"
+        size="lg"
+        label="Label lg"
+        helper-text="Optional helper text"
+      />
+      <BaseSelect
+        v-model="invalidSelect"
+        :options="selectOptions"
+        label="Invalid"
+        helper-text="Invalid helper text"
+        invalid
+      />
+      <BaseSelect
+        v-model="disabledSelect"
+        :options="selectOptions"
+        label="Disabled"
+        helper-text="Optional helper text"
+        disabled
+      />
+      <BaseSelect
+        v-model="clearableSelect"
+        :options="selectOptions"
+        label="Clearable"
+        helper-text="Clear button resets selected value"
+        clearable
+      />
+      <BaseSelect
+        :options="selectOptions"
+        label="Loading"
+        placeholder="Loading options"
+        helper-text="Select is blocked while loading"
+        loading
+      />
+      <BaseSelect
+        v-model="multipleSelect"
+        :options="selectOptions"
+        label="Multiple"
+        helper-text="Native multiple select"
+        multiple
+      />
+    </div>
+  </section>
+
+  <section class="panel component-preview" aria-labelledby="sliderTitle">
+    <div>
+      <h2 class="component-preview__title" id="sliderTitle">BaseSlider</h2>
+    </div>
+
+    <div class="input-grid">
+      <div class="slider-row">
+        <span class="button-row__label">default</span>
+        <BaseSlider v-model="sliderValue" aria-label="Default slider" />
+      </div>
+      <div class="slider-row">
+        <span class="button-row__label">disabled</span>
+        <BaseSlider
+          v-model="disabledSliderValue"
+          aria-label="Disabled slider"
+          disabled
+        />
+      </div>
+    </div>
+  </section>
+
   <section class="panel component-preview" aria-labelledby="textareaTitle">
     <div>
       <h2 class="component-preview__title" id="textareaTitle">BaseTextarea</h2>
@@ -243,6 +353,13 @@ const disabledRadio = ref('disabled-checked')
   display: grid;
   gap: var(--g-space-4);
   max-width: 560px;
+}
+
+.slider-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--g-space-3);
 }
 
 .input-icon {

@@ -2,4 +2,10 @@
   --g-checkbox-size: 12px;
   --g-radio-size: 16px;
   --g-radio-mark-size: 6px;
+  --g-slider-track-height: 2px;
+  --g-slider-track-segment-width: 2px;
+  --g-slider-track-segment-height: 8px;
+  --g-slider-track-segment-gap: 2px;
+  --g-slider-thumb-width: 12px;
+  --g-slider-thumb-height: 24px;
 }
