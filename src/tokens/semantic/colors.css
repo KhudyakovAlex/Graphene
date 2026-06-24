@@ -22,6 +22,18 @@
   --g-checkbox-border: var(--g-border-secondary);
   --g-checkbox-border-hover: var(--g-border-primary);
   --g-checkbox-mark: var(--g-text-primary);
+  --g-switch-track: var(--g-gray-200);
+  --g-switch-track-hover: var(--g-gray-300);
+  --g-switch-track-border: var(--g-gray-400);
+  --g-switch-track-border-hover: var(--g-gray-500);
+  --g-switch-thumb: var(--g-gray-500);
+  --g-switch-icon: var(--g-gray-50);
+  --g-switch-track-checked: var(--g-orange-50);
+  --g-switch-track-checked-hover: var(--g-orange-100);
+  --g-switch-track-border-checked: var(--g-orange-900);
+  --g-switch-track-border-checked-hover: var(--g-orange-900);
+  --g-switch-thumb-checked: var(--g-orange-500);
+  --g-switch-icon-checked: var(--g-gray-50);
   --g-radio-border: var(--g-border-primary);
   --g-radio-border-hover: var(--g-border-primary);
   --g-radio-mark: var(--g-text-primary);

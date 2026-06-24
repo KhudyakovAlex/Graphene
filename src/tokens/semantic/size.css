@@ -2,6 +2,10 @@
   --g-checkbox-size: 12px;
   --g-radio-size: 16px;
   --g-radio-mark-size: 6px;
+  --g-switch-width: 48px;
+  --g-switch-height: 24px;
+  --g-switch-thumb-size: 20px;
+  --g-switch-icon-size: 10px;
   --g-slider-track-height: 2px;
   --g-slider-track-segment-width: 2px;
   --g-slider-track-segment-height: 8px;

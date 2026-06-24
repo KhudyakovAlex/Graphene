@@ -10,6 +10,7 @@ import {
   BaseRadio,
   BaseSelect,
   BaseSlider,
+  BaseSwitch,
   BaseTextarea,
 } from '../../../src/components'
 
@@ -30,6 +31,9 @@ const disabledTextarea = ref('Disabled multiline value')
 const uncheckedCheckbox = ref(false)
 const checkedCheckbox = ref(true)
 const disabledCheckbox = ref(true)
+const uncheckedSwitch = ref(false)
+const checkedSwitch = ref(true)
+const disabledSwitch = ref(true)
 const selectedRadio = ref('checked')
 const disabledRadio = ref('disabled-checked')
 const sliderValue = ref(40)
@@ -103,6 +107,21 @@ const selectOptions = [
       <BaseCheckbox v-model="checkedCheckbox" aria-label="Checked checkbox" />
       <span class="button-row__label">disabled</span>
       <BaseCheckbox v-model="disabledCheckbox" aria-label="Disabled checkbox" disabled />
+    </div>
+  </section>
+
+  <section class="panel component-preview" aria-labelledby="switchTitle">
+    <div>
+      <h2 class="component-preview__title" id="switchTitle">BaseSwitch</h2>
+    </div>
+
+    <div class="checkbox-row" aria-label="Состояния переключателя">
+      <span class="button-row__label">default</span>
+      <BaseSwitch v-model="uncheckedSwitch" aria-label="Unchecked switch" />
+      <span class="button-row__label">checked</span>
+      <BaseSwitch v-model="checkedSwitch" aria-label="Checked switch" />
+      <span class="button-row__label">disabled</span>
+      <BaseSwitch v-model="disabledSwitch" aria-label="Disabled switch" disabled />
     </div>
   </section>
 

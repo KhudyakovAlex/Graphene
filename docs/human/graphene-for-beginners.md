@@ -66,8 +66,11 @@ Vue-компоненты Graphene.
 - `BaseButton` - кнопка с вариантами `primary` и `secondary`, размерами `sm`, `md`, `lg` и состоянием `disabled`;
 - `BaseLink` - текстовая ссылка для навигации внутри текста или отдельной строкой; использует `--g-link-*`;
 - `BaseCheckbox` - чекбокс без встроенного label, состояниями `unchecked`, `checked`, `disabled`;
+- `BaseSwitch` - переключатель on/off со состояниями `default`, `checked`, `hover`, `disabled`;
 - `BaseRadio` - радиокнопка без встроенного label, состояниями `unchecked`, `checked`, `disabled`;
 - `BaseInput` - поле ввода с label, helper text, размерами `sm`, `md`, `lg` и состояниями `default`, `hover`, `focused`, `filled`, `invalid`, `disabled`;
+- `BaseSelect` - select с размерами `sm`, `md`, `lg`, состояниями `default`, `hover`, `focused`, `invalid`, `disabled`, а также режимами `loading`, `clearable`, `multiple`;
+- `BaseSlider` - одиночный slider без встроенного label, со состояниями `default`, `hover`, `disabled`;
 - `BaseTextarea` - многострочное поле ввода с label, helper text и состояниями `default`, `hover`, `focused`, `filled`, `invalid`, `disabled`.
 
 `BaseInput` поддерживает правую зону через slot `trailing`.
