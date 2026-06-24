@@ -114,7 +114,7 @@ const disabledCheckbox = ref(true)
 
 .eyebrow {
   margin: 0 0 var(--g-space-3);
-  color: var(--g-orange-600);
+  color: var(--g-text-accent);
   font-size: var(--g-font-size-14);
   line-height: var(--g-line-height-20);
   font-weight: var(--g-font-weight-semibold);

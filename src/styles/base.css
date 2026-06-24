@@ -85,11 +85,11 @@ svg {
 }
 
 ::selection {
-  color: var(--g-gray-50);
-  background: var(--g-orange-500);
+  color: var(--g-selection-text);
+  background: var(--g-selection-bg);
 }
 
 :focus-visible {
-  outline: var(--g-border-width-md) solid var(--g-orange-500);
+  outline: var(--g-border-width-md) solid var(--g-focus-ring);
   outline-offset: var(--g-space-1);
 }

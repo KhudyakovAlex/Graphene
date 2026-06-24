@@ -4,8 +4,12 @@
   --g-text-primary: var(--g-gray-950);
   --g-text-secondary: var(--g-gray-800);
   --g-text-tertiary: var(--g-gray-600);
+  --g-text-accent: var(--g-orange-500);
   --g-border-primary: var(--g-gray-800);
   --g-border-secondary: var(--g-gray-700);
+  --g-selection-text: var(--g-gray-50);
+  --g-selection-bg: var(--g-orange-500);
+  --g-focus-ring: var(--g-orange-500);
   --g-action-primary-bg: var(--g-orange-500);
   --g-action-primary-bg-hover: var(--g-orange-600);
   --g-action-primary-border: var(--g-orange-500);
