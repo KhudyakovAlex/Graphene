@@ -4,6 +4,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import logoUrl from '../../src/assets/logos/graphene_logo.svg'
 import { BaseButton } from '../../src/components'
 import BaseComponentsView from './views/BaseComponentsView.vue'
+import IconsView from './views/IconsView.vue'
 
 const theme = ref(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light')
 const route = ref(window.location.hash || '#home')
@@ -37,7 +38,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <main>
+  <main :class="{ 'main--content': route !== '#home' }">
     <header class="header">
       <a class="brand" href="#home" aria-label="На главную">
         <img class="brand__logo" :src="logoUrl" alt="">
@@ -46,6 +47,7 @@ onUnmounted(() => {
 
       <nav class="navigation" aria-label="Разделы витрины">
         <a class="navigation__link" href="#base-components">Базовые компоненты</a>
+        <a class="navigation__link" href="#icons">Иконки</a>
       </nav>
 
       <BaseButton class="theme-toggle" type="button" @click="toggleTheme">
@@ -54,6 +56,7 @@ onUnmounted(() => {
     </header>
 
     <BaseComponentsView v-if="route === '#base-components'" />
+    <IconsView v-else-if="route === '#icons'" />
 
     <template v-else>
       <section class="hero" aria-labelledby="heroTitle">
@@ -96,6 +99,10 @@ main {
   display: grid;
   align-content: center;
   gap: var(--g-space-8);
+}
+
+.main--content {
+  align-content: start;
 }
 
 .header {
