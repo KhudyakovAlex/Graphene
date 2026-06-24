@@ -2,13 +2,16 @@
 import { ref } from 'vue'
 
 import searchIcon from '../../../src/assets/icons/search.svg?raw'
-import { BaseButton, BaseCheckbox, BaseInput, BaseRadio } from '../../../src/components'
+import { BaseButton, BaseCheckbox, BaseInput, BaseRadio, BaseTextarea } from '../../../src/components'
 
 const smInput = ref('')
 const mdInput = ref('Filled value')
 const invalidInput = ref('Invalid value')
 const disabledInput = ref('Disabled value')
 const searchInput = ref('')
+const textareaValue = ref('Multiline value')
+const invalidTextarea = ref('Invalid multiline value')
+const disabledTextarea = ref('Disabled multiline value')
 const uncheckedCheckbox = ref(false)
 const checkedCheckbox = ref(true)
 const disabledCheckbox = ref(true)
@@ -155,6 +158,33 @@ const disabledRadio = ref('disabled-checked')
           <span class="input-icon" aria-hidden="true" v-html="searchIcon" />
         </template>
       </BaseInput>
+    </div>
+  </section>
+
+  <section class="panel component-preview" aria-labelledby="textareaTitle">
+    <div>
+      <h2 class="component-preview__title" id="textareaTitle">BaseTextarea</h2>
+    </div>
+
+    <div class="input-grid">
+      <BaseTextarea
+        v-model="textareaValue"
+        label="Textarea"
+        placeholder="Enter long text"
+        helper-text="Multiline input based on field tokens"
+      />
+      <BaseTextarea
+        v-model="invalidTextarea"
+        label="Invalid textarea"
+        helper-text="Invalid helper text"
+        invalid
+      />
+      <BaseTextarea
+        v-model="disabledTextarea"
+        label="Disabled textarea"
+        helper-text="Optional helper text"
+        disabled
+      />
     </div>
   </section>
 </template>
