@@ -3,10 +3,11 @@ import type { Component } from 'vue'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import logoUrl from '../../src/assets/logos/graphene_logo.svg'
-import { BaseButton } from '../../src/components'
+import { BaseButton, Panel } from '../../src/components'
 import IconsView from './views/assets/IconsView.vue'
 import BaseView from './views/components/BaseView.vue'
 import FeedbackView from './views/components/FeedbackView.vue'
+import LayoutView from './views/components/LayoutView.vue'
 import ResourceCatalogView from './views/shared/ResourceCatalogView.vue'
 
 const theme = ref(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light')
@@ -47,24 +48,7 @@ const routeSections: NavigationGroup[] = [
         hash: '#components/layout',
         label: 'layout',
         description: 'Каркас экранов и контейнеры',
-        component: ResourceCatalogView,
-        props: {
-          eyebrow: 'Components',
-          title: 'Layout',
-          sourcePath: 'src/components/layout/',
-          description: 'Папка зарезервирована под структурные компоненты экранов и рабочих областей.',
-          sections: [
-            {
-              title: 'Status',
-              status: 'Empty',
-              description: 'Раздел пока пустой, но уже виден в витрине на том же уровне, что и в библиотеке.',
-            },
-            {
-              title: 'Planned direction',
-              items: ['AppShell', 'Panel', 'ContentArea', 'SplitLayout'],
-            },
-          ],
-        },
+        component: LayoutView,
       },
       {
         hash: '#components/navigation',
@@ -303,7 +287,7 @@ onUnmounted(() => {
       <section class="content">
         <template v-if="route === '#home'">
           <section class="hero" aria-labelledby="heroTitle">
-            <div class="panel hero__panel">
+            <Panel as="div" class="hero__panel">
               <div class="hero__copy">
                 <p class="eyebrow">Offline-витрина</p>
                 <h1 id="heroTitle">Graphene Demo</h1>
@@ -318,13 +302,14 @@ onUnmounted(() => {
                 <img class="hero__logo hero__logo--ghost" :src="logoUrl" alt="">
                 <img class="hero__logo hero__logo--main" :src="logoUrl" alt="">
               </div>
-            </div>
+            </Panel>
           </section>
 
-          <section
+          <Panel
             v-for="section in routeSections"
             :key="section.id"
-            class="panel overview-section"
+            as="section"
+            class="overview-section"
             :aria-labelledby="`${section.id}-overview-title`"
           >
             <div class="overview-section__header">
@@ -343,7 +328,7 @@ onUnmounted(() => {
                 <span class="overview-card__description">{{ item.description }}</span>
               </a>
             </div>
-          </section>
+          </Panel>
         </template>
 
         <component
@@ -480,12 +465,6 @@ main {
   justify-self: start;
 }
 
-.panel {
-  padding: var(--g-space-8);
-  border-radius: var(--g-radius-none);
-  background: var(--g-bg-surface);
-}
-
 .eyebrow {
   margin: 0 0 var(--g-space-3);
   color: var(--g-text-accent);
@@ -615,10 +594,6 @@ p {
 
   .sidebar {
     position: static;
-  }
-
-  .panel {
-    padding: var(--g-space-5);
   }
 
   h1 {

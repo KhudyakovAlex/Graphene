@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-import { BaseButton } from '../../../../src/components'
+import { BaseButton, Panel } from '../../../../src/components'
 
 type IconItem = {
   name: string
@@ -62,7 +62,7 @@ async function copyIconName(name: string) {
 
 <template>
   <section class="icons-page" aria-labelledby="iconsTitle">
-    <header class="panel icons-page__header">
+    <Panel as="header" class="icons-page__header">
       <div>
         <p class="icons-page__eyebrow">Assets</p>
         <h1 id="iconsTitle">Icons</h1>
@@ -76,9 +76,9 @@ async function copyIconName(name: string) {
       <BaseButton v-if="!showOtherIcons" type="button" @click="showOtherIcons = true">
         Show others
       </BaseButton>
-    </header>
+    </Panel>
 
-    <section class="panel icons-section" aria-labelledby="mainIconsTitle">
+    <Panel class="icons-section" aria-labelledby="mainIconsTitle">
       <div class="icons-section__header">
         <h2 id="mainIconsTitle">src/assets/icons</h2>
         <span>{{ icons.length }} SVG</span>
@@ -100,11 +100,11 @@ async function copyIconName(name: string) {
           </span>
         </button>
       </div>
-    </section>
+    </Panel>
 
-    <section
+    <Panel
       v-if="showOtherIcons"
-      class="panel icons-section"
+      class="icons-section"
       aria-labelledby="otherIconsTitle"
     >
       <div class="icons-section__header">
@@ -128,7 +128,7 @@ async function copyIconName(name: string) {
           </span>
         </button>
       </div>
-    </section>
+    </Panel>
   </section>
 </template>
 
@@ -136,12 +136,6 @@ async function copyIconName(name: string) {
 .icons-page {
   display: grid;
   gap: var(--g-space-6);
-}
-
-.panel {
-  padding: var(--g-space-8);
-  border-radius: var(--g-radius-none);
-  background: var(--g-bg-surface);
 }
 
 .icons-page__header {
@@ -255,10 +249,6 @@ h2 {
 }
 
 @media (max-width: 760px) {
-  .panel {
-    padding: var(--g-space-5);
-  }
-
   .icon-grid {
     grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
   }

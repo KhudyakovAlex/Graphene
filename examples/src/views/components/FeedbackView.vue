@@ -1,4 +1,4 @@
-BaseDialog is a generic shell for form dialogs, confirmations and other modal scenarios.<script setup lang="ts">
+<script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 
 import {
@@ -7,6 +7,7 @@ import {
   BaseInput,
   ConfirmDialog,
   FormDialog,
+  Panel,
 } from '../../../../src/components'
 
 type DialogCloseReason = 'backdrop' | 'escape' | 'close-button'
@@ -73,7 +74,7 @@ function handleCancel() {
 
 <template>
   <section class="feedback-page" aria-labelledby="feedbackTitle">
-    <header class="panel feedback-page__header">
+    <Panel as="header" class="feedback-page__header">
       <div>
         <p class="feedback-page__eyebrow">Компоненты</p>
         <h1 id="feedbackTitle">Обратная связь</h1>
@@ -82,9 +83,9 @@ function handleCancel() {
           показывает универсальную оболочку диалога и готовый сценарий подтверждения.
         </p>
       </div>
-    </header>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="dialogTitle">
+    <Panel class="component-preview" aria-labelledby="dialogTitle">
       <div>
         <h2 class="component-preview__title" id="dialogTitle">BaseDialog</h2>
       </div>
@@ -132,9 +133,9 @@ function handleCancel() {
           <BaseButton variant="primary" @click="dialogOpen = false">Создать</BaseButton>
         </template>
       </BaseDialog>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="formDialogTitle">
+    <Panel class="component-preview" aria-labelledby="formDialogTitle">
       <div>
         <h2 class="component-preview__title" id="formDialogTitle">FormDialog</h2>
       </div>
@@ -215,9 +216,9 @@ function handleCancel() {
           </div>
         </div>
       </FormDialog>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="confirmDialogTitle">
+    <Panel class="component-preview" aria-labelledby="confirmDialogTitle">
       <div>
         <h2 class="component-preview__title" id="confirmDialogTitle">ConfirmDialog</h2>
       </div>
@@ -240,7 +241,7 @@ function handleCancel() {
         @confirm="handleConfirm"
         @cancel="handleCancel"
       />
-    </section>
+    </Panel>
   </section>
 </template>
 
@@ -248,12 +249,6 @@ function handleCancel() {
 .feedback-page {
   display: grid;
   gap: var(--g-space-6);
-}
-
-.panel {
-  padding: var(--g-space-8);
-  border-radius: var(--g-radius-none);
-  background: var(--g-bg-surface);
 }
 
 .feedback-page__eyebrow {
@@ -387,10 +382,6 @@ h1 {
 }
 
 @media (max-width: 760px) {
-  .panel {
-    padding: var(--g-space-5);
-  }
-
   .dialog-demo__mqtt-grid,
   .dialog-demo__grid {
     grid-template-columns: 1fr;

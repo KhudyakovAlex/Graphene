@@ -7,6 +7,7 @@ import {
   BaseCheckbox,
   BaseInput,
   BaseLink,
+  Panel,
   BaseRadio,
   BaseSelect,
   BaseSlider,
@@ -49,7 +50,7 @@ const selectOptions = [
 
 <template>
   <section class="base-page" aria-labelledby="baseTitle">
-    <header class="panel base-page__header">
+    <Panel as="header" class="base-page__header">
       <div>
         <p class="base-page__eyebrow">Components</p>
         <h1 id="baseTitle">Base</h1>
@@ -58,9 +59,9 @@ const selectOptions = [
           повторяет структуру папки библиотеки и показывает живые примеры каждого компонента.
         </p>
       </div>
-    </header>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="buttonTitle">
+    <Panel class="component-preview" aria-labelledby="buttonTitle">
       <div>
         <h2 class="component-preview__title" id="buttonTitle">BaseButton</h2>
       </div>
@@ -88,9 +89,9 @@ const selectOptions = [
         <BaseButton size="lg">Secondary</BaseButton>
         <BaseButton size="lg" disabled>Secondary disabled</BaseButton>
       </div>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="linkTitle">
+    <Panel class="component-preview" aria-labelledby="linkTitle">
       <div>
         <h2 class="component-preview__title" id="linkTitle">BaseLink</h2>
       </div>
@@ -105,9 +106,9 @@ const selectOptions = [
         <BaseLink href="#components/feedback">Open feedback components</BaseLink>
         <BaseLink href="#assets/icons" disabled>Disabled link</BaseLink>
       </div>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="checkboxTitle">
+    <Panel class="component-preview" aria-labelledby="checkboxTitle">
       <div>
         <h2 class="component-preview__title" id="checkboxTitle">BaseCheckbox</h2>
       </div>
@@ -120,9 +121,9 @@ const selectOptions = [
         <span class="button-row__label">disabled</span>
         <BaseCheckbox v-model="disabledCheckbox" aria-label="Disabled checkbox" disabled />
       </div>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="switchTitle">
+    <Panel class="component-preview" aria-labelledby="switchTitle">
       <div>
         <h2 class="component-preview__title" id="switchTitle">BaseSwitch</h2>
       </div>
@@ -135,9 +136,9 @@ const selectOptions = [
         <span class="button-row__label">disabled</span>
         <BaseSwitch v-model="disabledSwitch" aria-label="Disabled switch" disabled />
       </div>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="radioTitle">
+    <Panel class="component-preview" aria-labelledby="radioTitle">
       <div>
         <h2 class="component-preview__title" id="radioTitle">BaseRadio</h2>
       </div>
@@ -174,9 +175,9 @@ const selectOptions = [
           disabled
         />
       </div>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="inputTitle">
+    <Panel class="component-preview" aria-labelledby="inputTitle">
       <div>
         <h2 class="component-preview__title" id="inputTitle">BaseInput</h2>
       </div>
@@ -231,9 +232,9 @@ const selectOptions = [
           </template>
         </BaseInput>
       </div>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="selectTitle">
+    <Panel class="component-preview" aria-labelledby="selectTitle">
       <div>
         <h2 class="component-preview__title" id="selectTitle">BaseSelect</h2>
       </div>
@@ -297,9 +298,9 @@ const selectOptions = [
           multiple
         />
       </div>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="sliderTitle">
+    <Panel class="component-preview" aria-labelledby="sliderTitle">
       <div>
         <h2 class="component-preview__title" id="sliderTitle">BaseSlider</h2>
       </div>
@@ -318,9 +319,9 @@ const selectOptions = [
           />
         </div>
       </div>
-    </section>
+    </Panel>
 
-    <section class="panel component-preview" aria-labelledby="textareaTitle">
+    <Panel class="component-preview" aria-labelledby="textareaTitle">
       <div>
         <h2 class="component-preview__title" id="textareaTitle">BaseTextarea</h2>
       </div>
@@ -345,7 +346,7 @@ const selectOptions = [
           disabled
         />
       </div>
-    </section>
+    </Panel>
   </section>
 </template>
 
@@ -353,12 +354,6 @@ const selectOptions = [
 .base-page {
   display: grid;
   gap: var(--g-space-6);
-}
-
-.panel {
-  padding: var(--g-space-8);
-  border-radius: var(--g-radius-none);
-  background: var(--g-bg-surface);
 }
 
 .base-page__eyebrow {
@@ -446,11 +441,5 @@ h1 {
 .input-icon :deep(svg) {
   width: var(--g-size-icon-md);
   height: var(--g-size-icon-md);
-}
-
-@media (max-width: 760px) {
-  .panel {
-    padding: var(--g-space-5);
-  }
 }
 </style>

@@ -2,6 +2,9 @@
   --g-checkbox-size: 12px;
   --g-radio-size: 16px;
   --g-radio-mark-size: 6px;
+  --g-panel-padding: var(--g-space-8);
+  --g-panel-padding-mobile: var(--g-space-5);
+  --g-panel-radius: var(--g-radius-none);
   --g-dialog-inset: var(--g-space-4);
   --g-dialog-inset-mobile: var(--g-space-2);
   --g-dialog-padding: var(--g-space-4);

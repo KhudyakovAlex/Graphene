@@ -30,6 +30,7 @@
 - `--g-checkbox-border`
 - `--g-checkbox-border-hover`
 - `--g-checkbox-mark`
+- `--g-panel-surface`
 - `--g-dialog-surface`
 - `--g-dialog-title`
 - `--g-dialog-section-title`
@@ -66,6 +67,9 @@
 - `--g-checkbox-size`
 - `--g-radio-size`
 - `--g-radio-mark-size`
+- `--g-panel-padding`
+- `--g-panel-padding-mobile`
+- `--g-panel-radius`
 - `--g-dialog-inset`
 - `--g-dialog-inset-mobile`
 - `--g-dialog-padding`

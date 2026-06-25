@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Panel } from '../../../../src/components'
+
 type ResourceSection = {
   title: string
   description?: string
@@ -17,7 +19,7 @@ defineProps<{
 
 <template>
   <section class="catalog-view" :aria-labelledby="`${title}-title`">
-    <header class="panel catalog-view__header">
+    <Panel as="header" class="catalog-view__header">
       <div>
         <p class="catalog-view__eyebrow">{{ eyebrow }}</p>
         <h1 :id="`${title}-title`">{{ title }}</h1>
@@ -28,12 +30,13 @@ defineProps<{
         <span class="catalog-view__path-label">Library path</span>
         <code class="catalog-view__path">{{ sourcePath }}</code>
       </div>
-    </header>
+    </Panel>
 
-    <section
+    <Panel
       v-for="section in sections"
       :key="section.title"
-      class="panel catalog-view__section"
+      as="section"
+      class="catalog-view__section"
       :aria-labelledby="`${title}-${section.title}`"
     >
       <div class="catalog-view__section-header">
@@ -50,7 +53,7 @@ defineProps<{
           <code>{{ item }}</code>
         </li>
       </ul>
-    </section>
+    </Panel>
   </section>
 </template>
 
@@ -58,12 +61,6 @@ defineProps<{
 .catalog-view {
   display: grid;
   gap: var(--g-space-6);
-}
-
-.panel {
-  padding: var(--g-space-8);
-  border-radius: var(--g-radius-none);
-  background: var(--g-bg-surface);
 }
 
 .catalog-view__header {
@@ -158,11 +155,5 @@ h2 {
   font-size: var(--g-font-size-24);
   line-height: var(--g-line-height-32);
   font-weight: var(--g-font-weight-semibold);
-}
-
-@media (max-width: 760px) {
-  .panel {
-    padding: var(--g-space-5);
-  }
 }
 </style>
