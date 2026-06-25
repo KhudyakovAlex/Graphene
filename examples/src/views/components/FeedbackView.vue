@@ -1,29 +1,73 @@
-<script setup lang="ts">
-import { ref } from 'vue'
+BaseDialog is a generic shell for form dialogs, confirmations and other modal scenarios.<script setup lang="ts">
+import { computed, reactive, ref } from 'vue'
 
 import {
   BaseButton,
   BaseDialog,
   BaseInput,
   ConfirmDialog,
+  FormDialog,
 } from '../../../../src/components'
 
+type DialogCloseReason = 'backdrop' | 'escape' | 'close-button'
+
 const dialogOpen = ref(false)
+const formDialogOpen = ref(false)
 const confirmDialogOpen = ref(false)
-const confirmActionLabel = ref('Waiting for action')
+const formDialogActionLabel = ref('Ожидание действия')
+const confirmActionLabel = ref('Ожидание действия')
+const formDialogPasswordVisible = ref(false)
 
 const dialogName = ref('Датчик температуры')
 const dialogCode = ref('1971052')
 const dialogHost = ref('1971052')
 const dialogPort = ref('1971052')
 const dialogUnit = ref('°C')
+const sensorDraft = reactive({
+  name: 'Датчик температуры',
+  deviceCode: '1971052',
+  host: '1971052',
+  port: '1971052',
+  unit: '°C',
+  login: '1971052',
+  password: '',
+  metricPath: 'Indicator/Charts/Metric0',
+  projectCode: '3590',
+  width: '3590',
+  longitude: '3590',
+})
+
+const formDialogPasswordType = computed(() => (
+  formDialogPasswordVisible.value ? 'text' : 'password'
+))
+
+function openFormDialog() {
+  formDialogPasswordVisible.value = false
+  formDialogOpen.value = true
+}
+
+function handleFormDialogSubmit() {
+  formDialogActionLabel.value = 'Сохранено'
+  formDialogPasswordVisible.value = false
+  formDialogOpen.value = false
+}
+
+function handleFormDialogCancel() {
+  formDialogActionLabel.value = 'Отменено'
+  formDialogPasswordVisible.value = false
+}
+
+function handleFormDialogClose(reason: DialogCloseReason) {
+  formDialogActionLabel.value = `Закрыто: ${reason}`
+  formDialogPasswordVisible.value = false
+}
 
 function handleConfirm() {
-  confirmActionLabel.value = 'Confirmed'
+  confirmActionLabel.value = 'Подтверждено'
 }
 
 function handleCancel() {
-  confirmActionLabel.value = 'Cancelled'
+  confirmActionLabel.value = 'Отменено'
 }
 </script>
 
@@ -31,11 +75,11 @@ function handleCancel() {
   <section class="feedback-page" aria-labelledby="feedbackTitle">
     <header class="panel feedback-page__header">
       <div>
-        <p class="feedback-page__eyebrow">Components</p>
-        <h1 id="feedbackTitle">Feedback</h1>
+        <p class="feedback-page__eyebrow">Компоненты</p>
+        <h1 id="feedbackTitle">Обратная связь</h1>
         <p class="feedback-page__description">
           Базовые модальные сценарии из <code>src/components/feedback/</code>. Раздел
-          показывает универсальную оболочку диалога и готовый confirm-паттерн.
+          показывает универсальную оболочку диалога и готовый сценарий подтверждения.
         </p>
       </div>
     </header>
@@ -46,11 +90,12 @@ function handleCancel() {
       </div>
 
       <p class="text-preview">
-        BaseDialog is a generic shell for form dialogs, confirmations and other modal scenarios.
+        BaseDialog - это универсальная оболочка для формовых диалогов, подтверждений и других
+        модальных сценариев.
       </p>
 
       <div class="button-row">
-        <BaseButton variant="primary" @click="dialogOpen = true">Open dialog</BaseButton>
+        <BaseButton variant="primary" @click="dialogOpen = true">Открыть диалог</BaseButton>
       </div>
 
       <BaseDialog v-model="dialogOpen" title="Новый датчик">
@@ -89,18 +134,101 @@ function handleCancel() {
       </BaseDialog>
     </section>
 
+    <section class="panel component-preview" aria-labelledby="formDialogTitle">
+      <div>
+        <h2 class="component-preview__title" id="formDialogTitle">FormDialog</h2>
+      </div>
+
+      <p class="text-preview">
+        FormDialog - это переиспользуемая оболочка для диалогов создания и редактирования,
+        построенная поверх BaseDialog со стандартным footer для действий submit и cancel.
+      </p>
+
+      <div class="button-row">
+        <BaseButton variant="primary" @click="openFormDialog">Открыть диалог редактирования</BaseButton>
+        <span class="dialog-action-status">{{ formDialogActionLabel }}</span>
+      </div>
+
+      <FormDialog
+        v-model="formDialogOpen"
+        title="Новый датчик"
+        submit-text="Создать"
+        cancel-text="Отмена"
+        @submit="handleFormDialogSubmit"
+        @cancel="handleFormDialogCancel"
+        @close="handleFormDialogClose"
+      >
+        <div class="dialog-demo">
+          <div class="dialog-demo__grid">
+            <BaseInput v-model="sensorDraft.name" label="Название" />
+            <BaseInput v-model="sensorDraft.deviceCode" label="Код устройства" />
+          </div>
+
+          <div class="dialog-demo__section">
+            <div class="dialog-demo__section-header">
+              <span class="dialog-demo__section-title">MQTT</span>
+              <span class="dialog-demo__divider" aria-hidden="true" />
+            </div>
+
+            <div class="dialog-demo__mqtt-grid">
+              <BaseInput v-model="sensorDraft.host" label="Host" />
+              <BaseInput v-model="sensorDraft.port" label="Порт" />
+              <BaseInput v-model="sensorDraft.unit" label="Единица" />
+            </div>
+
+            <div class="dialog-demo__grid">
+              <BaseInput v-model="sensorDraft.login" label="Логин" />
+              <BaseInput
+                v-model="sensorDraft.password"
+                label="Пароль"
+                helper-text="от 8 символов"
+                :type="formDialogPasswordType"
+              >
+                <template #trailing>
+                  <button
+                    class="field-icon-button"
+                    type="button"
+                    :aria-label="formDialogPasswordVisible ? 'Скрыть пароль' : 'Показать пароль'"
+                    @click="formDialogPasswordVisible = !formDialogPasswordVisible"
+                  >
+                    <span
+                      class="field-icon-button__icon"
+                      :class="{ 'field-icon-button__icon--off': formDialogPasswordVisible }"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </template>
+              </BaseInput>
+            </div>
+
+            <span class="dialog-demo__divider dialog-demo__divider--full" aria-hidden="true" />
+          </div>
+
+          <div class="dialog-demo__grid">
+            <BaseInput v-model="sensorDraft.metricPath" label="Metric path" />
+            <BaseInput v-model="sensorDraft.projectCode" label="Код проекта" />
+          </div>
+
+          <div class="dialog-demo__grid">
+            <BaseInput v-model="sensorDraft.width" label="Ширина" />
+            <BaseInput v-model="sensorDraft.longitude" label="Долгота" />
+          </div>
+        </div>
+      </FormDialog>
+    </section>
+
     <section class="panel component-preview" aria-labelledby="confirmDialogTitle">
       <div>
         <h2 class="component-preview__title" id="confirmDialogTitle">ConfirmDialog</h2>
       </div>
 
       <p class="text-preview">
-        ConfirmDialog is a ready-made confirmation pattern built on top of BaseDialog.
+        ConfirmDialog - это готовый сценарий подтверждения, построенный поверх BaseDialog.
       </p>
 
       <div class="button-row">
-        <BaseButton @click="confirmDialogOpen = true">Open confirm dialog</BaseButton>
-        <span class="confirm-dialog-status">{{ confirmActionLabel }}</span>
+        <BaseButton @click="confirmDialogOpen = true">Открыть диалог подтверждения</BaseButton>
+        <span class="dialog-action-status">{{ confirmActionLabel }}</span>
       </div>
 
       <ConfirmDialog
@@ -172,7 +300,7 @@ h1 {
   gap: var(--g-space-3);
 }
 
-.confirm-dialog-status {
+.dialog-action-status {
   color: var(--g-text-secondary);
   font-size: var(--g-font-size-14);
   line-height: var(--g-line-height-20);
@@ -214,10 +342,46 @@ h1 {
   background: var(--g-dialog-divider);
 }
 
+.dialog-demo__divider--full {
+  margin-top: var(--g-space-1);
+}
+
 .dialog-demo__mqtt-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 88px;
   gap: var(--g-space-5);
+}
+
+.field-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--g-size-icon-md);
+  height: var(--g-size-icon-md);
+  padding: 0;
+  border: 0;
+  color: var(--g-field-placeholder);
+  background: transparent;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.field-icon-button:hover {
+  color: var(--g-field-text);
+}
+
+.field-icon-button__icon {
+  display: block;
+  width: var(--g-size-icon-md);
+  height: var(--g-size-icon-md);
+  background-color: currentColor;
+  mask: url('../../../../src/assets/icons/view.svg') center / contain no-repeat;
+  -webkit-mask: url('../../../../src/assets/icons/view.svg') center / contain no-repeat;
+}
+
+.field-icon-button__icon--off {
+  mask-image: url('../../../../src/assets/icons/view-off.svg');
+  -webkit-mask-image: url('../../../../src/assets/icons/view-off.svg');
 }
 
 @media (max-width: 760px) {
