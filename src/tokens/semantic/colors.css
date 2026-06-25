@@ -28,10 +28,10 @@
   --g-switch-track-border-hover: var(--g-gray-500);
   --g-switch-thumb: var(--g-gray-500);
   --g-switch-icon: var(--g-gray-50);
-  --g-switch-track-checked: var(--g-orange-50);
-  --g-switch-track-checked-hover: var(--g-orange-100);
-  --g-switch-track-border-checked: var(--g-orange-900);
-  --g-switch-track-border-checked-hover: var(--g-orange-900);
+  --g-switch-track-checked: var(--g-yellow-50);
+  --g-switch-track-checked-hover: var(--g-yellow-100);
+  --g-switch-track-border-checked: var(--g-gray-600);
+  --g-switch-track-border-checked-hover: var(--g-gray-800);
   --g-switch-thumb-checked: var(--g-orange-500);
   --g-switch-icon-checked: var(--g-gray-50);
   --g-radio-border: var(--g-border-primary);
@@ -53,7 +53,6 @@
   --g-action-primary-text: var(--g-gray-50);
   --g-field-bg: var(--g-gray-400);
   --g-field-bg-hover: var(--g-gray-500);
-  --g-field-bg-disabled: var(--g-gray-200);
   --g-field-border: var(--g-gray-600);
   --g-slider-track: var(--g-gray-400);
 }
@@ -62,7 +61,6 @@
   --g-action-primary-text: var(--g-gray-950);
   --g-field-bg: var(--g-gray-50);
   --g-field-bg-hover: var(--g-gray-200);
-  --g-field-bg-disabled: var(--g-gray-200);
   --g-field-border: var(--g-gray-600);
   --g-slider-track: var(--g-gray-400);
 }

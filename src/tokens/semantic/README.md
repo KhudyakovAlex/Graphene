@@ -44,7 +44,6 @@
 - `--g-switch-icon-checked`
 - `--g-field-bg`
 - `--g-field-bg-hover`
-- `--g-field-bg-disabled`
 - `--g-field-text`
 - `--g-field-placeholder`
 - `--g-field-helper`
