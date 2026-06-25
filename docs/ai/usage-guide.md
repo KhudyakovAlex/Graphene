@@ -47,6 +47,8 @@
 - `ConfirmDialog` - использовать для подтверждения удаления, закрытия без сохранения и других бинарных решений; построен поверх `BaseDialog`.
 - `FormDialog` - использовать для create/edit форм с типовым footer `Cancel/Submit`; построен поверх `BaseDialog`, а поля формы передаются через default slot.
 
+Отступы и gap диалогов, если для них уже заведены semantic roles, нужно брать из `src/tokens/semantic/size.css`, а не из base spacing напрямую.
+
 Для `BaseInput` с иконкой справа используй slot `trailing`.
 Например, для поиска бери `search.svg` из `src/assets/icons/` и передавай SVG в `trailing`, не копируя иконку в приложение или `examples`.
 `BaseInput` отключает нативный browser clear-крестик у `type="search"`, чтобы справа отображались только элементы Graphene.

@@ -329,7 +329,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--g-space-4);
+  padding: var(--g-dialog-inset);
 }
 
 .g-base-dialog__backdrop {
@@ -343,11 +343,11 @@ onUnmounted(() => {
   position: relative;
   z-index: 1;
   display: flex;
-  width: min(452px, calc(100vw - var(--g-space-8)));
-  max-height: calc(100vh - var(--g-space-8));
+  width: min(452px, calc(100vw - (var(--g-dialog-inset) * 2)));
+  max-height: calc(100vh - (var(--g-dialog-inset) * 2));
   flex-direction: column;
-  gap: var(--g-space-6);
-  padding: var(--g-space-4);
+  gap: var(--g-dialog-gap);
+  padding: var(--g-dialog-padding);
   border-radius: var(--g-radius-none);
   background: var(--g-dialog-surface);
   color: var(--g-dialog-text);
@@ -358,7 +358,7 @@ onUnmounted(() => {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--g-space-4);
+  gap: var(--g-dialog-header-gap);
 }
 
 .g-base-dialog__title {
@@ -412,17 +412,17 @@ onUnmounted(() => {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: var(--g-space-4);
+  gap: var(--g-dialog-footer-gap);
 }
 
 @media (max-width: 760px) {
   .g-base-dialog {
-    padding: var(--g-space-2);
+    padding: var(--g-dialog-inset-mobile);
   }
 
   .g-base-dialog__panel {
-    width: min(100%, calc(100vw - var(--g-space-4)));
-    max-height: calc(100vh - var(--g-space-4));
+    width: min(100%, calc(100vw - (var(--g-dialog-inset-mobile) * 2)));
+    max-height: calc(100vh - (var(--g-dialog-inset-mobile) * 2));
   }
 }
 </style>

@@ -125,7 +125,7 @@ function handleClose(reason: DialogCloseReason) {
 <style scoped>
 .g-form-dialog {
   display: grid;
-  gap: var(--g-space-6);
+  gap: var(--g-form-dialog-gap);
 }
 
 .g-form-dialog__description {
@@ -138,6 +138,6 @@ function handleClose(reason: DialogCloseReason) {
 
 .g-form-dialog__body {
   display: grid;
-  gap: var(--g-space-6);
+  gap: var(--g-form-dialog-body-gap);
 }
 </style>

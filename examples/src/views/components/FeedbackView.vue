@@ -308,24 +308,25 @@ h1 {
 
 .dialog-demo {
   display: grid;
-  gap: var(--g-space-6);
+  gap: var(--g-form-dialog-gap);
 }
 
 .dialog-demo__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--g-space-5);
+  column-gap: var(--g-form-grid-column-gap);
+  row-gap: var(--g-form-grid-row-gap);
 }
 
 .dialog-demo__section {
   display: grid;
-  gap: var(--g-space-3);
+  gap: var(--g-form-dialog-section-gap);
 }
 
 .dialog-demo__section-header {
   display: flex;
   align-items: center;
-  gap: var(--g-space-2);
+  gap: var(--g-form-dialog-section-header-gap);
 }
 
 .dialog-demo__section-title {
@@ -349,7 +350,8 @@ h1 {
 .dialog-demo__mqtt-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 88px;
-  gap: var(--g-space-5);
+  column-gap: var(--g-form-grid-column-gap);
+  row-gap: var(--g-form-grid-row-gap);
 }
 
 .field-icon-button {

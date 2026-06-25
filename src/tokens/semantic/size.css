@@ -2,6 +2,18 @@
   --g-checkbox-size: 12px;
   --g-radio-size: 16px;
   --g-radio-mark-size: 6px;
+  --g-dialog-inset: var(--g-space-4);
+  --g-dialog-inset-mobile: var(--g-space-2);
+  --g-dialog-padding: var(--g-space-4);
+  --g-dialog-gap: var(--g-space-6);
+  --g-dialog-header-gap: var(--g-space-4);
+  --g-dialog-footer-gap: var(--g-space-4);
+  --g-form-dialog-gap: var(--g-space-6);
+  --g-form-dialog-body-gap: var(--g-space-6);
+  --g-form-dialog-section-gap: var(--g-space-3);
+  --g-form-dialog-section-header-gap: var(--g-space-2);
+  --g-form-grid-column-gap: var(--g-space-5);
+  --g-form-grid-row-gap: var(--g-space-6);
   --g-switch-width: 48px;
   --g-switch-height: 24px;
   --g-switch-thumb-size: 20px;
