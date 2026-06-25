@@ -1,3 +1,9 @@
 :root {
   --g-field-label-weight: var(--g-font-weight-medium);
+  --g-property-list-label-size: var(--g-font-size-14);
+  --g-property-list-label-line-height: var(--g-line-height-20);
+  --g-property-list-label-weight: var(--g-font-weight-medium);
+  --g-property-list-value-size: var(--g-font-size-16);
+  --g-property-list-value-line-height: var(--g-line-height-24);
+  --g-property-list-value-weight: var(--g-font-weight-regular);
 }

@@ -27,4 +27,6 @@
   --g-slider-track-segment-gap: 2px;
   --g-slider-thumb-width: 12px;
   --g-slider-thumb-height: 24px;
+  --g-property-list-row-padding: var(--g-space-3);
+  --g-property-list-column-gap: var(--g-space-5);
 }

@@ -6,6 +6,7 @@ import logoUrl from '../../src/assets/logos/graphene_logo.svg'
 import { BaseButton, Panel } from '../../src/components'
 import IconsView from './views/assets/IconsView.vue'
 import BaseView from './views/components/BaseView.vue'
+import DataView from './views/components/DataView.vue'
 import FeedbackView from './views/components/FeedbackView.vue'
 import LayoutView from './views/components/LayoutView.vue'
 import ResourceCatalogView from './views/shared/ResourceCatalogView.vue'
@@ -77,24 +78,7 @@ const routeSections: NavigationGroup[] = [
         hash: '#components/data',
         label: 'data',
         description: 'Таблицы, списки и отображение данных',
-        component: ResourceCatalogView,
-        props: {
-          eyebrow: 'Components',
-          title: 'Data',
-          sourcePath: 'src/components/data/',
-          description: 'Раздел для таблиц, списков, деревьев и других data-heavy паттернов внутренних приложений.',
-          sections: [
-            {
-              title: 'Status',
-              status: 'Empty',
-              description: 'Пока без компонентов, но раздел уже выделен под будущие data-компоненты.',
-            },
-            {
-              title: 'Planned direction',
-              items: ['DataTable', 'DataList', 'TreeView', 'PropertyList', 'Pagination'],
-            },
-          ],
-        },
+        component: DataView,
       },
     ],
   },
@@ -259,14 +243,6 @@ onUnmounted(() => {
 
     <div class="workspace">
       <aside class="sidebar" aria-label="Структура src">
-        <a
-          class="sidebar__home"
-          :class="{ 'sidebar__home--active': route === '#home' }"
-          href="#home"
-        >
-          src overview
-        </a>
-
         <section v-for="section in routeSections" :key="section.id" class="sidebar__group">
           <h2 class="sidebar__group-title">{{ section.label }}</h2>
           <nav class="sidebar__links" :aria-label="section.label">
@@ -397,22 +373,11 @@ main {
   background: var(--g-bg-surface);
 }
 
-.sidebar__home,
 .sidebar__link {
   color: inherit;
   text-decoration: none;
 }
 
-.sidebar__home {
-  padding: var(--g-space-3);
-  color: var(--g-text-primary);
-  background: var(--g-bg-base);
-  font-size: var(--g-font-size-14);
-  line-height: var(--g-line-height-20);
-  font-weight: var(--g-font-weight-semibold);
-}
-
-.sidebar__home--active,
 .sidebar__link--active {
   color: var(--g-text-primary);
   background: var(--g-bg-base);

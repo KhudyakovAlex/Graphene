@@ -61,6 +61,9 @@
 - `--g-field-border-hover`
 - `--g-field-border-focus`
 - `--g-field-invalid`
+- `--g-property-list-label`
+- `--g-property-list-value`
+- `--g-property-list-divider`
 
 `size.css` содержит semantic size tokens:
 
@@ -92,7 +95,15 @@
 - `--g-slider-track-segment-gap`
 - `--g-slider-thumb-width`
 - `--g-slider-thumb-height`
+- `--g-property-list-row-padding`
+- `--g-property-list-column-gap`
 
 `typography.css` содержит semantic typography tokens:
 
 - `--g-field-label-weight`
+- `--g-property-list-label-size`
+- `--g-property-list-label-line-height`
+- `--g-property-list-label-weight`
+- `--g-property-list-value-size`
+- `--g-property-list-value-line-height`
+- `--g-property-list-value-weight`

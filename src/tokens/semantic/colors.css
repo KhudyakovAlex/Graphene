@@ -55,6 +55,9 @@
   --g-field-border-hover: var(--g-border-primary);
   --g-field-border-focus: var(--g-orange-500);
   --g-field-invalid: var(--g-red-500);
+  --g-property-list-label: var(--g-gray-800);
+  --g-property-list-value: var(--g-gray-950);
+  --g-property-list-divider: var(--g-gray-400);
 }
 
 :root,
