@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-import { BaseButton } from '../../../src/components'
+import { BaseButton } from '../../../../src/components'
 
 type IconItem = {
   name: string
   svg: string
 }
 
-const iconModules = import.meta.glob('../../../src/assets/icons/*.svg', {
+const iconModules = import.meta.glob('../../../../src/assets/icons/*.svg', {
   eager: true,
   import: 'default',
   query: '?raw',
 }) as Record<string, string>
 
-const otherIconModules = import.meta.glob('../../../src/assets/icons/others/*.svg', {
+const otherIconModules = import.meta.glob('../../../../src/assets/icons/others/*.svg', {
   eager: true,
   import: 'default',
   query: '?raw',
@@ -25,7 +25,6 @@ const copiedIconName = ref('')
 
 const icons = modulesToIcons(iconModules)
 const otherIcons = modulesToIcons(otherIconModules)
-
 const visibleOtherIcons = computed(() => (showOtherIcons.value ? otherIcons : []))
 
 function modulesToIcons(modules: Record<string, string>): IconItem[] {
@@ -63,27 +62,25 @@ async function copyIconName(name: string) {
 
 <template>
   <section class="icons-page" aria-labelledby="iconsTitle">
-    <div class="icons-page__header">
+    <header class="panel icons-page__header">
       <div>
         <p class="icons-page__eyebrow">Assets</p>
-        <h1 id="iconsTitle">Иконки Graphene</h1>
+        <h1 id="iconsTitle">Icons</h1>
         <p class="icons-page__description">
-          Иконки загружаются из <code>src/assets/icons/</code>. Нажатие на карточку копирует имя файла.
+          Иконки загружаются из <code>src/assets/icons/</code>. Нажатие на карточку копирует
+          имя файла. Дополнительный набор из <code>src/assets/icons/others/</code> открывается
+          по кнопке.
         </p>
       </div>
 
-      <BaseButton
-        v-if="!showOtherIcons"
-        type="button"
-        @click="showOtherIcons = true"
-      >
-        Еще
+      <BaseButton v-if="!showOtherIcons" type="button" @click="showOtherIcons = true">
+        Show others
       </BaseButton>
-    </div>
+    </header>
 
-    <section class="icons-section" aria-labelledby="mainIconsTitle">
+    <section class="panel icons-section" aria-labelledby="mainIconsTitle">
       <div class="icons-section__header">
-        <h2 id="mainIconsTitle">Основной набор</h2>
+        <h2 id="mainIconsTitle">src/assets/icons</h2>
         <span>{{ icons.length }} SVG</span>
       </div>
 
@@ -98,18 +95,20 @@ async function copyIconName(name: string) {
           @click="copyIconName(icon.name)"
         >
           <span class="icon-card__preview" v-html="icon.svg" />
-          <span v-if="copiedIconName === icon.name" class="icon-card__status">Имя файла скопировано</span>
+          <span v-if="copiedIconName === icon.name" class="icon-card__status">
+            Имя файла скопировано
+          </span>
         </button>
       </div>
     </section>
 
     <section
       v-if="showOtherIcons"
-      class="icons-section"
+      class="panel icons-section"
       aria-labelledby="otherIconsTitle"
     >
       <div class="icons-section__header">
-        <h2 id="otherIconsTitle">Большой набор</h2>
+        <h2 id="otherIconsTitle">src/assets/icons/others</h2>
         <span>{{ visibleOtherIcons.length }} SVG</span>
       </div>
 
@@ -124,7 +123,9 @@ async function copyIconName(name: string) {
           @click="copyIconName(icon.name)"
         >
           <span class="icon-card__preview" v-html="icon.svg" />
-          <span v-if="copiedIconName === icon.name" class="icon-card__status">Имя файла скопировано</span>
+          <span v-if="copiedIconName === icon.name" class="icon-card__status">
+            Имя файла скопировано
+          </span>
         </button>
       </div>
     </section>
@@ -137,8 +138,7 @@ async function copyIconName(name: string) {
   gap: var(--g-space-6);
 }
 
-.icons-page__header,
-.icons-section {
+.panel {
   padding: var(--g-space-8);
   border-radius: var(--g-radius-none);
   background: var(--g-bg-surface);
@@ -219,18 +219,15 @@ h2 {
   cursor: pointer;
 }
 
-.icon-card:hover {
-  color: var(--g-text-accent);
-}
-
+.icon-card:hover,
 .icon-card--copied {
   color: var(--g-text-accent);
 }
 
 .icon-card__preview {
+  display: inline-flex;
   width: var(--g-size-control-lg);
   height: var(--g-size-control-lg);
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--g-text-primary);
@@ -258,8 +255,7 @@ h2 {
 }
 
 @media (max-width: 760px) {
-  .icons-page__header,
-  .icons-section {
+  .panel {
     padding: var(--g-space-5);
   }
 

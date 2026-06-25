@@ -30,6 +30,14 @@
 - `--g-checkbox-border`
 - `--g-checkbox-border-hover`
 - `--g-checkbox-mark`
+- `--g-dialog-surface`
+- `--g-dialog-title`
+- `--g-dialog-section-title`
+- `--g-dialog-text`
+- `--g-dialog-close`
+- `--g-dialog-close-hover-bg`
+- `--g-dialog-divider`
+- `--g-dialog-backdrop`
 - `--g-switch-track`
 - `--g-switch-track-hover`
 - `--g-switch-track-border`

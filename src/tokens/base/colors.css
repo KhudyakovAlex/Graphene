@@ -71,6 +71,10 @@
   --g-green-800: #B9E5BD;
   --g-green-900: #E0F4E2;
   --g-green-950: #F1FBF2;
+
+  --g-surface-hover-subtle: var(--g-orange-500);
+  --g-border-subtle: var(--g-gray-500);
+  --g-overlay-backdrop: var(--g-gray-50);
 }
 
 [data-theme='light'] {
@@ -145,4 +149,8 @@
   --g-green-800: #103D15;
   --g-green-900: #09240C;
   --g-green-950: #041405;
+
+  --g-surface-hover-subtle: var(--g-orange-500);
+  --g-border-subtle: var(--g-gray-500);
+  --g-overlay-backdrop: var(--g-gray-50);
 }

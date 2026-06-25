@@ -22,6 +22,14 @@
   --g-checkbox-border: var(--g-border-secondary);
   --g-checkbox-border-hover: var(--g-border-primary);
   --g-checkbox-mark: var(--g-text-primary);
+  --g-dialog-surface: var(--g-bg-surface);
+  --g-dialog-title: var(--g-text-primary);
+  --g-dialog-section-title: var(--g-text-secondary);
+  --g-dialog-text: var(--g-text-secondary);
+  --g-dialog-close: var(--g-text-secondary);
+  --g-dialog-close-hover-bg: var(--g-surface-hover-subtle);
+  --g-dialog-divider: var(--g-border-subtle);
+  --g-dialog-backdrop: var(--g-overlay-backdrop);
   --g-switch-track: var(--g-gray-200);
   --g-switch-track-hover: var(--g-gray-300);
   --g-switch-track-border: var(--g-gray-400);
