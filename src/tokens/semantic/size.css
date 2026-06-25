@@ -27,6 +27,13 @@
   --g-slider-track-segment-gap: 2px;
   --g-slider-thumb-width: 12px;
   --g-slider-thumb-height: 24px;
+  --g-data-list-item-padding-x: var(--g-space-4);
+  --g-data-list-item-padding-y: var(--g-space-3);
+  --g-data-list-item-gap: var(--g-space-4);
+  --g-data-list-content-gap: var(--g-space-1);
+  --g-data-list-meta-gap: var(--g-space-3);
+  --g-data-list-divider-width: var(--g-border-width-sm);
+  --g-data-list-item-radius: var(--g-radius-none);
   --g-property-list-row-padding: var(--g-space-3);
   --g-property-list-column-gap: var(--g-space-5);
 }

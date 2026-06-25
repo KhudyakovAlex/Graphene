@@ -1,4 +1,13 @@
 :root {
+  --g-data-list-title-size: var(--g-font-size-16);
+  --g-data-list-title-line-height: var(--g-line-height-24);
+  --g-data-list-title-weight: var(--g-font-weight-medium);
+  --g-data-list-meta-size: var(--g-font-size-12);
+  --g-data-list-meta-line-height: var(--g-line-height-16);
+  --g-data-list-meta-weight: var(--g-font-weight-regular);
+  --g-data-list-supporting-size: var(--g-font-size-14);
+  --g-data-list-supporting-line-height: var(--g-line-height-20);
+  --g-data-list-supporting-weight: var(--g-font-weight-regular);
   --g-field-label-weight: var(--g-font-weight-medium);
   --g-property-list-label-size: var(--g-font-size-14);
   --g-property-list-label-line-height: var(--g-line-height-20);

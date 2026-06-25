@@ -61,6 +61,11 @@
 - `--g-field-border-hover`
 - `--g-field-border-focus`
 - `--g-field-invalid`
+- `--g-data-list-title`
+- `--g-data-list-meta`
+- `--g-data-list-supporting`
+- `--g-data-list-divider`
+- `--g-data-list-item-hover-bg`
 - `--g-property-list-label`
 - `--g-property-list-value`
 - `--g-property-list-divider`
@@ -95,11 +100,27 @@
 - `--g-slider-track-segment-gap`
 - `--g-slider-thumb-width`
 - `--g-slider-thumb-height`
+- `--g-data-list-item-padding-x`
+- `--g-data-list-item-padding-y`
+- `--g-data-list-item-gap`
+- `--g-data-list-content-gap`
+- `--g-data-list-meta-gap`
+- `--g-data-list-divider-width`
+- `--g-data-list-item-radius`
 - `--g-property-list-row-padding`
 - `--g-property-list-column-gap`
 
 `typography.css` содержит semantic typography tokens:
 
+- `--g-data-list-title-size`
+- `--g-data-list-title-line-height`
+- `--g-data-list-title-weight`
+- `--g-data-list-meta-size`
+- `--g-data-list-meta-line-height`
+- `--g-data-list-meta-weight`
+- `--g-data-list-supporting-size`
+- `--g-data-list-supporting-line-height`
+- `--g-data-list-supporting-weight`
 - `--g-field-label-weight`
 - `--g-property-list-label-size`
 - `--g-property-list-label-line-height`

@@ -3,12 +3,34 @@ import { ref } from 'vue'
 
 import {
   BaseButton,
+  DataList,
   BaseDialog,
   Panel,
   PropertyList,
 } from '../../../../src/components'
 
 const dialogOpen = ref(false)
+
+const dataListItems = [
+  {
+    title: 'Температура выше порога',
+    supportingText: 'Авария • Датчик температуры',
+    meta: '06.02.26 15:40:25,333',
+    trailing: 'Устройство 1971052',
+  },
+  {
+    title: 'Потеряно соединение с устройством',
+    supportingText: 'Система • Канал связи MQTT',
+    meta: '06.02.26 15:37:11,104',
+    trailing: 'mqtt.graphene.local',
+  },
+  {
+    title: 'Запись добавлена оператором',
+    supportingText: 'Действие пользователя • Конфигурация',
+    meta: '06.02.26 15:30:02,901',
+    trailing: 'Оператор смены',
+  },
+]
 
 const summaryItems = [
   { label: 'Название', value: 'Датчик температуры' },
@@ -34,9 +56,22 @@ const detailItems = [
         <h1 id="dataTitle">Data</h1>
         <p class="data-page__description">
           Компоненты отображения данных из <code>src/components/data/</code>. Сейчас в разделе
-          есть <code>PropertyList</code> для readonly-показа свойств выбранной записи.
+          есть <code>DataList</code> и <code>PropertyList</code> для типовых data-сценариев.
         </p>
       </div>
+    </Panel>
+
+    <Panel class="component-preview" aria-labelledby="dataListTitle">
+      <div>
+        <h2 class="component-preview__title" id="dataListTitle">DataList</h2>
+      </div>
+
+      <p class="text-preview">
+        DataList показывает плоский список записей: слева основное и supporting-содержание,
+        справа метаданные строки.
+      </p>
+
+      <DataList :items="dataListItems" />
     </Panel>
 
     <Panel class="component-preview" aria-labelledby="propertyListTitle">
