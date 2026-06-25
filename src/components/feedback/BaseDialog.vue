@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, useSlots, watch } from 'vue'
 
-import closeIcon from '../../assets/icons/close.svg?raw'
-
 type DialogCloseReason = 'backdrop' | 'escape' | 'close-button'
+type FocusableElement = HTMLElement
 
 let openDialogCount = 0
 let previousBodyOverflow = ''
 let dialogIdSequence = 0
+const openDialogStack: number[] = []
+const dialogFocusRegistry = new Map<number, () => void>()
 
 const dialogId = ++dialogIdSequence
 const titleId = `g-base-dialog-title-${dialogId}`
@@ -40,6 +41,8 @@ const slots = useSlots()
 const panelRef = ref<HTMLElement | null>(null)
 const closeButtonRef = ref<HTMLButtonElement | null>(null)
 const bodyScrollLocked = ref(false)
+const stackRegistered = ref(false)
+let restoreFocusTarget: HTMLElement | null = null
 
 const hasTitle = computed(() => Boolean(props.title || slots.title))
 const hasHeader = computed(() => hasTitle.value || props.showCloseButton)
@@ -47,6 +50,87 @@ const hasFooter = computed(() => Boolean(slots.footer))
 const dialogAriaLabel = computed(() => (
   hasTitle.value ? undefined : (props.ariaLabel || 'Dialog')
 ))
+
+function isTopmostDialog() {
+  return openDialogStack[openDialogStack.length - 1] === dialogId
+}
+
+function getFocusableElements(): FocusableElement[] {
+  if (!panelRef.value) {
+    return []
+  }
+
+  const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])',
+  ].join(', ')
+
+  return Array
+    .from(panelRef.value.querySelectorAll(focusableSelector))
+    .filter((element): element is FocusableElement => (
+      element instanceof HTMLElement
+      && !element.hasAttribute('hidden')
+      && element.tabIndex >= 0
+    ))
+}
+
+function focusDialog() {
+  if (props.showCloseButton && closeButtonRef.value) {
+    closeButtonRef.value.focus()
+    return
+  }
+
+  const [firstFocusableElement] = getFocusableElements()
+
+  if (firstFocusableElement) {
+    firstFocusableElement.focus()
+    return
+  }
+
+  panelRef.value?.focus()
+}
+
+function focusTopmostDialog() {
+  const topmostDialogId = openDialogStack[openDialogStack.length - 1]
+  dialogFocusRegistry.get(topmostDialogId)?.()
+}
+
+function trapFocus(event: KeyboardEvent) {
+  if (!panelRef.value) {
+    return
+  }
+
+  const focusableElements = getFocusableElements()
+
+  if (focusableElements.length === 0) {
+    event.preventDefault()
+    panelRef.value.focus()
+    return
+  }
+
+  const firstFocusableElement = focusableElements[0]
+  const lastFocusableElement = focusableElements[focusableElements.length - 1]
+  const activeElement = document.activeElement
+  const focusInsideDialog = activeElement instanceof Node && panelRef.value.contains(activeElement)
+
+  if (event.shiftKey) {
+    if (!focusInsideDialog || activeElement === firstFocusableElement || activeElement === panelRef.value) {
+      event.preventDefault()
+      lastFocusableElement.focus()
+    }
+
+    return
+  }
+
+  if (!focusInsideDialog || activeElement === lastFocusableElement || activeElement === panelRef.value) {
+    event.preventDefault()
+    firstFocusableElement.focus()
+  }
+}
 
 function lockBodyScroll() {
   if (typeof document === 'undefined' || bodyScrollLocked.value) {
@@ -60,6 +144,15 @@ function lockBodyScroll() {
   openDialogCount += 1
   document.body.style.overflow = 'hidden'
   bodyScrollLocked.value = true
+}
+
+function registerDialog() {
+  if (stackRegistered.value) {
+    return
+  }
+
+  openDialogStack.push(dialogId)
+  stackRegistered.value = true
 }
 
 function unlockBodyScroll() {
@@ -76,6 +169,56 @@ function unlockBodyScroll() {
   bodyScrollLocked.value = false
 }
 
+function unregisterDialog() {
+  if (!stackRegistered.value) {
+    return
+  }
+
+  const dialogIndex = openDialogStack.lastIndexOf(dialogId)
+
+  if (dialogIndex !== -1) {
+    openDialogStack.splice(dialogIndex, 1)
+  }
+
+  stackRegistered.value = false
+}
+
+function restoreFocus() {
+  const target = restoreFocusTarget
+  restoreFocusTarget = null
+
+  nextTick(() => {
+    if (target?.isConnected) {
+      target.focus()
+      return
+    }
+
+    focusTopmostDialog()
+  })
+}
+
+function activateDialog() {
+  if (typeof document !== 'undefined' && !stackRegistered.value) {
+    restoreFocusTarget = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null
+  }
+
+  registerDialog()
+  lockBodyScroll()
+}
+
+function deactivateDialog() {
+  const wasTopmost = isTopmostDialog()
+
+  unregisterDialog()
+  unlockBodyScroll()
+
+  if (wasTopmost) {
+    restoreFocus()
+  }
+}
+
 function requestClose(reason: DialogCloseReason) {
   emit('update:modelValue', false)
   emit('close', reason)
@@ -88,45 +231,50 @@ function handleBackdropClick() {
 }
 
 function handleDocumentKeydown(event: KeyboardEvent) {
-  if (!props.modelValue || !props.closeOnEscape || event.key !== 'Escape') {
+  if (!props.modelValue || !isTopmostDialog()) {
     return
   }
 
-  event.preventDefault()
-  requestClose('escape')
+  if (event.key === 'Tab') {
+    trapFocus(event)
+    return
+  }
+
+  if (event.key === 'Escape' && props.closeOnEscape) {
+    event.preventDefault()
+    requestClose('escape')
+  }
 }
 
 watch(
   () => props.modelValue,
   async (isOpen, wasOpen) => {
     if (isOpen) {
-      lockBodyScroll()
+      activateDialog()
 
       await nextTick()
 
-      if (props.showCloseButton) {
-        closeButtonRef.value?.focus()
-      } else {
-        panelRef.value?.focus()
-      }
+      focusDialog()
 
       return
     }
 
     if (wasOpen) {
-      unlockBodyScroll()
+      deactivateDialog()
     }
   },
   { immediate: true },
 )
 
 onMounted(() => {
+  dialogFocusRegistry.set(dialogId, focusDialog)
   document.addEventListener('keydown', handleDocumentKeydown)
 })
 
 onUnmounted(() => {
+  dialogFocusRegistry.delete(dialogId)
   document.removeEventListener('keydown', handleDocumentKeydown)
-  unlockBodyScroll()
+  deactivateDialog()
 })
 </script>
 
@@ -157,7 +305,7 @@ onUnmounted(() => {
             :aria-label="hasTitle ? 'Close dialog' : 'Close'"
             @click="requestClose('close-button')"
           >
-            <span class="g-base-dialog__close-icon" aria-hidden="true" v-html="closeIcon" />
+            <span class="g-base-dialog__close-icon" aria-hidden="true" />
           </button>
         </header>
 
@@ -249,11 +397,9 @@ onUnmounted(() => {
   display: inline-flex;
   width: var(--g-size-icon-md);
   height: var(--g-size-icon-md);
-}
-
-.g-base-dialog__close-icon :deep(svg) {
-  width: 100%;
-  height: 100%;
+  background-color: currentColor;
+  mask: url('../../assets/icons/close.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/close.svg') center / contain no-repeat;
 }
 
 .g-base-dialog__body {

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "jsx": "preserve",
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "vue": ["./examples/node_modules/vue/dist/vue.d.ts"],
+      "@vue/*": ["./examples/node_modules/@vue/*"]
+    }
+  },
+  "include": [
+    "env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "examples/src/**/*.ts",
+    "examples/src/**/*.vue",
+    "examples/vite.config.ts"
+  ]
+}
