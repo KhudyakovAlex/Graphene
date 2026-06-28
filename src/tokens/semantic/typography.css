@@ -10,7 +10,7 @@
   --g-data-list-supporting-weight: var(--g-font-weight-regular);
   --g-data-table-header-size: var(--g-font-size-12);
   --g-data-table-header-line-height: var(--g-line-height-16);
-  --g-data-table-header-weight: var(--g-font-weight-medium);
+  --g-data-table-header-weight: var(--g-font-weight-regular);
   --g-data-table-cell-size: var(--g-font-size-12);
   --g-data-table-cell-line-height: var(--g-line-height-16);
   --g-data-table-cell-weight: var(--g-font-weight-regular);

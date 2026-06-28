@@ -211,8 +211,9 @@ function getCellSlotProps(
 .g-data-table {
   min-width: 0;
   overflow-x: hidden;
+  padding: var(--g-data-table-divider-width);
   border-radius: var(--g-data-table-radius);
-  background: var(--g-data-table-row-bg);
+  background: var(--g-data-table-divider);
 }
 
 .g-data-table--layout-scroll {
@@ -223,8 +224,9 @@ function getCellSlotProps(
   width: 100%;
   min-width: 0;
   border-collapse: separate;
-  border-spacing: 0;
+  border-spacing: var(--g-data-table-divider-width);
   table-layout: fixed;
+  background: var(--g-data-table-divider);
 }
 
 .g-data-table--layout-scroll .g-data-table__table {
@@ -267,78 +269,72 @@ function getCellSlotProps(
   height: var(--g-data-table-header-height);
   color: var(--g-data-table-header-text);
   background: var(--g-data-table-header-bg);
-  border-bottom: var(--g-data-table-divider-width) solid var(--g-data-table-divider);
   font-size: var(--g-data-table-header-size);
   line-height: var(--g-data-table-header-line-height);
   font-weight: var(--g-data-table-header-weight);
 }
 
-.g-data-table__head-cell + .g-data-table__head-cell,
-.g-data-table__cell + .g-data-table__cell {
-  border-left: var(--g-data-table-divider-width) solid var(--g-data-table-divider);
-}
-
 .g-data-table__row {
-  --g-data-table-row-current-bg: var(--g-data-table-row-bg);
-  --g-data-table-row-current-hover-bg: var(--g-data-table-row-hover-bg);
-  background: var(--g-data-table-row-current-bg);
+  --g-data-table-row-current-cell-bg: var(--g-data-table-row-bg);
+  --g-data-table-row-current-cell-hover-bg: var(--g-data-table-row-hover-bg);
 }
 
 .g-data-table__row--section {
-  --g-data-table-row-current-bg: var(--g-data-table-section-bg);
-  --g-data-table-row-current-hover-bg:
-    color-mix(in srgb, var(--g-data-table-section-divider) 12%, var(--g-data-table-section-bg));
-  background: var(--g-data-table-section-bg);
+  --g-data-table-row-current-cell-bg: var(--g-data-table-section-bg);
+  --g-data-table-row-current-cell-hover-bg: var(--g-data-table-section-bg);
 }
 
 .g-data-table__row--total {
-  --g-data-table-row-current-bg: var(--g-data-table-total-bg);
-  --g-data-table-row-current-hover-bg:
-    color-mix(in srgb, var(--g-data-table-total-divider) 12%, var(--g-data-table-total-bg));
-  background: var(--g-data-table-total-bg);
+  --g-data-table-row-current-cell-bg: var(--g-data-table-total-bg);
+  --g-data-table-row-current-cell-hover-bg: var(--g-data-table-total-bg);
 }
 
 .g-data-table__row--tinted {
-  background: color-mix(in srgb, var(--g-data-table-row-accent-text) 10%, var(--g-data-table-row-current-bg));
-}
-
-.g-data-table--row-hover .g-data-table__row:hover {
-  background: var(--g-data-table-row-current-hover-bg);
-}
-
-.g-data-table--row-hover .g-data-table__row--tinted:hover {
-  background: color-mix(in srgb, var(--g-data-table-row-accent-text) 16%, var(--g-data-table-row-current-bg));
-}
-
-.g-data-table__row--default:not(:last-child) .g-data-table__cell {
-  border-bottom: var(--g-data-table-divider-width) solid var(--g-data-table-divider);
+  --g-data-table-row-current-cell-bg:
+    color-mix(
+      in srgb,
+      var(--g-data-table-row-accent-text) calc(var(--g-data-table-row-tint-opacity, 0.1) * 100%),
+      var(--g-data-table-row-bg)
+    );
+  --g-data-table-row-current-cell-hover-bg:
+    color-mix(
+      in srgb,
+      var(--g-data-table-row-accent-text) calc(var(--g-data-table-row-tint-hover-opacity, 0.14) * 100%),
+      var(--g-data-table-row-bg)
+    );
 }
 
 .g-data-table__cell {
   height: var(--g-data-table-row-height);
+  background: var(--g-data-table-row-current-cell-bg);
   color: var(--g-data-table-cell-text);
   font-size: var(--g-data-table-cell-size);
   line-height: var(--g-data-table-cell-line-height);
   font-weight: var(--g-data-table-cell-weight);
 }
 
-.g-data-table__row--total .g-data-table__cell {
-  color: var(--g-data-table-total-text);
-  border-bottom: var(--g-data-table-divider-width) solid var(--g-data-table-total-divider);
-  font-weight: var(--g-data-table-header-weight);
+.g-data-table--row-hover .g-data-table__row:hover .g-data-table__cell {
+  background: var(--g-data-table-row-current-cell-hover-bg);
 }
 
-.g-data-table__row--total .g-data-table__cell + .g-data-table__cell {
-  border-left-color: var(--g-data-table-total-divider);
+.g-data-table__row--total .g-data-table__cell {
+  background: var(--g-data-table-total-bg);
+  color: var(--g-data-table-total-text);
+  font-weight: var(--g-data-table-header-weight);
 }
 
 .g-data-table__section-cell {
   height: var(--g-data-table-row-height);
+  background: var(--g-data-table-section-bg);
   color: var(--g-data-table-section-text);
-  border-bottom: var(--g-data-table-divider-width) solid var(--g-data-table-section-divider);
   font-size: var(--g-data-table-cell-size);
   line-height: var(--g-data-table-cell-line-height);
   font-weight: var(--g-data-table-header-weight);
+}
+
+.g-data-table--row-hover .g-data-table__row--section:hover .g-data-table__section-cell,
+.g-data-table--row-hover .g-data-table__row--total:hover .g-data-table__cell {
+  background: var(--g-data-table-row-current-cell-hover-bg);
 }
 
 .g-data-table__row--tinted .g-data-table__cell,

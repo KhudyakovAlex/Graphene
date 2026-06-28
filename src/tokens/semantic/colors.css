@@ -59,16 +59,16 @@
   --g-data-list-meta: var(--g-gray-800);
   --g-data-list-supporting: var(--g-gray-600);
   --g-data-list-divider: var(--g-gray-400);
-  --g-data-table-header-bg: var(--g-gray-300);
-  --g-data-table-row-bg: var(--g-gray-300);
-  --g-data-table-header-text: var(--g-gray-800);
-  --g-data-table-cell-text: var(--g-gray-950);
-  --g-data-table-cell-text-muted: var(--g-gray-800);
-  --g-data-table-section-bg: var(--g-gray-200);
-  --g-data-table-section-text: var(--g-gray-950);
-  --g-data-table-total-bg: var(--g-gray-200);
-  --g-data-table-total-text: var(--g-gray-950);
-  --g-data-table-total-text-muted: var(--g-gray-800);
+  --g-data-table-header-bg: var(--g-bg-surface);
+  --g-data-table-row-bg: var(--g-bg-base);
+  --g-data-table-header-text: var(--g-text-tertiary);
+  --g-data-table-cell-text: var(--g-text-primary);
+  --g-data-table-cell-text-muted: var(--g-text-secondary);
+  --g-data-table-section-bg: var(--g-bg-surface);
+  --g-data-table-section-text: var(--g-text-secondary);
+  --g-data-table-total-bg: var(--g-bg-base);
+  --g-data-table-total-text: var(--g-text-primary);
+  --g-data-table-total-text-muted: var(--g-text-secondary);
   --g-property-list-label: var(--g-gray-800);
   --g-property-list-value: var(--g-gray-950);
   --g-property-list-divider: var(--g-gray-400);
@@ -78,10 +78,10 @@
 [data-theme='dark'] {
   --g-action-primary-text: var(--g-gray-50);
   --g-data-list-item-hover-bg: var(--g-gray-400);
-  --g-data-table-divider: var(--g-gray-500);
-  --g-data-table-row-hover-bg: var(--g-gray-400);
-  --g-data-table-section-divider: var(--g-gray-500);
-  --g-data-table-total-divider: var(--g-gray-700);
+  --g-data-table-divider: var(--g-bg-surface);
+  --g-data-table-row-hover-bg: color-mix(in srgb, var(--g-bg-surface) 42%, var(--g-bg-base));
+  --g-data-table-section-divider: var(--g-bg-surface);
+  --g-data-table-total-divider: var(--g-bg-surface);
   --g-field-bg: var(--g-gray-400);
   --g-field-bg-hover: var(--g-gray-500);
   --g-field-border: var(--g-gray-600);
@@ -91,10 +91,10 @@
 [data-theme='light'] {
   --g-action-primary-text: var(--g-gray-950);
   --g-data-list-item-hover-bg: var(--g-gray-200);
-  --g-data-table-divider: var(--g-gray-300);
-  --g-data-table-row-hover-bg: var(--g-gray-200);
-  --g-data-table-section-divider: var(--g-gray-300);
-  --g-data-table-total-divider: var(--g-gray-500);
+  --g-data-table-divider: var(--g-bg-surface);
+  --g-data-table-row-hover-bg: color-mix(in srgb, var(--g-bg-surface) 42%, var(--g-bg-base));
+  --g-data-table-section-divider: var(--g-bg-surface);
+  --g-data-table-total-divider: var(--g-bg-surface);
   --g-field-bg: var(--g-gray-50);
   --g-field-bg-hover: var(--g-gray-200);
   --g-field-border: var(--g-gray-600);

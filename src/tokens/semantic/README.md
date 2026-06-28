@@ -125,6 +125,8 @@
 - `--g-data-table-column-gap`
 - `--g-data-table-divider-width`
 - `--g-data-table-radius`
+- `--g-data-table-row-tint-opacity`
+- `--g-data-table-row-tint-hover-opacity`
 - `--g-data-list-item-padding-x`
 - `--g-data-list-item-padding-y`
 - `--g-data-list-item-gap`

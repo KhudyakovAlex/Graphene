@@ -2,4 +2,6 @@
   --g-opacity-disabled: 0.4;
   --g-opacity-muted: 0.64;
   --g-opacity-overlay: 0.72;
+  --g-opacity-tint-subtle: 0.1;
+  --g-opacity-tint-hover: 0.14;
 }
