@@ -68,6 +68,17 @@
 - `--g-data-table-header-text`
 - `--g-data-table-cell-text`
 - `--g-data-table-cell-text-muted`
+- `--g-data-table-section-bg`
+- `--g-data-table-section-text`
+- `--g-data-table-section-divider`
+- `--g-data-table-total-bg`
+- `--g-data-table-total-text`
+- `--g-data-table-total-text-muted`
+- `--g-data-table-total-divider`
+
+Текущий набор `--g-data-table-*` покрывает surface, divider, text и hover-состояние табличного семейства.
+`DataGrid` поверх него может переиспользовать существующие `--g-field-*`, `--g-checkbox-*` и `--g-action-*` для toolbar и column controls, но отдельные semantic roles для active sort, resize handle и column visibility UI должны приходить из Pixso, а не придумываться в коде.
+Для `DataTable` special rows `section` и `total` должны использовать собственные `--g-data-table-*` роли, а программная цветная подсветка строк должна считаться в runtime от `textColor`, а не через отдельный semantic token на каждый цвет.
 - `--g-data-list-title`
 - `--g-data-list-meta`
 - `--g-data-list-supporting`

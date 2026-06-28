@@ -4,33 +4,39 @@ import { ref } from 'vue'
 import {
   BaseButton,
   DataList,
+  DataGrid,
   DataTable,
   BaseDialog,
   Panel,
   PropertyList,
 } from '../../../../src/components'
+import type {
+  DataGridColumn,
+  DataGridColumnWidths,
+  DataGridFilters,
+  DataGridSort,
+  DataTableColumn,
+  DataTableRow,
+} from '../../../../src/components'
 
 const dialogOpen = ref(false)
 
-const dataTableColumns = [
-  { key: 'index', label: '№', width: '64px', muted: true },
-  { key: 'date', label: 'Дата', width: '200px' },
-  { key: 'type', label: 'Тип записи', width: '160px' },
-  { key: 'event', label: 'Событие', width: '220px' },
-  { key: 'value', label: 'Значение параметра', width: '220px' },
-  { key: 'location', label: 'Локация', width: '160px' },
-  { key: 'device', label: 'Устройство', width: '180px' },
-] as const
+const dataTableColumns: DataTableColumn[] = [
+  { key: 'index', label: '№', width: '72px', muted: true },
+  { key: 'date', label: 'Дата', width: '168px' },
+  { key: 'type', label: 'Тип записи', width: '140px' },
+  { key: 'event', label: 'Событие' },
+  { key: 'value', label: 'Значение', width: '112px', align: 'right' },
+]
 
-const dataTableRows = [
+const dataTableRows: DataTableRow[] = [
   {
     index: '125',
     date: '06.02.26 15:40:25,333',
     type: 'Авария',
-    event: 'Температура выше порога',
+    event: 'Температура выше порога после переключения резервного контура охлаждения',
     value: '92 °C',
-    location: 'Узел А-12',
-    device: '1971052',
+    textColor: 'var(--g-red-500)',
   },
   {
     index: '124',
@@ -38,17 +44,17 @@ const dataTableRows = [
     type: 'Система',
     event: 'Потеряно соединение',
     value: 'MQTT timeout',
-    location: 'Шлюз 3',
-    device: 'mqtt.graphene.local',
+  },
+  {
+    kind: 'section',
+    label: 'Группа: журнал команд',
   },
   {
     index: '123',
     date: '06.02.26 15:30:02,901',
     type: 'Действие',
     event: 'Запись добавлена',
-    value: 'Оператор смены',
-    location: 'АРМ диспетчера',
-    device: 'manual-entry',
+    value: 'Оператор',
   },
   {
     index: '122',
@@ -56,10 +62,130 @@ const dataTableRows = [
     type: 'Команда',
     event: 'Экспорт журнала',
     value: 'CSV',
-    location: 'Узел А-12',
-    device: 'workstation-02',
+    textColor: 'var(--g-ai-500)',
+  },
+  {
+    index: '121',
+    date: '06.02.26 15:12:43,882',
+    type: 'Предупреждение',
+    event: 'Температура выше уставки',
+    value: '74 °C',
+    textColor: 'var(--g-yellow-500)',
+  },
+  {
+    kind: 'total',
+    index: '',
+    date: '',
+    type: 'ИТОГО',
+    event: '5 записей, 3 цветовые строки',
+    value: '92 °C',
   },
 ]
+
+const dataGridColumns: DataGridColumn[] = [
+  {
+    key: 'timestamp',
+    label: 'Время',
+    width: '176px',
+    sortable: true,
+    filterable: true,
+    resizable: true,
+  },
+  {
+    key: 'status',
+    label: 'Статус',
+    width: '120px',
+    sortable: true,
+    filterable: true,
+    hideable: true,
+    resizable: true,
+  },
+  {
+    key: 'location',
+    label: 'Локация',
+    width: '160px',
+    sortable: true,
+    filterable: true,
+    hideable: true,
+    resizable: true,
+  },
+  {
+    key: 'device',
+    label: 'Устройство',
+    width: '160px',
+    sortable: true,
+    filterable: true,
+    hideable: true,
+    resizable: true,
+  },
+  {
+    key: 'description',
+    label: 'Описание',
+    minWidth: '280px',
+    overflow: 'wrap',
+    filterable: true,
+    resizable: true,
+  },
+  {
+    key: 'operator',
+    label: 'Оператор',
+    width: '160px',
+    filterable: true,
+    hideable: true,
+    resizable: true,
+  },
+]
+
+const dataGridRows = [
+  {
+    key: 'evt-1',
+    timestamp: '2026-06-25 11:47:12',
+    status: 'Критично',
+    location: 'Узел А-12',
+    device: '1971052',
+    description: 'Температура держится выше допустимого порога более 15 минут, требуется проверка охлаждения.',
+    operator: 'Смена А',
+  },
+  {
+    key: 'evt-2',
+    timestamp: '2026-06-25 11:42:08',
+    status: 'Предупреждение',
+    location: 'Шлюз 3',
+    device: 'mqtt.graphene.local',
+    description: 'Растет время ответа брокера, но связь еще активна и данные продолжают поступать.',
+    operator: 'Смена Б',
+  },
+  {
+    key: 'evt-3',
+    timestamp: '2026-06-25 11:35:41',
+    status: 'Норма',
+    location: 'АРМ диспетчера',
+    device: 'manual-entry',
+    description: 'Оператор подтвердил запись и приложил развернутый комментарий к изменению конфигурации.',
+    operator: 'Смена А',
+  },
+  {
+    key: 'evt-4',
+    timestamp: '2026-06-25 11:28:17',
+    status: 'Критично',
+    location: 'Шкаф КИП',
+    device: 'cabinet-07',
+    description: 'Сработала резервная защита привода после серии ошибок датчика положения.',
+    operator: 'Смена В',
+  },
+]
+
+const gridSort = ref<DataGridSort | null>({ key: 'timestamp', direction: 'desc' })
+const gridFilters = ref<DataGridFilters>({})
+const gridHiddenColumnKeys = ref<string[]>(['operator'])
+const gridColumnWidths = ref<DataGridColumnWidths>({
+  timestamp: '176px',
+  status: '120px',
+  location: '160px',
+  device: '160px',
+  description: '320px',
+  operator: '160px',
+})
 
 const dataListItems = [
   {
@@ -106,7 +232,8 @@ const detailItems = [
         <h1 id="dataTitle">Data</h1>
         <p class="data-page__description">
           Компоненты отображения данных из <code>src/components/data/</code>. Сейчас в разделе
-          есть <code>DataList</code> и <code>PropertyList</code> для типовых data-сценариев.
+          есть простой <code>DataTable</code>, интерактивный <code>DataGrid</code>,
+          <code>DataList</code> и <code>PropertyList</code> для типовых data-сценариев.
         </p>
       </div>
     </Panel>
@@ -117,11 +244,35 @@ const detailItems = [
       </div>
 
       <p class="text-preview">
-        Базовый табличный каркас для data-heavy сценариев. Текущий пример построен по мотивам
-        экрана журнала событий и покрывает header, строки, dividers и hover.
+        Базовый readonly-табличный каркас, который по умолчанию вписывается в доступную ширину.
+        Пример показывает обычные строки, цветные строки, строку-раздел и строку
+        <code>ИТОГО</code> в визуальном характере Pixso.
       </p>
 
       <DataTable :columns="dataTableColumns" :rows="dataTableRows" />
+    </Panel>
+
+    <Panel class="component-preview" aria-labelledby="dataGridTitle">
+      <div>
+        <h2 class="component-preview__title" id="dataGridTitle">DataGrid</h2>
+      </div>
+
+      <p class="text-preview">
+        Интерактивная надстройка над <code>DataTable</code> для сценариев со сортировкой,
+        фильтрами, скрытием колонок и изменением их ширины. Этот пример использует режим
+        <code>fit</code>, а длинное описание переносится на новую строку через
+        <code>overflow=&quot;wrap&quot;</code>.
+      </p>
+
+      <DataGrid
+        v-model:sort="gridSort"
+        v-model:filters="gridFilters"
+        v-model:hidden-column-keys="gridHiddenColumnKeys"
+        v-model:column-widths="gridColumnWidths"
+        :columns="dataGridColumns"
+        :rows="dataGridRows"
+        layout="fit"
+      />
     </Panel>
 
     <Panel class="component-preview" aria-labelledby="dataListTitle">
