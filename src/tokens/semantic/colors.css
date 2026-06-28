@@ -59,6 +59,11 @@
   --g-data-list-meta: var(--g-gray-800);
   --g-data-list-supporting: var(--g-gray-600);
   --g-data-list-divider: var(--g-gray-400);
+  --g-data-table-header-bg: var(--g-gray-300);
+  --g-data-table-row-bg: var(--g-gray-300);
+  --g-data-table-header-text: var(--g-gray-800);
+  --g-data-table-cell-text: var(--g-gray-950);
+  --g-data-table-cell-text-muted: var(--g-gray-800);
   --g-property-list-label: var(--g-gray-800);
   --g-property-list-value: var(--g-gray-950);
   --g-property-list-divider: var(--g-gray-400);
@@ -68,6 +73,8 @@
 [data-theme='dark'] {
   --g-action-primary-text: var(--g-gray-50);
   --g-data-list-item-hover-bg: var(--g-gray-400);
+  --g-data-table-divider: var(--g-gray-500);
+  --g-data-table-row-hover-bg: var(--g-gray-400);
   --g-field-bg: var(--g-gray-400);
   --g-field-bg-hover: var(--g-gray-500);
   --g-field-border: var(--g-gray-600);
@@ -77,6 +84,8 @@
 [data-theme='light'] {
   --g-action-primary-text: var(--g-gray-950);
   --g-data-list-item-hover-bg: var(--g-gray-200);
+  --g-data-table-divider: var(--g-gray-300);
+  --g-data-table-row-hover-bg: var(--g-gray-200);
   --g-field-bg: var(--g-gray-50);
   --g-field-bg-hover: var(--g-gray-200);
   --g-field-border: var(--g-gray-600);

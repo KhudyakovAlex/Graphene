@@ -34,6 +34,13 @@
   --g-data-list-meta-gap: var(--g-space-3);
   --g-data-list-divider-width: var(--g-border-width-sm);
   --g-data-list-item-radius: var(--g-radius-none);
+  --g-data-table-row-height: var(--g-size-control-md);
+  --g-data-table-header-height: var(--g-size-control-sm);
+  --g-data-table-cell-padding-x: var(--g-space-3);
+  --g-data-table-cell-padding-y: var(--g-space-2);
+  --g-data-table-column-gap: var(--g-space-3);
+  --g-data-table-divider-width: var(--g-border-width-sm);
+  --g-data-table-radius: var(--g-radius-none);
   --g-property-list-row-padding: var(--g-space-3);
   --g-property-list-column-gap: var(--g-space-5);
 }

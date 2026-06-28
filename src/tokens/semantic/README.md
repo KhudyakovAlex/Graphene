@@ -61,6 +61,13 @@
 - `--g-field-border-hover`
 - `--g-field-border-focus`
 - `--g-field-invalid`
+- `--g-data-table-header-bg`
+- `--g-data-table-row-bg`
+- `--g-data-table-row-hover-bg`
+- `--g-data-table-divider`
+- `--g-data-table-header-text`
+- `--g-data-table-cell-text`
+- `--g-data-table-cell-text-muted`
 - `--g-data-list-title`
 - `--g-data-list-meta`
 - `--g-data-list-supporting`
@@ -100,6 +107,13 @@
 - `--g-slider-track-segment-gap`
 - `--g-slider-thumb-width`
 - `--g-slider-thumb-height`
+- `--g-data-table-row-height`
+- `--g-data-table-header-height`
+- `--g-data-table-cell-padding-x`
+- `--g-data-table-cell-padding-y`
+- `--g-data-table-column-gap`
+- `--g-data-table-divider-width`
+- `--g-data-table-radius`
 - `--g-data-list-item-padding-x`
 - `--g-data-list-item-padding-y`
 - `--g-data-list-item-gap`
@@ -112,6 +126,12 @@
 
 `typography.css` содержит semantic typography tokens:
 
+- `--g-data-table-header-size`
+- `--g-data-table-header-line-height`
+- `--g-data-table-header-weight`
+- `--g-data-table-cell-size`
+- `--g-data-table-cell-line-height`
+- `--g-data-table-cell-weight`
 - `--g-data-list-title-size`
 - `--g-data-list-title-line-height`
 - `--g-data-list-title-weight`

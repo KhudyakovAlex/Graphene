@@ -4,12 +4,62 @@ import { ref } from 'vue'
 import {
   BaseButton,
   DataList,
+  DataTable,
   BaseDialog,
   Panel,
   PropertyList,
 } from '../../../../src/components'
 
 const dialogOpen = ref(false)
+
+const dataTableColumns = [
+  { key: 'index', label: '№', width: '64px', muted: true },
+  { key: 'date', label: 'Дата', width: '200px' },
+  { key: 'type', label: 'Тип записи', width: '160px' },
+  { key: 'event', label: 'Событие', width: '220px' },
+  { key: 'value', label: 'Значение параметра', width: '220px' },
+  { key: 'location', label: 'Локация', width: '160px' },
+  { key: 'device', label: 'Устройство', width: '180px' },
+] as const
+
+const dataTableRows = [
+  {
+    index: '125',
+    date: '06.02.26 15:40:25,333',
+    type: 'Авария',
+    event: 'Температура выше порога',
+    value: '92 °C',
+    location: 'Узел А-12',
+    device: '1971052',
+  },
+  {
+    index: '124',
+    date: '06.02.26 15:37:11,104',
+    type: 'Система',
+    event: 'Потеряно соединение',
+    value: 'MQTT timeout',
+    location: 'Шлюз 3',
+    device: 'mqtt.graphene.local',
+  },
+  {
+    index: '123',
+    date: '06.02.26 15:30:02,901',
+    type: 'Действие',
+    event: 'Запись добавлена',
+    value: 'Оператор смены',
+    location: 'АРМ диспетчера',
+    device: 'manual-entry',
+  },
+  {
+    index: '122',
+    date: '06.02.26 15:20:54,442',
+    type: 'Команда',
+    event: 'Экспорт журнала',
+    value: 'CSV',
+    location: 'Узел А-12',
+    device: 'workstation-02',
+  },
+]
 
 const dataListItems = [
   {
@@ -59,6 +109,19 @@ const detailItems = [
           есть <code>DataList</code> и <code>PropertyList</code> для типовых data-сценариев.
         </p>
       </div>
+    </Panel>
+
+    <Panel class="component-preview" aria-labelledby="dataTableTitle">
+      <div>
+        <h2 class="component-preview__title" id="dataTableTitle">DataTable</h2>
+      </div>
+
+      <p class="text-preview">
+        Базовый табличный каркас для data-heavy сценариев. Текущий пример построен по мотивам
+        экрана журнала событий и покрывает header, строки, dividers и hover.
+      </p>
+
+      <DataTable :columns="dataTableColumns" :rows="dataTableRows" />
     </Panel>
 
     <Panel class="component-preview" aria-labelledby="dataListTitle">
