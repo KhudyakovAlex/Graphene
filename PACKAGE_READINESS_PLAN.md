@@ -275,7 +275,7 @@
 
 ## Шаг 9. Выпустить И Подключить Первый Tag
 
-Статус: [ ]
+Статус: [x]
 
 Зависимости: шаг 8.
 
@@ -298,7 +298,7 @@
 
 ## Definition Of Done
 
-- [ ] Graphene устанавливается из другого репозитория по version tag.
+- [x] Graphene устанавливается из другого репозитория по version tag.
 - [x] Есть единый публичный JS/TS API.
 - [x] Есть документированный CSS entrypoint.
 - [x] Типы доступны consumer-проекту.
@@ -308,7 +308,7 @@
 - [x] Все публичные компоненты имеют smoke tests.
 - [x] CI выполняет те же проверки.
 - [x] README и AI usage guide соответствуют package API.
-- [ ] Первый tag проверен в реальном приложении.
+- [x] Первый tag проверен в реальном приложении.
 
 ## Журнал Передачи
 
@@ -385,6 +385,14 @@
 - Проверки: чистый `npm ci`; `npm run check` — 17 тестов в 4 файлах; `npm run build`; `npm run pack:check` — 31 файл без docs, examples sources и `.pixso-temp/`; `npm run examples:build`.
 - Осталось: создать release commit и tag `v0.1.0`, установить tag во внешнем Vue-приложении и выполнить consumer smoke test.
 - Блокеры/решения владельца: требуется явное разрешение владельца на создание release commit и tag `v0.1.0`.
+
+### 2026-08-19 — шаг 9, выпуск
+
+- Выполнено: создан и отправлен release commit `9b93d70`; создан и отправлен immutable tag `v0.1.0`; tag установлен во внешнем Vue/Vite-приложении.
+- Измененные файлы: `PACKAGE_READINESS_PLAN.md`; во внешнем consumer-приложении обновлены package metadata.
+- Проверки: consumer разрешает `v0.1.0` в commit `9b93d708a1ad27d4f5b9f79fde3192b256d7b895`; typecheck и production build успешны; используется одна Vue 3.5.41; dev server и публичные модули отвечают HTTP 200.
+- Осталось: нет, план подготовки первого package release завершен.
+- Блокеры/решения владельца: нет.
 
 ### YYYY-MM-DD — шаг N
 
