@@ -484,7 +484,11 @@ function getCellSlotProps(slotProps: DataTableCellSlotProps) {
       :row-hover="props.rowHover"
       :rows="processedRows"
     >
-      <template v-for="column in visibleColumns" #[`header-${column.key}`]="slotProps">
+      <template
+        v-for="column in visibleColumns"
+        :key="`header-${column.key}`"
+        #[`header-${column.key}`]="slotProps"
+      >
         <slot :name="`header-${column.key}`" v-bind="getHeaderSlotProps(slotProps, column)">
           <slot name="header" v-bind="getHeaderSlotProps(slotProps, column)">
             <div class="g-data-grid__head-content">
@@ -520,7 +524,11 @@ function getCellSlotProps(slotProps: DataTableCellSlotProps) {
         </slot>
       </template>
 
-      <template v-for="column in visibleColumns" #[`cell-${column.key}`]="slotProps">
+      <template
+        v-for="column in visibleColumns"
+        :key="`cell-${column.key}`"
+        #[`cell-${column.key}`]="slotProps"
+      >
         <slot :name="`cell-${column.key}`" v-bind="getCellSlotProps(slotProps)">
           <slot name="cell" v-bind="getCellSlotProps(slotProps)">
             <span class="g-data-table__cell-text">

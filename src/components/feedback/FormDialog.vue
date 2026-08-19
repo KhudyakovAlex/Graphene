@@ -1,3 +1,7 @@
+<script lang="ts">
+let formDialogIdSequence = 0
+</script>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -6,9 +10,8 @@ import BaseDialog from './BaseDialog.vue'
 
 type DialogCloseReason = 'backdrop' | 'escape' | 'close-button'
 
-let formDialogIdSequence = 0
-
-const formDialogId = ++formDialogIdSequence
+formDialogIdSequence += 1
+const formDialogId = formDialogIdSequence
 
 const props = withDefaults(
   defineProps<{

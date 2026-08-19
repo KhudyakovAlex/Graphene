@@ -156,7 +156,7 @@
 
 ## Шаг 4. Проверить Реальную Установку Пакета
 
-Статус: [ ]
+Статус: [x]
 
 Зависимости: шаг 3.
 
@@ -188,7 +188,7 @@
 
 ## Шаг 5. Добавить Статические Проверки
 
-Статус: [ ]
+Статус: [x]
 
 Зависимости: шаг 2; можно выполнять параллельно с шагом 4 после стабилизации package scripts.
 
@@ -208,7 +208,7 @@
 
 ## Шаг 6. Добавить Component Tests
 
-Статус: [ ]
+Статус: [x]
 
 Зависимости: шаги 2 и 3.
 
@@ -338,13 +338,29 @@
 - Осталось: шаг 4 — проверить реальную установку пакета. `npm run typecheck` пока выявляет настройки будущего шага 5: ES2020 для `Array.at` и отсутствие Node types.
 - Блокеры/решения владельца: нет.
 
-### 2026-08-19 — шаг 4 (частично)
+### 2026-08-19 — шаг 4
 
-- Выполнено: tarball установлен в отдельное Vue/Vite-приложение; через публичные exports подключены CSS, `BaseButton`, `BaseInput`, `DataTable`, `BaseDialog` и `Panel`; добавлено переключение светлой/темной темы.
+- Выполнено: tarball и пакет из Git commit установлены в отдельное Vue/Vite-приложение; через публичные exports подключены CSS, `BaseButton`, `BaseInput`, `DataTable`, `BaseDialog` и `Panel`; добавлено переключение светлой/темной темы.
 - Измененные файлы: `PACKAGE_READINESS_PLAN.md`; временное consumer-приложение создано вне репозитория.
-- Проверки: `npm run pack:check`; tarball содержит только package metadata и `dist/`; consumer typecheck и production build; consumer dev server и CSS отвечают HTTP 200; `npm ls` показывает одну Vue 3.5.41; шрифты встроены в CSS.
-- Осталось: установить пакет непосредственно по Git reference и повторить consumer build.
-- Блокеры/решения владельца: package/build-файлы еще не входят ни в один commit, поэтому Git reference их не содержит. Нужен явный запрос владельца на commit; tag для этой проверки создавать не требуется.
+- Проверки: `npm run pack:check`; tarball содержит только package metadata и `dist/`; установка из commit `c9fbfc7f9471c6b6fa4179bf8ff166d512980310`; consumer typecheck, production build и dev server; публичные ресурсы отвечают HTTP 200; `npm ls` показывает одну Vue 3.5.41; шрифты встроены в CSS.
+- Осталось: шаг 5 — статические проверки.
+- Блокеры/решения владельца: нет.
+
+### 2026-08-19 — шаг 5
+
+- Выполнено: настроены ESLint для Vue 3 и TypeScript и полный `vue-tsc` typecheck; исключены generated directories; исправлены найденные ошибки ключей `v-for`, неиспользуемого props-binding и общего состояния диалогов.
+- Измененные файлы: `eslint.config.js`, `package.json`, `package-lock.json`, `tsconfig.json`, `src/components/data/DataGrid.vue`, `src/components/feedback/BaseDialog.vue`, `src/components/feedback/ConfirmDialog.vue`, `src/components/feedback/FormDialog.vue`, `dist/`, `PACKAGE_READINESS_PLAN.md`.
+- Проверки: чистый `npm ci`; `npm run typecheck`; `npm run lint`; `npm run build`.
+- Осталось: шаг 6 — component tests.
+- Блокеры/решения владельца: нет.
+
+### 2026-08-19 — шаг 6
+
+- Выполнено: настроены Vitest с jsdom и Vue Test Utils; добавлены smoke- и behavioral-тесты всех 17 публичных компонентов, включая props, emits, disabled states, диалоги, slots и ключевые интеракции data-компонентов.
+- Измененные файлы: `vitest.config.ts`, `tests/setup.ts`, `tests/base.spec.ts`, `tests/data.spec.ts`, `tests/feedback.spec.ts`, `tests/layout.spec.ts`, `PACKAGE_READINESS_PLAN.md`.
+- Проверки: `npm run test:run` — 17 тестов в 4 файлах; `npm run check`; нет зависших timers, console errors/warnings и flaky failures.
+- Осталось: шаг 7 — GitHub Actions CI.
+- Блокеры/решения владельца: нет.
 
 ### YYYY-MM-DD — шаг N
 

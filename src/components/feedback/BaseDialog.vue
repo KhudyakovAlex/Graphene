@@ -1,16 +1,19 @@
+<script lang="ts">
+let openDialogCount = 0
+let previousBodyOverflow = ''
+let dialogIdSequence = 0
+const openDialogStack: number[] = []
+const dialogFocusRegistry = new Map<number, () => void>()
+</script>
+
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, useSlots, watch } from 'vue'
 
 type DialogCloseReason = 'backdrop' | 'escape' | 'close-button'
 type FocusableElement = HTMLElement
 
-let openDialogCount = 0
-let previousBodyOverflow = ''
-let dialogIdSequence = 0
-const openDialogStack: number[] = []
-const dialogFocusRegistry = new Map<number, () => void>()
-
-const dialogId = ++dialogIdSequence
+dialogIdSequence += 1
+const dialogId = dialogIdSequence
 const titleId = `g-base-dialog-title-${dialogId}`
 
 const props = withDefaults(

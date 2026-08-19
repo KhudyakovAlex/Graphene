@@ -5,7 +5,7 @@ import BaseDialog from './BaseDialog.vue'
 type DialogCloseReason = 'backdrop' | 'escape' | 'close-button'
 type ConfirmDialogConfirmVariant = 'primary' | 'secondary'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     modelValue?: boolean
     title?: string

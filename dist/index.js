@@ -29,7 +29,7 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 	"checked",
 	"disabled",
 	"aria-label"
-], L = /*#__PURE__*/ P(/* @__PURE__ */ u({
+], te = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseCheckbox",
 	props: {
 		modelValue: {
@@ -65,23 +65,23 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			focusable: "false"
 		}, [o("path", { d: "M2 5.2 4.1 7.3 8 2.7" })])], -1)], 2));
 	}
-}), [["__scopeId", "data-v-4872bbb8"]]), R = {
+}), [["__scopeId", "data-v-4872bbb8"]]), L = {
 	key: 0,
 	class: "g-base-input__label"
-}, z = { class: "g-base-input__field" }, te = [
+}, ne = { class: "g-base-input__field" }, R = [
 	"value",
 	"type",
 	"placeholder",
 	"disabled",
 	"readonly",
 	"aria-invalid"
-], ne = {
+], re = {
 	key: 0,
 	class: "g-base-input__trailing"
-}, B = {
+}, z = {
 	key: 1,
 	class: "g-base-input__helper"
-}, re = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, B = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseInput",
 	props: {
 		modelValue: { default: "" },
@@ -120,8 +120,8 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			"g-base-input--disabled": n.disabled,
 			"g-base-input--invalid": n.invalid
 		}]]) }, [
-			n.label ? (b(), a("span", R, T(n.label), 1)) : i("", !0),
-			o("span", z, [o("input", {
+			n.label ? (b(), a("span", L, T(n.label), 1)) : i("", !0),
+			o("span", ne, [o("input", {
 				class: "g-base-input__control",
 				value: n.modelValue,
 				type: n.type,
@@ -133,11 +133,11 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 				onChange: t[0] ||= (e) => r("change", e),
 				onFocus: t[1] ||= (e) => r("focus", e),
 				onBlur: t[2] ||= (e) => r("blur", e)
-			}, null, 40, te), e.$slots.trailing ? (b(), a("span", ne, [C(e.$slots, "trailing", {}, void 0, !0)])) : i("", !0)]),
-			n.helperText ? (b(), a("span", B, T(n.helperText), 1)) : i("", !0)
+			}, null, 40, R), e.$slots.trailing ? (b(), a("span", re, [C(e.$slots, "trailing", {}, void 0, !0)])) : i("", !0)]),
+			n.helperText ? (b(), a("span", z, T(n.helperText), 1)) : i("", !0)
 		], 2));
 	}
-}), [["__scopeId", "data-v-101f853c"]]), ie = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}), [["__scopeId", "data-v-101f853c"]]), V = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseLink",
 	props: {
 		href: { default: "" },
@@ -170,13 +170,13 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			_: 3
 		}, 16, ["class"]));
 	}
-}), [["__scopeId", "data-v-1baf3b65"]]), V = [
+}), [["__scopeId", "data-v-1baf3b65"]]), H = [
 	"checked",
 	"value",
 	"name",
 	"disabled",
 	"aria-label"
-], H = /*#__PURE__*/ P(/* @__PURE__ */ u({
+], U = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseRadio",
 	props: {
 		modelValue: {
@@ -217,15 +217,15 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			disabled: r.disabled,
 			"aria-label": r.ariaLabel || void 0,
 			onChange: c
-		}, null, 40, V), t[0] ||= o("span", {
+		}, null, 40, H), t[0] ||= o("span", {
 			class: "g-base-radio__box",
 			"aria-hidden": "true"
 		}, [o("span", { class: "g-base-radio__mark" })], -1)], 2));
 	}
-}), [["__scopeId", "data-v-1a38267d"]]), U = "﻿<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\">\r\n  <g transform=\"translate(-72 -72)\">\r\n<path id=\"Icon\" d=\"M90 81L84 88.5L78 81L90 81Z\" fill=\"currentColor\" fill-rule=\"nonzero\" />\r\n  </g>\r\n</svg>\r\n\r\n", W = "﻿<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\">\r\n  <g transform=\"translate(-576 -72)\">\r\n<path id=\"Icon\" d=\"M589.06 84L594 79.0605L592.94 78L588 82.9395L583.06 78L582 79.0605L586.94 84L582 88.9395L583.06 90L588 85.0605L592.94 90L594 88.9395L589.06 84Z\" fill=\"currentColor\" fill-rule=\"nonzero\" />\r\n  </g>\r\n</svg>\r\n\r\n", G = {
+}), [["__scopeId", "data-v-1a38267d"]]), W = "﻿<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\">\r\n  <g transform=\"translate(-72 -72)\">\r\n<path id=\"Icon\" d=\"M90 81L84 88.5L78 81L90 81Z\" fill=\"currentColor\" fill-rule=\"nonzero\" />\r\n  </g>\r\n</svg>\r\n\r\n", G = "﻿<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\">\r\n  <g transform=\"translate(-576 -72)\">\r\n<path id=\"Icon\" d=\"M589.06 84L594 79.0605L592.94 78L588 82.9395L583.06 78L582 79.0605L586.94 84L582 88.9395L583.06 90L588 85.0605L592.94 90L594 88.9395L589.06 84Z\" fill=\"currentColor\" fill-rule=\"nonzero\" />\r\n  </g>\r\n</svg>\r\n\r\n", K = {
 	key: 0,
 	class: "g-base-select__label"
-}, K = { class: "g-base-select__field" }, q = [
+}, q = { class: "g-base-select__field" }, ie = [
 	"multiple",
 	"disabled",
 	"aria-invalid",
@@ -235,14 +235,14 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 	key: 0,
 	value: "",
 	disabled: ""
-}, Y = ["value", "disabled"], X = ["innerHTML"], Z = {
+}, ae = ["value", "disabled"], Y = ["innerHTML"], X = {
 	key: 1,
 	class: "g-base-select__loader",
 	"aria-hidden": "true"
-}, ae = ["innerHTML"], oe = {
+}, oe = ["innerHTML"], se = {
 	key: 1,
 	class: "g-base-select__helper"
-}, se = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, ce = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseSelect",
 	props: {
 		modelValue: { default: "" },
@@ -305,8 +305,8 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			"g-base-select--multiple": s.multiple,
 			"g-base-select--clearable": f.value
 		}]]) }, [
-			s.label ? (b(), a("span", G, T(s.label), 1)) : i("", !0),
-			o("span", K, [
+			s.label ? (b(), a("span", K, T(s.label), 1)) : i("", !0),
+			o("span", q, [
 				A(o("select", {
 					"onUpdate:modelValue": n[0] ||= (e) => d.value = e,
 					class: "g-base-select__control",
@@ -322,7 +322,7 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 					key: e.value,
 					value: e.value,
 					disabled: e.disabled
-				}, T(e.label), 9, Y))), 128))], 40, q), [[D, d.value]]),
+				}, T(e.label), 9, ae))), 128))], 40, ie), [[D, d.value]]),
 				f.value ? (b(), a("button", {
 					key: 0,
 					class: "g-base-select__clear",
@@ -331,26 +331,26 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 					onClick: j(h, ["prevent"])
 				}, [o("span", {
 					"aria-hidden": "true",
-					innerHTML: E(W)
-				}, null, 8, X)])) : i("", !0),
-				s.loading ? (b(), a("span", Z)) : s.multiple ? i("", !0) : (b(), a("span", {
+					innerHTML: E(G)
+				}, null, 8, Y)])) : i("", !0),
+				s.loading ? (b(), a("span", X)) : s.multiple ? i("", !0) : (b(), a("span", {
 					key: 2,
 					class: "g-base-select__indicator",
 					"aria-hidden": "true",
-					innerHTML: E(U)
-				}, null, 8, ae))
+					innerHTML: E(W)
+				}, null, 8, oe))
 			]),
-			s.helperText ? (b(), a("span", oe, T(s.helperText), 1)) : i("", !0)
+			s.helperText ? (b(), a("span", se, T(s.helperText), 1)) : i("", !0)
 		], 2));
 	}
-}), [["__scopeId", "data-v-ebc5594a"]]), Q = [
+}), [["__scopeId", "data-v-ebc5594a"]]), le = [
 	"value",
 	"min",
 	"max",
 	"step",
 	"disabled",
 	"aria-label"
-], $ = /*#__PURE__*/ P(/* @__PURE__ */ u({
+], Z = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseSlider",
 	props: {
 		modelValue: { default: 0 },
@@ -387,26 +387,26 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			"aria-label": n.ariaLabel || void 0,
 			onInput: i,
 			onChange: s
-		}, null, 40, Q)], 2));
+		}, null, 40, le)], 2));
 	}
-}), [["__scopeId", "data-v-2f632190"]]), ce = [
+}), [["__scopeId", "data-v-2f632190"]]), ue = [
 	"checked",
 	"disabled",
 	"aria-label"
-], le = {
+], de = {
 	class: "g-base-switch__track",
 	"aria-hidden": "true"
-}, ue = { class: "g-base-switch__thumb" }, de = {
+}, fe = { class: "g-base-switch__thumb" }, pe = {
 	key: 0,
 	class: "g-base-switch__icon",
 	viewBox: "0 0 10 10",
 	focusable: "false"
-}, fe = {
+}, me = {
 	key: 1,
 	class: "g-base-switch__icon",
 	viewBox: "0 0 10 10",
 	focusable: "false"
-}, pe = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, he = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseSwitch",
 	props: {
 		modelValue: {
@@ -436,22 +436,22 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			disabled: e.disabled,
 			"aria-label": e.ariaLabel || void 0,
 			onChange: r
-		}, null, 40, ce), o("span", le, [o("span", ue, [e.modelValue ? (b(), a("svg", de, [...n[0] ||= [o("path", { d: "M1.5 5.2 3.9 7.5 8.5 2.8" }, null, -1)]])) : (b(), a("svg", fe, [...n[1] ||= [o("path", { d: "M2 2 8 8" }, null, -1), o("path", { d: "M8 2 2 8" }, null, -1)]]))])])], 2));
+		}, null, 40, ue), o("span", de, [o("span", fe, [e.modelValue ? (b(), a("svg", pe, [...n[0] ||= [o("path", { d: "M1.5 5.2 3.9 7.5 8.5 2.8" }, null, -1)]])) : (b(), a("svg", me, [...n[1] ||= [o("path", { d: "M2 2 8 8" }, null, -1), o("path", { d: "M8 2 2 8" }, null, -1)]]))])])], 2));
 	}
-}), [["__scopeId", "data-v-e454f138"]]), me = {
+}), [["__scopeId", "data-v-e454f138"]]), ge = {
 	key: 0,
 	class: "g-base-textarea__label"
-}, he = [
+}, _e = [
 	"value",
 	"placeholder",
 	"rows",
 	"disabled",
 	"readonly",
 	"aria-invalid"
-], ge = {
+], ve = {
 	key: 1,
 	class: "g-base-textarea__helper"
-}, _e = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, ye = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseTextarea",
 	props: {
 		modelValue: { default: "" },
@@ -489,7 +489,7 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			"g-base-textarea--disabled": n.disabled,
 			"g-base-textarea--invalid": n.invalid
 		}]) }, [
-			n.label ? (b(), a("span", me, T(n.label), 1)) : i("", !0),
+			n.label ? (b(), a("span", ge, T(n.label), 1)) : i("", !0),
 			o("textarea", {
 				class: "g-base-textarea__control",
 				value: n.modelValue,
@@ -502,23 +502,23 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 				onChange: t[0] ||= (e) => r("change", e),
 				onFocus: t[1] ||= (e) => r("focus", e),
 				onBlur: t[2] ||= (e) => r("blur", e)
-			}, null, 40, he),
-			n.helperText ? (b(), a("span", ge, T(n.helperText), 1)) : i("", !0)
+			}, null, 40, _e),
+			n.helperText ? (b(), a("span", ve, T(n.helperText), 1)) : i("", !0)
 		], 2));
 	}
-}), [["__scopeId", "data-v-1bb373c8"]]), ve = { class: "g-data-list" }, ye = { class: "g-data-list__item" }, be = { class: "g-data-list__content" }, xe = { class: "g-data-list__title" }, Se = {
+}), [["__scopeId", "data-v-1bb373c8"]]), be = { class: "g-data-list" }, xe = { class: "g-data-list__item" }, Se = { class: "g-data-list__content" }, Ce = { class: "g-data-list__title" }, we = {
 	key: 0,
 	class: "g-data-list__supporting"
-}, Ce = {
+}, Te = {
 	key: 0,
 	class: "g-data-list__aside"
-}, we = {
+}, Ee = {
 	key: 0,
 	class: "g-data-list__meta"
-}, Te = {
+}, De = {
 	key: 1,
 	class: "g-data-list__meta"
-}, Ee = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, Oe = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "DataList",
 	props: { items: {} },
 	setup(t) {
@@ -526,12 +526,12 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 		function r(e, t) {
 			return e.key ?? `${e.title}-${t}`;
 		}
-		return (t, s) => (b(), a("ul", ve, [(b(!0), a(e, null, S(n.items, (e, t) => (b(), a("li", {
+		return (t, s) => (b(), a("ul", be, [(b(!0), a(e, null, S(n.items, (e, t) => (b(), a("li", {
 			key: r(e, t),
 			class: "g-data-list__row"
-		}, [o("div", ye, [o("div", be, [o("p", xe, T(e.title), 1), e.supportingText ? (b(), a("p", Se, T(e.supportingText), 1)) : i("", !0)]), e.meta || e.trailing ? (b(), a("div", Ce, [e.meta ? (b(), a("p", we, T(e.meta), 1)) : i("", !0), e.trailing ? (b(), a("p", Te, T(e.trailing), 1)) : i("", !0)])) : i("", !0)])]))), 128))]));
+		}, [o("div", xe, [o("div", Se, [o("p", Ce, T(e.title), 1), e.supportingText ? (b(), a("p", we, T(e.supportingText), 1)) : i("", !0)]), e.meta || e.trailing ? (b(), a("div", Te, [e.meta ? (b(), a("p", Ee, T(e.meta), 1)) : i("", !0), e.trailing ? (b(), a("p", De, T(e.trailing), 1)) : i("", !0)])) : i("", !0)])]))), 128))]));
 	}
-}), [["__scopeId", "data-v-c4a016fb"]]), De = { class: "g-data-table__table" }, Oe = { class: "g-data-table__head" }, ke = { class: "g-data-table__head-row" }, Ae = ["title"], je = { class: "g-data-table__head-label" }, Me = { class: "g-data-table__body" }, Ne = ["colspan"], Pe = { class: "g-data-table__section-text" }, Fe = ["title"], Ie = { class: "g-data-table__cell-text" }, Le = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}), [["__scopeId", "data-v-c4a016fb"]]), ke = { class: "g-data-table__table" }, Ae = { class: "g-data-table__head" }, je = { class: "g-data-table__head-row" }, Me = ["title"], Ne = { class: "g-data-table__head-label" }, Pe = { class: "g-data-table__body" }, Fe = ["colspan"], Ie = { class: "g-data-table__section-text" }, Le = ["title"], Re = { class: "g-data-table__cell-text" }, ze = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "DataTable",
 	props: {
 		columns: {},
@@ -600,12 +600,12 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 				text: s(a)
 			};
 		}
-		return (t, E) => (b(), a("div", { class: m(["g-data-table", [`g-data-table--layout-${n.layout}`, { "g-data-table--row-hover": n.rowHover }]]) }, [o("table", De, [
+		return (t, E) => (b(), a("div", { class: m(["g-data-table", [`g-data-table--layout-${n.layout}`, { "g-data-table--row-hover": n.rowHover }]]) }, [o("table", ke, [
 			o("colgroup", null, [(b(!0), a(e, null, S(n.columns, (e) => (b(), a("col", {
 				key: e.key,
 				style: g(y(e))
 			}, null, 4))), 128))]),
-			o("thead", Oe, [o("tr", ke, [(b(!0), a(e, null, S(n.columns, (e, n) => (b(), a("th", {
+			o("thead", Ae, [o("tr", je, [(b(!0), a(e, null, S(n.columns, (e, n) => (b(), a("th", {
 				key: e.key,
 				class: m(["g-data-table__head-cell", [
 					`g-data-table__head-cell--${_(e)}`,
@@ -614,8 +614,8 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 				]]),
 				scope: "col",
 				title: v(e) === "ellipsis" ? e.label : void 0
-			}, [C(t.$slots, `header-${e.key}`, f({ ref_for: !0 }, x(e, n)), () => [C(t.$slots, "header", f({ ref_for: !0 }, x(e, n)), () => [o("span", je, T(e.label), 1)], !0)], !0)], 10, Ae))), 128))])]),
-			o("tbody", Me, [(b(!0), a(e, null, S(n.rows, (y, x) => (b(), a(e, { key: r(y, x) }, [l(y) ? (b(), a("tr", {
+			}, [C(t.$slots, `header-${e.key}`, f({ ref_for: !0 }, x(e, n)), () => [C(t.$slots, "header", f({ ref_for: !0 }, x(e, n)), () => [o("span", Ne, T(e.label), 1)], !0)], !0)], 10, Me))), 128))])]),
+			o("tbody", Pe, [(b(!0), a(e, null, S(n.rows, (y, x) => (b(), a(e, { key: r(y, x) }, [l(y) ? (b(), a("tr", {
 				key: 0,
 				class: m(["g-data-table__row g-data-table__row--section", { "g-data-table__row--tinted": u(y) }]),
 				style: g(p(y))
@@ -626,7 +626,7 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 				row: y,
 				rowIndex: x,
 				label: d(y)
-			}, () => [o("span", Pe, T(d(y)), 1)], !0)], 8, Ne)], 6)) : (b(), a("tr", {
+			}, () => [o("span", Ie, T(d(y)), 1)], !0)], 8, Fe)], 6)) : (b(), a("tr", {
 				key: 1,
 				class: m(["g-data-table__row", [`g-data-table__row--${c(y)}`, { "g-data-table__row--tinted": u(y) }]]),
 				style: g(p(y))
@@ -638,28 +638,28 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 					{ "g-data-table__cell--muted": e.muted }
 				]]),
 				title: v(e) === "ellipsis" && s(i(y, e.key)) || void 0
-			}, [C(t.$slots, `cell-${e.key}`, f({ ref_for: !0 }, w(y, e, x, n)), () => [C(t.$slots, "cell", f({ ref_for: !0 }, w(y, e, x, n)), () => [o("span", Ie, T(s(i(y, e.key))), 1)], !0)], !0)], 10, Fe))), 128))], 6))], 64))), 128))])
+			}, [C(t.$slots, `cell-${e.key}`, f({ ref_for: !0 }, w(y, e, x, n)), () => [C(t.$slots, "cell", f({ ref_for: !0 }, w(y, e, x, n)), () => [o("span", Re, T(s(i(y, e.key))), 1)], !0)], !0)], 10, Le))), 128))], 6))], 64))), 128))])
 		])], 2));
 	}
-}), [["__scopeId", "data-v-2b807707"]]), Re = { class: "g-data-grid" }, ze = {
+}), [["__scopeId", "data-v-2b807707"]]), Be = { class: "g-data-grid" }, Ve = {
 	key: 0,
 	class: "g-data-grid__toolbar"
-}, Be = {
+}, He = {
 	key: 0,
 	class: "g-data-grid__filters"
-}, Ve = {
+}, Ue = {
 	key: 1,
 	class: "g-data-grid__visibility"
-}, He = { class: "g-data-grid__visibility-list" }, Ue = { class: "g-data-grid__toolbar-actions" }, We = {
+}, We = { class: "g-data-grid__visibility-list" }, Ge = { class: "g-data-grid__toolbar-actions" }, Ke = {
 	key: 1,
 	class: "g-data-grid__empty"
-}, Ge = { class: "g-data-grid__head-content" }, Ke = ["aria-label", "onClick"], qe = { class: "g-data-grid__head-label" }, Je = {
+}, qe = { class: "g-data-grid__head-content" }, Je = ["aria-label", "onClick"], Ye = { class: "g-data-grid__head-label" }, Xe = {
 	class: "g-data-grid__sort-indicator",
 	"aria-hidden": "true"
-}, Ye = {
+}, Ze = {
 	key: 1,
 	class: "g-data-grid__head-label"
-}, Xe = ["onKeydown", "onPointerdown"], Ze = { class: "g-data-table__cell-text" }, Qe = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, Qe = ["onKeydown", "onPointerdown"], $e = { class: "g-data-table__cell-text" }, et = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "DataGrid",
 	props: {
 		columns: {},
@@ -696,192 +696,192 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 		let A = n(() => f.columns.filter((e) => !w.value.includes(e.key)).map((e) => ({
 			...e,
 			width: E.value[e.key] ?? e.width
-		}))), j = n(() => A.value.filter((e) => e.filterable)), M = n(() => f.columns.filter((e) => e.hideable)), N = n(() => !!g.toolbar || j.value.length > 0 || M.value.length > 0), P = n(() => ne(f.rows.filter((e) => z(e, y.value)), v.value));
+		}))), j = n(() => A.value.filter((e) => e.filterable)), M = n(() => f.columns.filter((e) => e.hideable)), N = n(() => !!g.toolbar || j.value.length > 0 || M.value.length > 0), P = n(() => re(f.rows.filter((e) => ne(e, y.value)), v.value));
 		_(() => {
-			$();
+			Z();
 		});
 		function I(e, t = []) {
 			let n = new Set(t);
 			for (let t of e) t.defaultHidden && n.add(t.key);
 			return [...n];
 		}
-		function R(e) {
+		function L(e) {
 			return e == null ? "" : String(e).trim().toLowerCase();
 		}
-		function z(e, t) {
+		function ne(e, t) {
 			return Object.entries(t).every(([t, n]) => {
-				let r = R(n);
-				return !r || R(e[t]).includes(r);
+				let r = L(n);
+				return !r || L(e[t]).includes(r);
 			});
 		}
-		function te(e, t) {
-			return typeof e == "number" && typeof t == "number" ? e - t : typeof e == "boolean" && typeof t == "boolean" ? Number(e) - Number(t) : R(e).localeCompare(R(t), "ru");
+		function R(e, t) {
+			return typeof e == "number" && typeof t == "number" ? e - t : typeof e == "boolean" && typeof t == "boolean" ? Number(e) - Number(t) : L(e).localeCompare(L(t), "ru");
 		}
-		function ne(e, t) {
+		function re(e, t) {
 			if (!t) return e;
 			let n = t.direction === "asc" ? 1 : -1;
 			return e.map((e, t) => ({
 				row: e,
 				index: t
 			})).sort((e, r) => {
-				let i = te(e.row[t.key], r.row[t.key]);
+				let i = R(e.row[t.key], r.row[t.key]);
 				return i === 0 ? e.index - r.index : i * n;
 			}).map((e) => e.row);
 		}
-		function B(e) {
+		function z(e) {
 			return v.value?.key === e ? v.value.direction : null;
 		}
-		function ie(e) {
-			let t = B(e);
+		function V(e) {
+			let t = z(e);
 			return t === "asc" ? "↑" : t === "desc" ? "↓" : "↕";
 		}
-		function V(e) {
+		function H(e) {
 			v.value = e, p("update:sort", e);
 		}
-		function H(e) {
+		function U(e) {
 			if (!e.sortable) return;
 			let t = v.value;
 			if (!t || t.key !== e.key) {
-				V({
+				H({
 					key: e.key,
 					direction: "asc"
 				});
 				return;
 			}
 			if (t.direction === "asc") {
-				V({
+				H({
 					key: e.key,
 					direction: "desc"
 				});
 				return;
 			}
-			V(null);
+			H(null);
 		}
-		function U(e, t) {
+		function W(e, t) {
 			let n = { ...y.value };
 			t.trim() ? n[e] = t : delete n[e], y.value = n, p("update:filters", n);
 		}
-		function W(e) {
+		function G(e) {
 			w.value = e, p("update:hiddenColumnKeys", e);
 		}
-		function G(e, t) {
+		function K(e, t) {
 			let n = new Set(w.value);
-			t ? n.delete(e) : n.add(e), W([...n]);
+			t ? n.delete(e) : n.add(e), G([...n]);
 		}
-		function K(e) {
+		function q(e) {
 			E.value = e, p("update:columnWidths", e);
 		}
-		function q() {
+		function ie() {
 			J({});
 		}
 		function J(e) {
 			y.value = e, p("update:filters", e);
 		}
-		function Y() {
-			V(null), J({}), W(I(f.columns)), K({});
+		function ae() {
+			H(null), J({}), G(I(f.columns)), q({});
 		}
-		function X(e) {
+		function Y(e) {
 			if (!e) return null;
 			let t = e.trim();
 			if (!t.endsWith("px")) return null;
 			let n = Number.parseFloat(t);
 			return Number.isFinite(n) ? n : null;
 		}
-		function Z(e) {
-			return X(e.minWidth) ?? X(e.width) ?? X(E.value[e.key]) ?? 96;
+		function X(e) {
+			return Y(e.minWidth) ?? Y(e.width) ?? Y(E.value[e.key]) ?? 96;
 		}
-		function ae(e) {
-			return X(E.value[e.key]) ?? X(e.width) ?? Z(e);
+		function oe(e) {
+			return Y(E.value[e.key]) ?? Y(e.width) ?? X(e);
 		}
-		function oe(e, t) {
-			let n = Math.max(Z(e), ae(e) + t);
-			K({
+		function se(e, t) {
+			let n = Math.max(X(e), oe(e) + t);
+			q({
 				...E.value,
 				[e.key]: `${Math.round(n)}px`
 			});
 		}
-		function se(e, t) {
+		function ce(e, t) {
 			let n = e.currentTarget.closest("th");
 			n && (D.value = {
 				columnKey: t.key,
-				minWidth: Z(t),
+				minWidth: X(t),
 				pointerId: e.pointerId,
 				startWidth: n.getBoundingClientRect().width,
 				startX: e.clientX
-			}, window.addEventListener("pointermove", Q), window.addEventListener("pointerup", $), window.addEventListener("pointercancel", $), e.preventDefault(), e.stopPropagation());
+			}, window.addEventListener("pointermove", le), window.addEventListener("pointerup", Z), window.addEventListener("pointercancel", Z), e.preventDefault(), e.stopPropagation());
 		}
-		function Q(e) {
+		function le(e) {
 			let t = D.value;
 			if (!t || e.pointerId !== t.pointerId) return;
 			let n = Math.max(t.minWidth, t.startWidth + e.clientX - t.startX);
-			K({
+			q({
 				...E.value,
 				[t.columnKey]: `${Math.round(n)}px`
 			});
 		}
-		function $(e) {
-			e && D.value && e.pointerId !== D.value.pointerId || (D.value = null, window.removeEventListener("pointermove", Q), window.removeEventListener("pointerup", $), window.removeEventListener("pointercancel", $));
+		function Z(e) {
+			e && D.value && e.pointerId !== D.value.pointerId || (D.value = null, window.removeEventListener("pointermove", le), window.removeEventListener("pointerup", Z), window.removeEventListener("pointercancel", Z));
 		}
-		function ce(e, t) {
-			e.key === "ArrowLeft" && (e.preventDefault(), oe(t, -16)), e.key === "ArrowRight" && (e.preventDefault(), oe(t, 16));
+		function ue(e, t) {
+			e.key === "ArrowLeft" && (e.preventDefault(), se(t, -16)), e.key === "ArrowRight" && (e.preventDefault(), se(t, 16));
 		}
-		function le() {
+		function de() {
 			return {
 				columnWidths: E.value,
 				columns: f.columns,
 				filters: y.value,
 				hiddenColumnKeys: w.value,
-				resetGrid: Y,
-				setColumnVisibility: G,
-				setFilter: U,
-				setSort: V,
+				resetGrid: ae,
+				setColumnVisibility: K,
+				setFilter: W,
+				setSort: H,
 				sort: v.value,
-				toggleSort: H,
+				toggleSort: U,
 				visibleColumns: A.value
 			};
 		}
-		function ue(e, t) {
+		function fe(e, t) {
 			return {
 				...e,
 				sort: v.value,
-				sortDirection: B(t.key),
-				toggleSort: H
+				sortDirection: z(t.key),
+				toggleSort: U
 			};
 		}
-		function de(e) {
+		function pe(e) {
 			return {
 				...e,
 				sort: v.value
 			};
 		}
-		return (t, n) => (b(), a("section", Re, [N.value ? (b(), a("div", ze, [C(t.$slots, "toolbar", h(d(le())), () => [
-			j.value.length > 0 ? (b(), a("div", Be, [(b(!0), a(e, null, S(j.value, (e) => (b(), r(re, {
+		return (t, n) => (b(), a("section", Be, [N.value ? (b(), a("div", Ve, [C(t.$slots, "toolbar", h(d(de())), () => [
+			j.value.length > 0 ? (b(), a("div", He, [(b(!0), a(e, null, S(j.value, (e) => (b(), r(B, {
 				key: e.key,
 				label: e.label,
 				"model-value": y.value[e.key] ?? "",
 				placeholder: "Фильтр",
 				size: "sm",
-				"onUpdate:modelValue": (t) => U(e.key, t)
+				"onUpdate:modelValue": (t) => W(e.key, t)
 			}, null, 8, [
 				"label",
 				"model-value",
 				"onUpdate:modelValue"
 			]))), 128))])) : i("", !0),
-			M.value.length > 0 ? (b(), a("div", Ve, [n[0] ||= o("p", { class: "g-data-grid__toolbar-title" }, "Колонки", -1), o("div", He, [(b(!0), a(e, null, S(M.value, (e) => (b(), a("div", {
+			M.value.length > 0 ? (b(), a("div", Ue, [n[0] ||= o("p", { class: "g-data-grid__toolbar-title" }, "Колонки", -1), o("div", We, [(b(!0), a(e, null, S(M.value, (e) => (b(), a("div", {
 				key: e.key,
 				class: "g-data-grid__visibility-item"
-			}, [l(L, {
+			}, [l(te, {
 				"model-value": !w.value.includes(e.key),
 				"aria-label": `Показать колонку ${e.label}`,
-				"onUpdate:modelValue": (t) => G(e.key, t)
+				"onUpdate:modelValue": (t) => K(e.key, t)
 			}, null, 8, [
 				"model-value",
 				"aria-label",
 				"onUpdate:modelValue"
 			]), o("span", null, T(e.label), 1)]))), 128))])])) : i("", !0),
-			o("div", Ue, [l(F, {
+			o("div", Ge, [l(F, {
 				size: "sm",
-				onClick: Y
+				onClick: ae
 			}, {
 				default: k(() => [...n[1] ||= [c("Сбросить вид", -1)]]),
 				_: 1
@@ -889,12 +889,12 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 				key: 0,
 				size: "sm",
 				variant: "secondary",
-				onClick: q
+				onClick: ie
 			}, {
 				default: k(() => [...n[2] ||= [c(" Очистить фильтры ", -1)]]),
 				_: 1
 			})) : i("", !0)])
-		], !0)])) : i("", !0), A.value.length === 0 ? (b(), a("div", We, " Скрыты все колонки. Покажите хотя бы одну колонку в настройках вида. ")) : (b(), r(Le, {
+		], !0)])) : i("", !0), A.value.length === 0 ? (b(), a("div", Ke, " Скрыты все колонки. Покажите хотя бы одну колонку в настройках вида. ")) : (b(), r(ze, {
 			key: 2,
 			columns: A.value,
 			layout: f.layout,
@@ -902,24 +902,24 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			rows: P.value
 		}, s({ _: 2 }, [S(A.value, (e) => ({
 			name: `header-${e.key}`,
-			fn: k((n) => [C(t.$slots, `header-${e.key}`, h(d(ue(n, e))), () => [C(t.$slots, "header", h(d(ue(n, e))), () => [o("div", Ge, [e.sortable ? (b(), a("button", {
+			fn: k((n) => [C(t.$slots, `header-${e.key}`, h(d(fe(n, e))), () => [C(t.$slots, "header", h(d(fe(n, e))), () => [o("div", qe, [e.sortable ? (b(), a("button", {
 				key: 0,
 				type: "button",
-				class: m(["g-data-grid__sort-button", { "g-data-grid__sort-button--active": B(e.key) !== null }]),
+				class: m(["g-data-grid__sort-button", { "g-data-grid__sort-button--active": z(e.key) !== null }]),
 				"aria-label": `Сменить сортировку по колонке ${e.label}`,
-				onClick: (t) => H(e)
-			}, [o("span", qe, T(e.label), 1), o("span", Je, T(ie(e.key)), 1)], 10, Ke)) : (b(), a("span", Ye, T(e.label), 1)), e.resizable ? (b(), a("span", {
+				onClick: (t) => U(e)
+			}, [o("span", Ye, T(e.label), 1), o("span", Xe, T(V(e.key)), 1)], 10, Je)) : (b(), a("span", Ze, T(e.label), 1)), e.resizable ? (b(), a("span", {
 				key: 2,
 				class: "g-data-grid__resize-handle",
 				"aria-label": "Изменить ширину колонки",
 				role: "separator",
 				tabindex: "0",
-				onKeydown: (t) => ce(t, e),
-				onPointerdown: (t) => se(t, e)
-			}, null, 40, Xe)) : i("", !0)])], !0)], !0)])
+				onKeydown: (t) => ue(t, e),
+				onPointerdown: (t) => ce(t, e)
+			}, null, 40, Qe)) : i("", !0)])], !0)], !0)])
 		})), S(A.value, (e) => ({
 			name: `cell-${e.key}`,
-			fn: k((n) => [C(t.$slots, `cell-${e.key}`, h(d(de(n))), () => [C(t.$slots, "cell", h(d(de(n))), () => [o("span", Ze, T(n.text), 1)], !0)], !0)])
+			fn: k((n) => [C(t.$slots, `cell-${e.key}`, h(d(pe(n))), () => [C(t.$slots, "cell", h(d(pe(n))), () => [o("span", $e, T(n.text), 1)], !0)], !0)])
 		}))]), 1032, [
 			"columns",
 			"layout",
@@ -927,7 +927,7 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			"rows"
 		]))]));
 	}
-}), [["__scopeId", "data-v-17871d20"]]), $e = { class: "g-property-list" }, et = { class: "g-property-list__label" }, tt = { class: "g-property-list__value" }, nt = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}), [["__scopeId", "data-v-2e5bc0d1"]]), tt = { class: "g-property-list" }, nt = { class: "g-property-list__label" }, rt = { class: "g-property-list__value" }, it = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "PropertyList",
 	props: { items: {} },
 	setup(t) {
@@ -935,18 +935,18 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 		function r(e, t) {
 			return e.key ?? `${e.label}-${t}`;
 		}
-		return (t, i) => (b(), a("dl", $e, [(b(!0), a(e, null, S(n.items, (e, t) => (b(), a("div", {
+		return (t, i) => (b(), a("dl", tt, [(b(!0), a(e, null, S(n.items, (e, t) => (b(), a("div", {
 			key: r(e, t),
 			class: "g-property-list__row"
-		}, [o("dt", et, T(e.label), 1), o("dd", tt, T(e.value), 1)]))), 128))]));
+		}, [o("dt", nt, T(e.label), 1), o("dd", rt, T(e.value), 1)]))), 128))]));
 	}
-}), [["__scopeId", "data-v-100011a3"]]), rt = ["aria-labelledby", "aria-label"], it = {
+}), [["__scopeId", "data-v-100011a3"]]), at = ["aria-labelledby", "aria-label"], ot = {
 	key: 0,
 	class: "g-base-dialog__header"
-}, at = ["aria-label"], ot = { class: "g-base-dialog__body" }, st = {
+}, st = ["aria-label"], ct = { class: "g-base-dialog__body" }, lt = {
 	key: 1,
 	class: "g-base-dialog__footer"
-}, ct = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, Q = 0, ut = "", dt = 0, $ = [], ft = /* @__PURE__ */ new Map(), pt = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "BaseDialog",
 	props: {
 		modelValue: {
@@ -970,12 +970,13 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 	},
 	emits: ["update:modelValue", "close"],
 	setup(e, { emit: s }) {
-		let l = 0, u = "", d = 0, f = [], m = /* @__PURE__ */ new Map(), h = ++d, g = `g-base-dialog-title-${h}`, _ = e, S = s, w = ee(), E = x(null), D = x(null), k = x(!1), A = x(!1), M = null, N = n(() => !!(_.title || w.title)), P = n(() => N.value || _.showCloseButton), F = n(() => !!w.footer), I = n(() => N.value ? void 0 : _.ariaLabel || "Dialog");
-		function L() {
-			return f[f.length - 1] === h;
+		dt += 1;
+		let l = dt, u = `g-base-dialog-title-${l}`, d = e, f = s, m = ee(), h = x(null), g = x(null), _ = x(!1), S = x(!1), w = null, E = n(() => !!(d.title || m.title)), D = n(() => E.value || d.showCloseButton), k = n(() => !!m.footer), A = n(() => E.value ? void 0 : d.ariaLabel || "Dialog");
+		function M() {
+			return $[$.length - 1] === l;
 		}
-		function R() {
-			if (!E.value) return [];
+		function N() {
+			if (!h.value) return [];
 			let e = [
 				"a[href]",
 				"button:not([disabled])",
@@ -984,135 +985,135 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 				"textarea:not([disabled])",
 				"[tabindex]:not([tabindex=\"-1\"])"
 			].join(", ");
-			return Array.from(E.value.querySelectorAll(e)).filter((e) => e instanceof HTMLElement && !e.hasAttribute("hidden") && e.tabIndex >= 0);
+			return Array.from(h.value.querySelectorAll(e)).filter((e) => e instanceof HTMLElement && !e.hasAttribute("hidden") && e.tabIndex >= 0);
 		}
-		function z() {
-			if (_.showCloseButton && D.value) {
-				D.value.focus();
+		function P() {
+			if (d.showCloseButton && g.value) {
+				g.value.focus();
 				return;
 			}
-			let [e] = R();
+			let [e] = N();
 			if (e) {
 				e.focus();
 				return;
 			}
-			E.value?.focus();
+			h.value?.focus();
+		}
+		function F() {
+			let e = $[$.length - 1];
+			ft.get(e)?.();
+		}
+		function I(e) {
+			if (!h.value) return;
+			let t = N();
+			if (t.length === 0) {
+				e.preventDefault(), h.value.focus();
+				return;
+			}
+			let n = t[0], r = t[t.length - 1], i = document.activeElement, a = i instanceof Node && h.value.contains(i);
+			if (e.shiftKey) {
+				(!a || i === n || i === h.value) && (e.preventDefault(), r.focus());
+				return;
+			}
+			(!a || i === r || i === h.value) && (e.preventDefault(), n.focus());
 		}
 		function te() {
-			let e = f[f.length - 1];
-			m.get(e)?.();
+			typeof document > "u" || _.value || (Q === 0 && (ut = document.body.style.overflow), Q += 1, document.body.style.overflow = "hidden", _.value = !0);
 		}
-		function ne(e) {
-			if (!E.value) return;
-			let t = R();
-			if (t.length === 0) {
-				e.preventDefault(), E.value.focus();
-				return;
-			}
-			let n = t[0], r = t[t.length - 1], i = document.activeElement, a = i instanceof Node && E.value.contains(i);
-			if (e.shiftKey) {
-				(!a || i === n || i === E.value) && (e.preventDefault(), r.focus());
-				return;
-			}
-			(!a || i === r || i === E.value) && (e.preventDefault(), n.focus());
+		function L() {
+			S.value ||= ($.push(l), !0);
 		}
-		function B() {
-			typeof document > "u" || k.value || (l === 0 && (u = document.body.style.overflow), l += 1, document.body.style.overflow = "hidden", k.value = !0);
+		function ne() {
+			typeof document > "u" || !_.value || (Q = Math.max(0, Q - 1), Q === 0 && (document.body.style.overflow = ut), _.value = !1);
+		}
+		function R() {
+			if (!S.value) return;
+			let e = $.lastIndexOf(l);
+			e !== -1 && $.splice(e, 1), S.value = !1;
 		}
 		function re() {
-			A.value ||= (f.push(h), !0);
-		}
-		function ie() {
-			typeof document > "u" || !k.value || (l = Math.max(0, l - 1), l === 0 && (document.body.style.overflow = u), k.value = !1);
-		}
-		function V() {
-			if (!A.value) return;
-			let e = f.lastIndexOf(h);
-			e !== -1 && f.splice(e, 1), A.value = !1;
-		}
-		function H() {
-			let e = M;
-			M = null, p(() => {
+			let e = w;
+			w = null, p(() => {
 				if (e?.isConnected) {
 					e.focus();
 					return;
 				}
-				te();
+				F();
 			});
 		}
-		function U() {
-			typeof document < "u" && !A.value && (M = document.activeElement instanceof HTMLElement ? document.activeElement : null), re(), B();
+		function z() {
+			typeof document < "u" && !S.value && (w = document.activeElement instanceof HTMLElement ? document.activeElement : null), L(), te();
 		}
-		function W() {
-			let e = L();
-			V(), ie(), e && H();
+		function B() {
+			let e = M();
+			R(), ne(), e && re();
 		}
-		function G(e) {
-			S("update:modelValue", !1), S("close", e);
+		function V(e) {
+			f("update:modelValue", !1), f("close", e);
 		}
-		function K() {
-			_.closeOnBackdrop && G("backdrop");
+		function H() {
+			d.closeOnBackdrop && V("backdrop");
 		}
-		function q(e) {
-			if (!(!_.modelValue || !L())) {
+		function U(e) {
+			if (!(!d.modelValue || !M())) {
 				if (e.key === "Tab") {
-					ne(e);
+					I(e);
 					return;
 				}
-				e.key === "Escape" && _.closeOnEscape && (e.preventDefault(), G("escape"));
+				e.key === "Escape" && d.closeOnEscape && (e.preventDefault(), V("escape"));
 			}
 		}
-		return O(() => _.modelValue, async (e, t) => {
+		return O(() => d.modelValue, async (e, t) => {
 			if (e) {
-				U(), await p(), z();
+				z(), await p(), P();
 				return;
 			}
-			t && W();
+			t && B();
 		}, { immediate: !0 }), v(() => {
-			m.set(h, z), document.addEventListener("keydown", q);
+			ft.set(l, P), document.addEventListener("keydown", U);
 		}), y(() => {
-			m.delete(h), document.removeEventListener("keydown", q), W();
+			ft.delete(l), document.removeEventListener("keydown", U), B();
 		}), (n, s) => (b(), r(t, { to: "body" }, [e.modelValue ? (b(), a("div", {
 			key: 0,
 			class: "g-base-dialog",
-			onClick: j(K, ["self"])
+			onClick: j(H, ["self"])
 		}, [s[2] ||= o("div", {
 			class: "g-base-dialog__backdrop",
 			"aria-hidden": "true"
 		}, null, -1), o("section", {
 			ref_key: "panelRef",
-			ref: E,
+			ref: h,
 			class: "g-base-dialog__panel",
 			role: "dialog",
 			"aria-modal": "true",
-			"aria-labelledby": N.value ? g : void 0,
-			"aria-label": I.value,
+			"aria-labelledby": E.value ? u : void 0,
+			"aria-label": A.value,
 			tabindex: "-1"
 		}, [
-			P.value ? (b(), a("header", it, [N.value ? (b(), a("h2", {
+			D.value ? (b(), a("header", ot, [E.value ? (b(), a("h2", {
 				key: 0,
-				id: g,
+				id: u,
 				class: "g-base-dialog__title"
 			}, [C(n.$slots, "title", {}, () => [c(T(e.title), 1)], !0)])) : i("", !0), e.showCloseButton ? (b(), a("button", {
 				key: 1,
 				ref_key: "closeButtonRef",
-				ref: D,
+				ref: g,
 				class: "g-base-dialog__close",
 				type: "button",
-				"aria-label": N.value ? "Close dialog" : "Close",
-				onClick: s[0] ||= (e) => G("close-button")
+				"aria-label": E.value ? "Close dialog" : "Close",
+				onClick: s[0] ||= (e) => V("close-button")
 			}, [...s[1] ||= [o("span", {
 				class: "g-base-dialog__close-icon",
 				"aria-hidden": "true"
-			}, null, -1)]], 8, at)) : i("", !0)])) : i("", !0),
-			o("div", ot, [C(n.$slots, "default", {}, void 0, !0)]),
-			F.value ? (b(), a("footer", st, [C(n.$slots, "footer", {}, void 0, !0)])) : i("", !0)
-		], 8, rt)])) : i("", !0)]));
+			}, null, -1)]], 8, st)) : i("", !0)])) : i("", !0),
+			o("div", ct, [C(n.$slots, "default", {}, void 0, !0)]),
+			k.value ? (b(), a("footer", lt, [C(n.$slots, "footer", {}, void 0, !0)])) : i("", !0)
+		], 8, at)])) : i("", !0)]));
 	}
-}), [["__scopeId", "data-v-218519b0"]]), lt = { class: "g-confirm-dialog" }, ut = {
+}), [["__scopeId", "data-v-e5ff3e47"]]), mt = { class: "g-confirm-dialog" }, ht = {
 	key: 0,
 	class: "g-confirm-dialog__description"
-}, dt = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, gt = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "ConfirmDialog",
 	props: {
 		modelValue: {
@@ -1163,7 +1164,7 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 		function d(e) {
 			n("close", e);
 		}
-		return (t, f) => (b(), r(ct, {
+		return (t, f) => (b(), r(pt, {
 			"model-value": e.modelValue,
 			title: e.title,
 			"aria-label": e.ariaLabel,
@@ -1187,7 +1188,7 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 				default: k(() => [c(T(e.confirmText), 1)]),
 				_: 1
 			}, 8, ["variant", "disabled"])], !0)]),
-			default: k(() => [o("div", lt, [e.description ? (b(), a("p", ut, T(e.description), 1)) : i("", !0), C(t.$slots, "default", {}, void 0, !0)])]),
+			default: k(() => [o("div", mt, [e.description ? (b(), a("p", ht, T(e.description), 1)) : i("", !0), C(t.$slots, "default", {}, void 0, !0)])]),
 			_: 3
 		}, 8, [
 			"model-value",
@@ -1198,10 +1199,10 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			"show-close-button"
 		]));
 	}
-}), [["__scopeId", "data-v-6102c5ae"]]), ft = ["id", "aria-busy"], pt = {
+}), [["__scopeId", "data-v-b60e1d7f"]]), _t = ["id", "aria-busy"], vt = {
 	key: 0,
 	class: "g-form-dialog__description"
-}, mt = { class: "g-form-dialog__body" }, ht = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}, yt = { class: "g-form-dialog__body" }, bt = 0, xt = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "FormDialog",
 	props: {
 		modelValue: {
@@ -1246,47 +1247,48 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 		"close"
 	],
 	setup(e, { emit: t }) {
-		let s = 0, u = ++s, d = e, f = t, p = n(() => d.formId || `g-form-dialog-form-${u}`), m = n(() => d.submitDisabled || d.submitting), h = n(() => d.cancelDisabled || d.submitting);
-		function g() {
-			h.value || (f("cancel"), f("update:modelValue", !1));
+		bt += 1;
+		let s = bt, u = e, d = t, f = n(() => u.formId || `g-form-dialog-form-${s}`), p = n(() => u.submitDisabled || u.submitting), m = n(() => u.cancelDisabled || u.submitting);
+		function h() {
+			m.value || (d("cancel"), d("update:modelValue", !1));
+		}
+		function g(e) {
+			p.value || d("submit", e);
 		}
 		function _(e) {
-			m.value || f("submit", e);
+			d("close", e);
 		}
-		function v(e) {
-			f("close", e);
-		}
-		return (t, n) => (b(), r(ct, {
+		return (t, n) => (b(), r(pt, {
 			"model-value": e.modelValue,
 			title: e.title,
 			"aria-label": e.ariaLabel,
 			"close-on-backdrop": e.closeOnBackdrop,
 			"close-on-escape": e.closeOnEscape,
 			"show-close-button": e.showCloseButton,
-			"onUpdate:modelValue": n[0] ||= (e) => f("update:modelValue", e),
-			onClose: v
+			"onUpdate:modelValue": n[0] ||= (e) => d("update:modelValue", e),
+			onClose: _
 		}, {
 			footer: k(() => [C(t.$slots, "footer", {}, () => [l(F, {
-				disabled: h.value,
-				onClick: g
+				disabled: m.value,
+				onClick: h
 			}, {
 				default: k(() => [c(T(e.cancelText), 1)]),
 				_: 1
 			}, 8, ["disabled"]), l(F, {
 				variant: "primary",
 				type: "submit",
-				form: p.value,
-				disabled: m.value
+				form: f.value,
+				disabled: p.value
 			}, {
 				default: k(() => [c(T(e.submitText), 1)]),
 				_: 1
 			}, 8, ["form", "disabled"])], !0)]),
 			default: k(() => [o("form", {
-				id: p.value,
+				id: f.value,
 				class: "g-form-dialog",
 				"aria-busy": e.submitting || void 0,
-				onSubmit: j(_, ["prevent"])
-			}, [e.description ? (b(), a("p", pt, T(e.description), 1)) : i("", !0), o("div", mt, [C(t.$slots, "default", {}, void 0, !0)])], 40, ft)]),
+				onSubmit: j(g, ["prevent"])
+			}, [e.description ? (b(), a("p", vt, T(e.description), 1)) : i("", !0), o("div", yt, [C(t.$slots, "default", {}, void 0, !0)])], 40, _t)]),
 			_: 3
 		}, 8, [
 			"model-value",
@@ -1297,7 +1299,7 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 			"show-close-button"
 		]));
 	}
-}), [["__scopeId", "data-v-ba80d46e"]]), gt = /*#__PURE__*/ P(/* @__PURE__ */ u({
+}), [["__scopeId", "data-v-ca2ec71d"]]), St = /*#__PURE__*/ P(/* @__PURE__ */ u({
 	__name: "Panel",
 	props: { as: { default: "section" } },
 	setup(e) {
@@ -1308,4 +1310,4 @@ var M = ["type", "disabled"], N = /*@__PURE__*/ u({
 	}
 }), [["__scopeId", "data-v-92e98c4c"]]);
 //#endregion
-export { F as BaseButton, L as BaseCheckbox, ct as BaseDialog, re as BaseInput, ie as BaseLink, H as BaseRadio, se as BaseSelect, $ as BaseSlider, pe as BaseSwitch, _e as BaseTextarea, dt as ConfirmDialog, Qe as DataGrid, Ee as DataList, Le as DataTable, ht as FormDialog, gt as Panel, nt as PropertyList };
+export { F as BaseButton, te as BaseCheckbox, pt as BaseDialog, B as BaseInput, V as BaseLink, U as BaseRadio, ce as BaseSelect, Z as BaseSlider, he as BaseSwitch, ye as BaseTextarea, gt as ConfirmDialog, et as DataGrid, Oe as DataList, ze as DataTable, xt as FormDialog, St as Panel, it as PropertyList };
