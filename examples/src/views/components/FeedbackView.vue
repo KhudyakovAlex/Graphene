@@ -7,7 +7,7 @@ import {
   BaseInput,
   ConfirmDialog,
   FormDialog,
-  Panel,
+  Surface,
 } from '../../../../src/components'
 
 type DialogCloseReason = 'backdrop' | 'escape' | 'close-button'
@@ -74,7 +74,7 @@ function handleCancel() {
 
 <template>
   <section class="feedback-page" aria-labelledby="feedbackTitle">
-    <Panel as="header" class="feedback-page__header">
+    <Surface as="header" class="feedback-page__header">
       <div>
         <p class="feedback-page__eyebrow">Компоненты</p>
         <h1 id="feedbackTitle">Обратная связь</h1>
@@ -83,9 +83,9 @@ function handleCancel() {
           показывает универсальную оболочку диалога и готовый сценарий подтверждения.
         </p>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="dialogTitle">
+    <Surface class="component-preview" aria-labelledby="dialogTitle">
       <div>
         <h2 class="component-preview__title" id="dialogTitle">BaseDialog</h2>
       </div>
@@ -133,9 +133,9 @@ function handleCancel() {
           <BaseButton variant="primary" @click="dialogOpen = false">Создать</BaseButton>
         </template>
       </BaseDialog>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="formDialogTitle">
+    <Surface class="component-preview" aria-labelledby="formDialogTitle">
       <div>
         <h2 class="component-preview__title" id="formDialogTitle">FormDialog</h2>
       </div>
@@ -216,9 +216,9 @@ function handleCancel() {
           </div>
         </div>
       </FormDialog>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="confirmDialogTitle">
+    <Surface class="component-preview" aria-labelledby="confirmDialogTitle">
       <div>
         <h2 class="component-preview__title" id="confirmDialogTitle">ConfirmDialog</h2>
       </div>
@@ -241,7 +241,7 @@ function handleCancel() {
         @confirm="handleConfirm"
         @cancel="handleCancel"
       />
-    </Panel>
+    </Surface>
   </section>
 </template>
 

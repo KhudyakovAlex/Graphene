@@ -13,7 +13,7 @@ Offline-first дизайн-система Vue 3 для приложений ор
 Graphene устанавливается из GitHub только по immutable version tag:
 
 ```sh
-npm install "github:KhudyakovAlex/Graphene#v0.1.0"
+npm install "github:KhudyakovAlex/Graphene#v0.2.0"
 ```
 
 Не устанавливайте пакет из ветки `main`: содержимое ветки может измениться без изменения ссылки зависимости.
@@ -36,10 +36,12 @@ import {
   BaseDialog,
   BaseInput,
   DataTable,
-  Panel,
+  Surface,
   type DataTableColumn,
 } from '@graphene/core'
 ```
+
+`Panel` пока сохраняется в публичном API как deprecated-алиас `Surface`.
 
 Публичные entrypoints:
 

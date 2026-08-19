@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-import { BaseButton, Panel } from '../../../../src/components'
+import { BaseButton, Surface } from '../../../../src/components'
 
 type IconItem = {
   name: string
@@ -62,7 +62,7 @@ async function copyIconName(name: string) {
 
 <template>
   <section class="icons-page" aria-labelledby="iconsTitle">
-    <Panel as="header" class="icons-page__header">
+    <Surface as="header" class="icons-page__header">
       <div>
         <p class="icons-page__eyebrow">Assets</p>
         <h1 id="iconsTitle">Icons</h1>
@@ -76,9 +76,9 @@ async function copyIconName(name: string) {
       <BaseButton v-if="!showOtherIcons" type="button" @click="showOtherIcons = true">
         Show others
       </BaseButton>
-    </Panel>
+    </Surface>
 
-    <Panel class="icons-section" aria-labelledby="mainIconsTitle">
+    <Surface class="icons-section" aria-labelledby="mainIconsTitle">
       <div class="icons-section__header">
         <h2 id="mainIconsTitle">src/assets/icons</h2>
         <span>{{ icons.length }} SVG</span>
@@ -100,9 +100,9 @@ async function copyIconName(name: string) {
           </span>
         </button>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel
+    <Surface
       v-if="showOtherIcons"
       class="icons-section"
       aria-labelledby="otherIconsTitle"
@@ -128,7 +128,7 @@ async function copyIconName(name: string) {
           </span>
         </button>
       </div>
-    </Panel>
+    </Surface>
   </section>
 </template>
 

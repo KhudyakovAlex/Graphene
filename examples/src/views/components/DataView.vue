@@ -7,8 +7,8 @@ import {
   DataGrid,
   DataTable,
   BaseDialog,
-  Panel,
   PropertyList,
+  Surface,
 } from '../../../../src/components'
 import type {
   DataGridColumn,
@@ -226,7 +226,7 @@ const detailItems = [
 
 <template>
   <section class="data-page" aria-labelledby="dataTitle">
-    <Panel as="header" class="data-page__header">
+    <Surface as="header" class="data-page__header">
       <div>
         <p class="data-page__eyebrow">Components</p>
         <h1 id="dataTitle">Data</h1>
@@ -236,9 +236,9 @@ const detailItems = [
           <code>DataList</code> и <code>PropertyList</code> для типовых data-сценариев.
         </p>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="dataTableTitle">
+    <Surface class="component-preview" aria-labelledby="dataTableTitle">
       <div>
         <h2 class="component-preview__title" id="dataTableTitle">DataTable</h2>
       </div>
@@ -250,9 +250,9 @@ const detailItems = [
       </p>
 
       <DataTable :columns="dataTableColumns" :rows="dataTableRows" />
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="dataGridTitle">
+    <Surface class="component-preview" aria-labelledby="dataGridTitle">
       <div>
         <h2 class="component-preview__title" id="dataGridTitle">DataGrid</h2>
       </div>
@@ -273,9 +273,9 @@ const detailItems = [
         :rows="dataGridRows"
         layout="fit"
       />
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="dataListTitle">
+    <Surface class="component-preview" aria-labelledby="dataListTitle">
       <div>
         <h2 class="component-preview__title" id="dataListTitle">DataList</h2>
       </div>
@@ -286,9 +286,9 @@ const detailItems = [
       </p>
 
       <DataList :items="dataListItems" />
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="propertyListTitle">
+    <Surface class="component-preview" aria-labelledby="propertyListTitle">
       <div>
         <h2 class="component-preview__title" id="propertyListTitle">PropertyList</h2>
       </div>
@@ -299,9 +299,9 @@ const detailItems = [
       </p>
 
       <PropertyList :items="summaryItems" />
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="dialogUsageTitle">
+    <Surface class="component-preview" aria-labelledby="dialogUsageTitle">
       <div>
         <h2 class="component-preview__title" id="dialogUsageTitle">Dialog Usage</h2>
       </div>
@@ -322,7 +322,7 @@ const detailItems = [
           <BaseButton @click="dialogOpen = false">Закрыть</BaseButton>
         </template>
       </BaseDialog>
-    </Panel>
+    </Surface>
   </section>
 </template>
 

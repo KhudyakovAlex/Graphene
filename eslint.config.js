@@ -17,7 +17,7 @@ export default withVueTs(
   vueTsConfigs.recommended,
   {
     rules: {
-      'vue/multi-word-component-names': ['error', { ignores: ['Panel'] }],
+      'vue/multi-word-component-names': ['error', { ignores: ['Panel', 'Surface'] }],
     },
   },
 )

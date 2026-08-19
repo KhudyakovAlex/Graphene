@@ -6,6 +6,13 @@
 
 ## Unreleased
 
+## 0.2.0 - 2026-08-19
+
+### Changed
+
+- Layout-компонент `Panel` переименован в `Surface`; новый публичный API использует `Surface`, а `Panel` временно сохранен как deprecated-алиас для обратной совместимости.
+- Семантические tokens layout-surface переименованы с `--g-panel-*` на `--g-surface-*`; класс компонента обновлен с `g-panel` на `g-surface`.
+
 ## 0.1.1 - 2026-08-19
 
 ### Fixed

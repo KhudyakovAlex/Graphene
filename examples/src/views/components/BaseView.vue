@@ -7,10 +7,10 @@ import {
   BaseCheckbox,
   BaseInput,
   BaseLink,
-  Panel,
   BaseRadio,
   BaseSelect,
   BaseSlider,
+  Surface,
   BaseSwitch,
   BaseTextarea,
 } from '../../../../src/components'
@@ -50,7 +50,7 @@ const selectOptions = [
 
 <template>
   <section class="base-page" aria-labelledby="baseTitle">
-    <Panel as="header" class="base-page__header">
+    <Surface as="header" class="base-page__header">
       <div>
         <p class="base-page__eyebrow">Components</p>
         <h1 id="baseTitle">Base</h1>
@@ -59,9 +59,9 @@ const selectOptions = [
           повторяет структуру папки библиотеки и показывает живые примеры каждого компонента.
         </p>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="buttonTitle">
+    <Surface class="component-preview" aria-labelledby="buttonTitle">
       <div>
         <h2 class="component-preview__title" id="buttonTitle">BaseButton</h2>
       </div>
@@ -89,9 +89,9 @@ const selectOptions = [
         <BaseButton size="lg">Secondary</BaseButton>
         <BaseButton size="lg" disabled>Secondary disabled</BaseButton>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="linkTitle">
+    <Surface class="component-preview" aria-labelledby="linkTitle">
       <div>
         <h2 class="component-preview__title" id="linkTitle">BaseLink</h2>
       </div>
@@ -106,9 +106,9 @@ const selectOptions = [
         <BaseLink href="#components/feedback">Open feedback components</BaseLink>
         <BaseLink href="#assets/icons" disabled>Disabled link</BaseLink>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="checkboxTitle">
+    <Surface class="component-preview" aria-labelledby="checkboxTitle">
       <div>
         <h2 class="component-preview__title" id="checkboxTitle">BaseCheckbox</h2>
       </div>
@@ -121,9 +121,9 @@ const selectOptions = [
         <span class="button-row__label">disabled</span>
         <BaseCheckbox v-model="disabledCheckbox" aria-label="Disabled checkbox" disabled />
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="switchTitle">
+    <Surface class="component-preview" aria-labelledby="switchTitle">
       <div>
         <h2 class="component-preview__title" id="switchTitle">BaseSwitch</h2>
       </div>
@@ -136,9 +136,9 @@ const selectOptions = [
         <span class="button-row__label">disabled</span>
         <BaseSwitch v-model="disabledSwitch" aria-label="Disabled switch" disabled />
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="radioTitle">
+    <Surface class="component-preview" aria-labelledby="radioTitle">
       <div>
         <h2 class="component-preview__title" id="radioTitle">BaseRadio</h2>
       </div>
@@ -175,9 +175,9 @@ const selectOptions = [
           disabled
         />
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="inputTitle">
+    <Surface class="component-preview" aria-labelledby="inputTitle">
       <div>
         <h2 class="component-preview__title" id="inputTitle">BaseInput</h2>
       </div>
@@ -232,9 +232,9 @@ const selectOptions = [
           </template>
         </BaseInput>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="selectTitle">
+    <Surface class="component-preview" aria-labelledby="selectTitle">
       <div>
         <h2 class="component-preview__title" id="selectTitle">BaseSelect</h2>
       </div>
@@ -298,9 +298,9 @@ const selectOptions = [
           multiple
         />
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="sliderTitle">
+    <Surface class="component-preview" aria-labelledby="sliderTitle">
       <div>
         <h2 class="component-preview__title" id="sliderTitle">BaseSlider</h2>
       </div>
@@ -319,9 +319,9 @@ const selectOptions = [
           />
         </div>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="textareaTitle">
+    <Surface class="component-preview" aria-labelledby="textareaTitle">
       <div>
         <h2 class="component-preview__title" id="textareaTitle">BaseTextarea</h2>
       </div>
@@ -346,7 +346,7 @@ const selectOptions = [
           disabled
         />
       </div>
-    </Panel>
+    </Surface>
   </section>
 </template>
 

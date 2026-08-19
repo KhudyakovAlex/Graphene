@@ -176,7 +176,7 @@
 - `BaseInput`;
 - `DataTable`;
 - `BaseDialog`;
-- `Panel`.
+- `Surface`.
 
 Проверка:
 
@@ -340,7 +340,7 @@
 
 ### 2026-08-19 — шаг 4
 
-- Выполнено: tarball и пакет из Git commit установлены в отдельное Vue/Vite-приложение; через публичные exports подключены CSS, `BaseButton`, `BaseInput`, `DataTable`, `BaseDialog` и `Panel`; добавлено переключение светлой/темной темы.
+- Выполнено: tarball и пакет из Git commit установлены в отдельное Vue/Vite-приложение; через публичные exports подключены CSS, `BaseButton`, `BaseInput`, `DataTable`, `BaseDialog` и `Surface`; добавлено переключение светлой/темной темы.
 - Измененные файлы: `PACKAGE_READINESS_PLAN.md`; временное consumer-приложение создано вне репозитория.
 - Проверки: `npm run pack:check`; tarball содержит только package metadata и `dist/`; установка из commit `c9fbfc7f9471c6b6fa4179bf8ff166d512980310`; consumer typecheck, production build и dev server; публичные ресурсы отвечают HTTP 200; `npm ls` показывает одну Vue 3.5.41; шрифты встроены в CSS.
 - Осталось: шаг 5 — статические проверки.

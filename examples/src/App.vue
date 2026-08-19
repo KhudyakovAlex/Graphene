@@ -3,7 +3,7 @@ import type { Component } from 'vue'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import logoUrl from '../../src/assets/logos/graphene_logo.svg'
-import { BaseButton, Panel } from '../../src/components'
+import { BaseButton, Surface } from '../../src/components'
 import IconsView from './views/assets/IconsView.vue'
 import BaseView from './views/components/BaseView.vue'
 import DataView from './views/components/DataView.vue'
@@ -263,7 +263,7 @@ onUnmounted(() => {
       <section class="content">
         <template v-if="route === '#home'">
           <section class="hero" aria-labelledby="heroTitle">
-            <Panel as="div" class="hero__panel">
+            <Surface as="div" class="hero__panel">
               <div class="hero__copy">
                 <p class="eyebrow">Offline-витрина</p>
                 <h1 id="heroTitle">Graphene Demo</h1>
@@ -278,10 +278,10 @@ onUnmounted(() => {
                 <img class="hero__logo hero__logo--ghost" :src="logoUrl" alt="">
                 <img class="hero__logo hero__logo--main" :src="logoUrl" alt="">
               </div>
-            </Panel>
+            </Surface>
           </section>
 
-          <Panel
+          <Surface
             v-for="section in routeSections"
             :key="section.id"
             as="section"
@@ -304,7 +304,7 @@ onUnmounted(() => {
                 <span class="overview-card__description">{{ item.description }}</span>
               </a>
             </div>
-          </Panel>
+          </Surface>
         </template>
 
         <component

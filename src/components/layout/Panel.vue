@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import Surface from './Surface.vue'
+
+defineOptions({
+  name: 'Panel',
+})
+
 withDefaults(defineProps<{
   as?: 'article' | 'aside' | 'div' | 'footer' | 'header' | 'main' | 'nav' | 'section'
 }>(), {
@@ -7,21 +13,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <component :is="as" class="g-panel">
+  <Surface :as="as">
     <slot />
-  </component>
+  </Surface>
 </template>
-
-<style scoped>
-.g-panel {
-  padding: var(--g-panel-padding);
-  border-radius: var(--g-panel-radius);
-  background: var(--g-panel-surface);
-}
-
-@media (max-width: 760px) {
-  .g-panel {
-    padding: var(--g-panel-padding-mobile);
-  }
-}
-</style>

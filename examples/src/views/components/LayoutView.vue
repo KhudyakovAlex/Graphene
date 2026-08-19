@@ -1,53 +1,53 @@
 <script setup lang="ts">
-import { Panel } from '../../../../src/components'
+import { Surface } from '../../../../src/components'
 </script>
 
 <template>
   <section class="layout-page" aria-labelledby="layoutTitle">
-    <Panel as="header" class="layout-page__header">
+    <Surface as="header" class="layout-page__header">
       <div>
         <p class="layout-page__eyebrow">Components</p>
         <h1 id="layoutTitle">Layout</h1>
         <p class="layout-page__description">
           Структурные контейнеры из <code>src/components/layout/</code>. Сейчас в разделе есть
-          базовый <code>Panel</code> для поверхностей, секций и рабочих областей.
+          базовый <code>Surface</code> для поверхностей, секций и рабочих областей.
         </p>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="panelTitle">
+    <Surface class="component-preview" aria-labelledby="surfaceTitle">
       <div>
-        <h2 class="component-preview__title" id="panelTitle">Panel</h2>
+        <h2 class="component-preview__title" id="surfaceTitle">Surface</h2>
       </div>
 
       <p class="text-preview">
-        Panel задает типовую поверхность Graphene: фон секции, прямоугольную форму и адаптивные
+        Surface задает типовую поверхность Graphene: фон секции, прямоугольную форму и адаптивные
         внутренние отступы.
       </p>
 
       <div class="preview-grid">
-        <Panel as="article" class="nested-panel">
+        <Surface as="article" class="nested-panel">
           <span class="nested-panel__eyebrow">Section</span>
           <strong>Сводка по объекту</strong>
           <p>Подходит для карточек, боксов настроек, групп полей и обзорных секций.</p>
-        </Panel>
+        </Surface>
 
-        <Panel as="article" class="nested-panel">
+        <Surface as="article" class="nested-panel">
           <span class="nested-panel__eyebrow">Workspace</span>
           <strong>Рабочая область</strong>
           <p>Компонент можно использовать с любым семантическим тегом через проп <code>as</code>.</p>
-        </Panel>
+        </Surface>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel class="component-preview" aria-labelledby="usageTitle">
+    <Surface class="component-preview" aria-labelledby="usageTitle">
       <div>
         <h2 class="component-preview__title" id="usageTitle">Usage Notes</h2>
       </div>
 
       <div class="usage-list" role="list">
         <div class="usage-item" role="listitem">
-          Используй <code>Panel</code> вместо локального повторения одинакового surface-стиля в
+          Используй <code>Surface</code> вместо локального повторения одинакового surface-стиля в
           <code>examples</code> и приложениях.
         </div>
         <div class="usage-item" role="listitem">
@@ -55,11 +55,10 @@ import { Panel } from '../../../../src/components'
           <code>header</code>, <code>aside</code>, <code>article</code>.
         </div>
         <div class="usage-item" role="listitem">
-          Panel не добавляет бизнес-логики и не подменяет специализированные layout-компоненты вроде
-          будущего <code>AppShell</code>.
+          `Panel` пока сохраняется как deprecated-алиас, но в новом коде используй <code>Surface</code>.
         </div>
       </div>
-    </Panel>
+    </Surface>
   </section>
 </template>
 

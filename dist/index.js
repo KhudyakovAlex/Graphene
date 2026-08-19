@@ -1348,14 +1348,24 @@ var N = ["type", "disabled"], P = /*@__PURE__*/ u({
 		]));
 	}
 }), [["__scopeId", "data-v-ca2ec71d"]]), Ct = /*#__PURE__*/ F(/* @__PURE__ */ u({
-	__name: "Panel",
+	__name: "Surface",
 	props: { as: { default: "section" } },
 	setup(e) {
-		return (t, n) => (b(), r(w(e.as), { class: "g-panel" }, {
+		return (t, n) => (b(), r(w(e.as), { class: "g-surface" }, {
 			default: A(() => [C(t.$slots, "default", {}, void 0, !0)]),
 			_: 3
 		}));
 	}
-}), [["__scopeId", "data-v-92e98c4c"]]);
+}), [["__scopeId", "data-v-9ac2efdf"]]), wt = /* @__PURE__ */ u({
+	name: "Panel",
+	__name: "Panel",
+	props: { as: { default: "section" } },
+	setup(e) {
+		return (t, n) => (b(), r(Ct, { as: e.as }, {
+			default: A(() => [C(t.$slots, "default")]),
+			_: 3
+		}, 8, ["as"]));
+	}
+});
 //#endregion
-export { I as BaseButton, R as BaseCheckbox, mt as BaseDialog, H as BaseInput, U as BaseLink, G as BaseRadio, le as BaseSelect, ue as BaseSlider, ge as BaseSwitch, be as BaseTextarea, _t as ConfirmDialog, tt as DataGrid, ke as DataList, Be as DataTable, St as FormDialog, Ct as Panel, at as PropertyList };
+export { I as BaseButton, R as BaseCheckbox, mt as BaseDialog, H as BaseInput, U as BaseLink, G as BaseRadio, le as BaseSelect, ue as BaseSlider, ge as BaseSwitch, be as BaseTextarea, _t as ConfirmDialog, tt as DataGrid, ke as DataList, Be as DataTable, St as FormDialog, wt as Panel, at as PropertyList, Ct as Surface };

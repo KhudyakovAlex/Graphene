@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Panel } from '../../../../src/components'
+import { Surface } from '../../../../src/components'
 
 type ResourceSection = {
   title: string
@@ -19,7 +19,7 @@ defineProps<{
 
 <template>
   <section class="catalog-view" :aria-labelledby="`${title}-title`">
-    <Panel as="header" class="catalog-view__header">
+    <Surface as="header" class="catalog-view__header">
       <div>
         <p class="catalog-view__eyebrow">{{ eyebrow }}</p>
         <h1 :id="`${title}-title`">{{ title }}</h1>
@@ -30,9 +30,9 @@ defineProps<{
         <span class="catalog-view__path-label">Library path</span>
         <code class="catalog-view__path">{{ sourcePath }}</code>
       </div>
-    </Panel>
+    </Surface>
 
-    <Panel
+    <Surface
       v-for="section in sections"
       :key="section.title"
       as="section"
@@ -53,7 +53,7 @@ defineProps<{
           <code>{{ item }}</code>
         </li>
       </ul>
-    </Panel>
+    </Surface>
   </section>
 </template>
 
