@@ -378,6 +378,14 @@
 - Осталось: шаг 9 — выпуск и проверка первого тега.
 - Блокеры/решения владельца: для шага 9 нужны явные команды на release commit и tag.
 
+### 2026-08-19 — шаг 9, подготовка релиза
+
+- Выполнено: версия пакета и lockfile обновлены до `0.1.0`; изменения перенесены из `Unreleased` в секцию `0.1.0`; пересобраны library bundle и offline-витрина.
+- Измененные файлы: `package.json`, `package-lock.json`, `CHANGELOG.md`, `examples/dist/`, `PACKAGE_READINESS_PLAN.md`.
+- Проверки: чистый `npm ci`; `npm run check` — 17 тестов в 4 файлах; `npm run build`; `npm run pack:check` — 31 файл без docs, examples sources и `.pixso-temp/`; `npm run examples:build`.
+- Осталось: создать release commit и tag `v0.1.0`, установить tag во внешнем Vue-приложении и выполнить consumer smoke test.
+- Блокеры/решения владельца: требуется явное разрешение владельца на создание release commit и tag `v0.1.0`.
+
 ### YYYY-MM-DD — шаг N
 
 - Выполнено:
