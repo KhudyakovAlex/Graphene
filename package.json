@@ -1,6 +1,6 @@
 {
   "name": "@graphene/core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Offline-first Vue 3 design system",
   "license": "UNLICENSED",
@@ -23,7 +23,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./dist/graphene.css"
+    "./styles.css": "./dist/graphene.css",
+    "./icons/*": "./dist/assets/icons/*"
   },
   "sideEffects": [
     "**/*.css"
@@ -37,7 +38,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "check": "npm run typecheck && npm run lint && npm run test:run",
-    "pack:check": "npm pack --dry-run"
+    "icons:check": "node scripts/check-package-icons.mjs",
+    "pack:check": "npm run icons:check && npm pack --dry-run"
   },
   "peerDependencies": {
     "vue": "^3.5.0"

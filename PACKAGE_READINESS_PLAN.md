@@ -53,6 +53,7 @@
 - Публичный CSS entrypoint доступен как `@graphene/core/styles.css`.
 - `src/styles/base.css` импортирует токены и `fonts.css`.
 - `fonts.css` ссылается на два TTF-файла; оба файла существуют и отслеживаются Git.
+- Все 902 SVG-иконки поставляются через публичный путь `@graphene/core/icons/*`.
 - Настроены typecheck, ESLint, component tests и GitHub Actions CI.
 - `examples/dist/` — bundle витрины, не bundle библиотеки.
 - `.pixso-temp/` исключен через `.gitignore`.
@@ -144,7 +145,8 @@
 
 - `@graphene/core`;
 - `@graphene/core/styles.css`;
-- дополнительные asset exports только при подтвержденной необходимости.
+- `@graphene/core/icons/*.svg`;
+- `@graphene/core/icons/others/*.svg`.
 
 Проверка:
 
@@ -296,6 +298,28 @@
 - приложение работает без внешних CDN и runtime-загрузок;
 - зафиксирована точная проверенная версия Graphene.
 
+## Шаг 10. Опубликовать Библиотеку SVG-Иконок
+
+Статус: [x]
+
+Зависимости: шаг 9.
+
+Работы:
+
+- копировать основной и резервный наборы SVG в library `dist/`;
+- открыть публичный asset export `@graphene/core/icons/*`;
+- сохранить стабильные имена и вложенный путь `others/*`;
+- документировать URL-импорты без копирования SVG в consumer-репозиторий;
+- проверить, что production build включает только импортированные иконки.
+
+Проверка:
+
+- `npm run check`;
+- `npm run build`;
+- `npm run icons:check`;
+- `npm run pack:check`;
+- package содержит все 902 SVG, dev-импорты разрешаются, а тестовый production build с двумя импортами выпускает два SVG.
+
 ## Definition Of Done
 
 - [x] Graphene устанавливается из другого репозитория по version tag.
@@ -304,6 +328,7 @@
 - [x] Типы доступны consumer-проекту.
 - [x] Vue не дублируется в bundle.
 - [x] Fonts/assets доступны offline.
+- [x] Основной и резервный наборы SVG доступны через публичный package export.
 - [x] `npm ci && npm run check && npm run build` проходят из корня.
 - [x] Все публичные компоненты имеют smoke tests.
 - [x] CI выполняет те же проверки.
@@ -393,6 +418,14 @@
 - Проверки: consumer разрешает `v0.1.0` в commit `9b93d708a1ad27d4f5b9f79fde3192b256d7b895`; typecheck и production build успешны; используется одна Vue 3.5.41; dev server и публичные модули отвечают HTTP 200.
 - Осталось: нет, план подготовки первого package release завершен.
 - Блокеры/решения владельца: нет.
+
+### 2026-08-19 — шаг 10
+
+- Выполнено: версия подготовлена как `0.3.0`; все 902 SVG из основного и резервного наборов добавлены в package с публичным export `@graphene/core/icons/*`; добавлена автоматическая проверка consumer production build.
+- Измененные файлы: `package.json`, `package-lock.json`, `vite.config.ts`, `dist/assets/icons/`, `tests/assets.spec.ts`, `scripts/check-package-icons.mjs`, `README.md`, `CHANGELOG.md`, `docs/ai/development-guide.md`, `docs/ai/usage-guide.md`, `PACKAGE_READINESS_PLAN.md`.
+- Проверки: `npm run check` — 26 тестов в 5 файлах; `npm run build`; `npm run icons:check` — 902 package SVG, успешный dev resolve и только 2 импортированных SVG в production output; `npm run pack:check` — 934 файла, 1.2 MB.
+- Осталось: создать release commit и tag `v0.3.0` только по явному запросу владельца, затем установить tag в Dominion.
+- Блокеры/решения владельца: для выпуска требуется явное разрешение на commit и tag `v0.3.0`.
 
 ### YYYY-MM-DD — шаг N
 

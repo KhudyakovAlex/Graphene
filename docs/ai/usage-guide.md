@@ -6,17 +6,20 @@
 
 ## Перед Началом
 
-1. Установи Graphene по immutable Git tag: `npm install "github:KhudyakovAlex/Graphene#v0.1.0"`.
+1. Установи Graphene по immutable Git tag: `npm install "github:KhudyakovAlex/Graphene#v0.3.0"`.
 2. Подключи глобальные стили через `import '@graphene/core/styles.css'`.
 3. Импортируй компоненты и типы только из `@graphene/core`.
-4. Не импортируй внутренние файлы пакета из `src/` или `dist/`.
-5. Используй IBM Plex Sans из CSS Graphene, не подключай внешний шрифт.
-6. Не создавай локальные аналоги компонентов Graphene без необходимости.
+4. Импортируй SVG-иконки по имени только из `@graphene/core/icons/*.svg?url`.
+5. Не импортируй внутренние файлы пакета из `src/` или `dist/`.
+6. Используй IBM Plex Sans из CSS Graphene, не подключай внешний шрифт.
+7. Не создавай локальные аналоги компонентов Graphene без необходимости.
 
-Публичный API consumer-приложения ограничен двумя entrypoints:
+Публичный API consumer-приложения ограничен package entrypoints:
 
 - `@graphene/core` — компоненты и TypeScript-типы;
 - `@graphene/core/styles.css` — токены, глобальные стили и локальные шрифты.
+- `@graphene/core/icons/*.svg` — основной набор SVG-иконок;
+- `@graphene/core/icons/others/*.svg` — резервный набор SVG-иконок.
 
 ## Как Верстать
 
@@ -72,7 +75,8 @@
 Отступы и gap диалогов нужно брать из доступных semantic CSS-переменных Graphene, а не из base spacing напрямую.
 
 Для `BaseInput` с иконкой справа используй slot `trailing`.
-Публичного asset entrypoint для внутренних иконок пока нет. Используй одобренный локальный SVG приложения и не импортируй его из внутреннего `src/` пакета.
+Импортируй нужную иконку как URL, например `@graphene/core/icons/search.svg?url`, и передавай ее через разметку slot. Для редких сценариев доступен резервный путь `@graphene/core/icons/others/<name>.svg?url`.
+Сначала выбирай иконку из основного набора. Не копируй каталог иконок в consumer-репозиторий: Graphene поставляет оба набора локально, а Vite включает в production bundle импортированные SVG.
 `BaseInput` отключает нативный browser clear-крестик у `type="search"`, чтобы справа отображались только элементы Graphene.
 
 По умолчанию не добавляй скругления.
@@ -126,6 +130,6 @@
 Приложение должно работать без внешнего интернета.
 
 Все шрифты, ассеты и runtime-зависимости должны быть локальными или доступными во внутреннем контуре организации.
-Не импортируй внутренний каталог иконок Graphene из `src/`: он не является публичным package export.
-Пока отдельный asset entrypoint не опубликован, храни одобренные иконки локально в consumer-приложении.
+Не импортируй внутренний каталог иконок Graphene из `src/`: используй публичные пути `@graphene/core/icons/*`.
+Иконки физически находятся в установленном пакете Graphene и переносятся Vite в dev/production output; хранить их копию в Git consumer-приложения не требуется.
 SVG-иконки используют `currentColor`, поэтому цвет задавай через CSS и semantic tokens, а не через правку SVG.

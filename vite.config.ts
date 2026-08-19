@@ -1,4 +1,4 @@
-import { copyFile, mkdir } from 'node:fs/promises'
+import { copyFile, cp, mkdir } from 'node:fs/promises'
 import { fileURLToPath, URL } from 'node:url'
 
 import vue from '@vitejs/plugin-vue'
@@ -15,15 +15,22 @@ export default defineConfig({
       tsconfigPath: './tsconfig.json',
     }),
     {
-      name: 'copy-font-license',
+      name: 'copy-package-assets',
       async writeBundle() {
-        const targetDirectory = fromRoot('./dist/assets/fonts/')
+        const assetsDirectory = fromRoot('./dist/assets/')
+        const fontsDirectory = `${assetsDirectory}/fonts`
 
-        await mkdir(targetDirectory, { recursive: true })
-        await copyFile(
-          fromRoot('./src/assets/fonts/LICENSE-OFL.txt'),
-          `${targetDirectory}/LICENSE-OFL.txt`,
-        )
+        await mkdir(fontsDirectory, { recursive: true })
+        await Promise.all([
+          copyFile(
+            fromRoot('./src/assets/fonts/LICENSE-OFL.txt'),
+            `${fontsDirectory}/LICENSE-OFL.txt`,
+          ),
+          cp(fromRoot('./src/assets/icons/'), `${assetsDirectory}/icons`, {
+            recursive: true,
+            filter: (source) => !source.endsWith('.md'),
+          }),
+        ])
       },
     },
   ],

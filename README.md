@@ -13,7 +13,7 @@ Offline-first дизайн-система Vue 3 для приложений ор
 Graphene устанавливается из GitHub только по immutable version tag:
 
 ```sh
-npm install "github:KhudyakovAlex/Graphene#v0.2.0"
+npm install "github:KhudyakovAlex/Graphene#v0.3.0"
 ```
 
 Не устанавливайте пакет из ветки `main`: содержимое ветки может измениться без изменения ссылки зависимости.
@@ -41,12 +41,23 @@ import {
 } from '@graphene/core'
 ```
 
+Импортируйте нужные SVG-иконки по имени как URL:
+
+```ts
+import searchIconUrl from '@graphene/core/icons/search.svg?url'
+import arrowDownIconUrl from '@graphene/core/icons/others/arrow-down.svg?url'
+```
+
+Graphene поставляет основной и резервный наборы целиком, но Vite переносит в production bundle только импортированные иконки. Пути `others/*` предназначены для редких сценариев; сначала выбирайте иконку из основного набора.
+
 `Panel` пока сохраняется в публичном API как deprecated-алиас `Surface`.
 
 Публичные entrypoints:
 
 - `@graphene/core` — Vue-компоненты и TypeScript-типы;
 - `@graphene/core/styles.css` — токены, глобальные стили и локальный IBM Plex Sans.
+- `@graphene/core/icons/*.svg` — основной набор SVG-иконок;
+- `@graphene/core/icons/others/*.svg` — резервный набор SVG-иконок.
 
 Не импортируйте файлы из `@graphene/core/src/` или `@graphene/core/dist/`: внутренние пути не являются публичным контрактом.
 
@@ -62,7 +73,7 @@ import {
 
 ## Offline-режим
 
-CSS и IBM Plex Sans поставляются внутри пакета. Graphene не требует CDN или загрузки runtime-ресурсов из публичного интернета.
+CSS, IBM Plex Sans и SVG-иконки поставляются внутри пакета. Graphene не требует CDN или загрузки runtime-ресурсов из публичного интернета.
 
 ## Разработка
 
