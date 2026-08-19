@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 import caretDownIcon from '../../assets/icons/caret-down.svg?raw'
 import closeIcon from '../../assets/icons/close.svg?raw'
@@ -52,6 +56,8 @@ const emit = defineEmits<{
   clear: []
 }>()
 
+const attrs = useAttrs()
+
 const hasValue = computed(() => {
   if (Array.isArray(props.modelValue)) {
     return props.modelValue.length > 0
@@ -83,6 +89,20 @@ const canClear = computed(() => (
   props.clearable && hasValue.value && !props.disabled && !props.readonly && !props.loading
 ))
 
+const rootAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const selectAttrs = computed(() => {
+  const forwardedAttrs = { ...attrs }
+
+  delete forwardedAttrs.class
+  delete forwardedAttrs.style
+
+  return forwardedAttrs
+})
+
 function handleChange(event: Event) {
   emit('change', event)
 }
@@ -99,6 +119,7 @@ function clearSelection() {
 
 <template>
   <label
+    v-bind="rootAttrs"
     class="g-base-select"
     :class="[
       `g-base-select--${props.size}`,
@@ -118,6 +139,7 @@ function clearSelection() {
     <span class="g-base-select__field">
       <select
         v-model="selectValue"
+        v-bind="selectAttrs"
         class="g-base-select__control"
         :multiple="props.multiple"
         :disabled="props.disabled || props.loading"

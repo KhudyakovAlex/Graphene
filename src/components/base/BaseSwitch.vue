@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
 withDefaults(
   defineProps<{
     modelValue?: boolean
@@ -17,6 +23,22 @@ const emit = defineEmits<{
   change: [event: Event]
 }>()
 
+const attrs = useAttrs()
+
+const rootAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const inputAttrs = computed(() => {
+  const forwardedAttrs = { ...attrs }
+
+  delete forwardedAttrs.class
+  delete forwardedAttrs.style
+
+  return forwardedAttrs
+})
+
 function handleChange(event: Event) {
   const checked = (event.target as HTMLInputElement).checked
 
@@ -27,6 +49,7 @@ function handleChange(event: Event) {
 
 <template>
   <label
+    v-bind="rootAttrs"
     class="g-base-switch"
     :class="{
       'g-base-switch--checked': modelValue,
@@ -34,6 +57,7 @@ function handleChange(event: Event) {
     }"
   >
     <input
+      v-bind="inputAttrs"
       class="g-base-switch__control"
       type="checkbox"
       :checked="modelValue"

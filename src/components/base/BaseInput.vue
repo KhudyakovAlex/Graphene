@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
 type BaseInputSize = 'sm' | 'md' | 'lg'
 type BaseInputType = 'text' | 'password' | 'search' | 'email' | 'number'
 
@@ -35,6 +41,22 @@ const emit = defineEmits<{
   blur: [event: FocusEvent]
 }>()
 
+const attrs = useAttrs()
+
+const rootAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const inputAttrs = computed(() => {
+  const forwardedAttrs = { ...attrs }
+
+  delete forwardedAttrs.class
+  delete forwardedAttrs.style
+
+  return forwardedAttrs
+})
+
 function handleInput(event: Event) {
   emit('input', event)
   emit('update:modelValue', (event.target as HTMLInputElement).value)
@@ -43,6 +65,7 @@ function handleInput(event: Event) {
 
 <template>
   <label
+    v-bind="rootAttrs"
     class="g-base-input"
     :class="[
       `g-base-input--${props.size}`,
@@ -57,6 +80,7 @@ function handleInput(event: Event) {
 
     <span class="g-base-input__field">
       <input
+        v-bind="inputAttrs"
         class="g-base-input__control"
         :value="props.modelValue"
         :type="props.type"

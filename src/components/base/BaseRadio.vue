@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 type BaseRadioValue = string | number | boolean
 
@@ -25,7 +29,23 @@ const emit = defineEmits<{
   change: [event: Event]
 }>()
 
+const attrs = useAttrs()
+
 const checked = computed(() => props.modelValue === props.value)
+
+const rootAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const inputAttrs = computed(() => {
+  const forwardedAttrs = { ...attrs }
+
+  delete forwardedAttrs.class
+  delete forwardedAttrs.style
+
+  return forwardedAttrs
+})
 
 function handleChange(event: Event) {
   emit('update:modelValue', props.value)
@@ -35,10 +55,12 @@ function handleChange(event: Event) {
 
 <template>
   <label
+    v-bind="rootAttrs"
     class="g-base-radio"
     :class="{ 'g-base-radio--disabled': props.disabled }"
   >
     <input
+      v-bind="inputAttrs"
       class="g-base-radio__control"
       type="radio"
       :checked="checked"

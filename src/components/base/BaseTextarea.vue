@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = withDefaults(
   defineProps<{
     modelValue?: string
@@ -30,6 +36,22 @@ const emit = defineEmits<{
   blur: [event: FocusEvent]
 }>()
 
+const attrs = useAttrs()
+
+const rootAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const textareaAttrs = computed(() => {
+  const forwardedAttrs = { ...attrs }
+
+  delete forwardedAttrs.class
+  delete forwardedAttrs.style
+
+  return forwardedAttrs
+})
+
 function handleInput(event: Event) {
   emit('input', event)
   emit('update:modelValue', (event.target as HTMLTextAreaElement).value)
@@ -38,6 +60,7 @@ function handleInput(event: Event) {
 
 <template>
   <label
+    v-bind="rootAttrs"
     class="g-base-textarea"
     :class="{
       'g-base-textarea--filled': props.modelValue.length > 0,
@@ -48,6 +71,7 @@ function handleInput(event: Event) {
     <span v-if="props.label" class="g-base-textarea__label">{{ props.label }}</span>
 
     <textarea
+      v-bind="textareaAttrs"
       class="g-base-textarea__control"
       :value="props.modelValue"
       :placeholder="props.placeholder"

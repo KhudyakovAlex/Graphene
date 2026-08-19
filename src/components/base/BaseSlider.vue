@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue'
+
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = withDefaults(
   defineProps<{
     modelValue?: number
@@ -24,6 +30,22 @@ const emit = defineEmits<{
   change: [event: Event]
 }>()
 
+const attrs = useAttrs()
+
+const rootAttrs = computed(() => ({
+  class: attrs.class,
+  style: attrs.style,
+}))
+
+const inputAttrs = computed(() => {
+  const forwardedAttrs = { ...attrs }
+
+  delete forwardedAttrs.class
+  delete forwardedAttrs.style
+
+  return forwardedAttrs
+})
+
 function handleInput(event: Event) {
   emit('input', event)
   emit('update:modelValue', Number((event.target as HTMLInputElement).value))
@@ -36,10 +58,12 @@ function handleChange(event: Event) {
 
 <template>
   <span
+    v-bind="rootAttrs"
     class="g-base-slider"
     :class="{ 'g-base-slider--disabled': props.disabled }"
   >
     <input
+      v-bind="inputAttrs"
       class="g-base-slider__control"
       type="range"
       :value="props.modelValue"
