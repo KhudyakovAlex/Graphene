@@ -6,6 +6,12 @@
 
 ## Unreleased
 
+## 0.1.1 - 2026-08-19
+
+### Fixed
+
+- Прокидывание consumer attrs в нативные controls базовых полей и связанных form-controls, чтобы `name`, `form`, `required`, `aria-*` и `data-*` применялись к реальному `input` / `textarea` / `select`.
+
 ## 0.1.0 - 2026-08-19
 
 ### Added
