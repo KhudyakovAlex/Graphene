@@ -74,7 +74,7 @@ Vue-компоненты Graphene.
 - `BaseTextarea` - многострочное поле ввода с label, helper text и состояниями `default`, `hover`, `focused`, `filled`, `invalid`, `disabled`.
 
 `BaseInput` поддерживает правую зону через slot `trailing`.
-Так можно показать иконку поиска из `src/assets/icons/search.svg` без копирования иконки в приложение.
+Consumer-приложение передает туда локальный SVG через публичный API компонента и не импортирует внутренние файлы Graphene из `src/`.
 Для `type="search"` нативный browser clear-крестик отключен, чтобы справа оставались только элементы Graphene.
 
 `src/components/layout/`

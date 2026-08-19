@@ -49,11 +49,11 @@
 
 - Корневой npm workspace, scripts и ESM library build настроены.
 - Зависимости и единый lockfile управляются из корня.
-- Публичные component exports начинаются с `src/components/index.ts`.
-- Отдельного `src/index.ts` нет.
+- Публичный JS/TS API начинается с `src/index.ts`.
+- Публичный CSS entrypoint доступен как `@graphene/core/styles.css`.
 - `src/styles/base.css` импортирует токены и `fonts.css`.
 - `fonts.css` ссылается на два TTF-файла; оба файла существуют и отслеживаются Git.
-- Автотестов, lint-конфига и CI нет.
+- Настроены typecheck, ESLint, component tests и GitHub Actions CI.
 - `examples/dist/` — bundle витрины, не bundle библиотеки.
 - `.pixso-temp/` исключен через `.gitignore`.
 
@@ -230,7 +230,7 @@
 
 ## Шаг 7. Добавить CI
 
-Статус: [ ]
+Статус: [x]
 
 Зависимости: шаги 3, 5 и 6.
 
@@ -252,7 +252,7 @@
 
 ## Шаг 8. Документировать Использование И Релиз
 
-Статус: [ ]
+Статус: [x]
 
 Зависимости: шаги 4 и 7.
 
@@ -299,15 +299,15 @@
 ## Definition Of Done
 
 - [ ] Graphene устанавливается из другого репозитория по version tag.
-- [ ] Есть единый публичный JS/TS API.
-- [ ] Есть документированный CSS entrypoint.
-- [ ] Типы доступны consumer-проекту.
-- [ ] Vue не дублируется в bundle.
-- [ ] Fonts/assets доступны offline.
-- [ ] `npm ci && npm run check && npm run build` проходят из корня.
-- [ ] Все публичные компоненты имеют smoke tests.
-- [ ] CI выполняет те же проверки.
-- [ ] README и AI usage guide соответствуют package API.
+- [x] Есть единый публичный JS/TS API.
+- [x] Есть документированный CSS entrypoint.
+- [x] Типы доступны consumer-проекту.
+- [x] Vue не дублируется в bundle.
+- [x] Fonts/assets доступны offline.
+- [x] `npm ci && npm run check && npm run build` проходят из корня.
+- [x] Все публичные компоненты имеют smoke tests.
+- [x] CI выполняет те же проверки.
+- [x] README и AI usage guide соответствуют package API.
 - [ ] Первый tag проверен в реальном приложении.
 
 ## Журнал Передачи
@@ -361,6 +361,22 @@
 - Проверки: `npm run test:run` — 17 тестов в 4 файлах; `npm run check`; нет зависших timers, console errors/warnings и flaky failures.
 - Осталось: шаг 7 — GitHub Actions CI.
 - Блокеры/решения владельца: нет.
+
+### 2026-08-19 — шаг 7
+
+- Выполнено: добавлен GitHub Actions workflow для push и pull request на Node.js 24 LTS с npm cache, чистой установкой, полными проверками, сборкой библиотеки, проверкой tarball и сборкой offline-витрины.
+- Измененные файлы: `.github/workflows/ci.yml`, `PACKAGE_READINESS_PLAN.md`.
+- Проверки: `npm ci`; `npm run check` — 17 тестов в 4 файлах; `npm run build`; `npm run pack:check`; `npm run examples:build`.
+- Осталось: шаг 8 — документация использования и релиза.
+- Блокеры/решения владельца: нет.
+
+### 2026-08-19 — шаг 8
+
+- Выполнено: добавлены consumer README, SemVer changelog и release checklist; AI usage guide переведен на публичные package exports; документация разделяет library package и offline-витрину.
+- Измененные файлы: `README.md`, `CHANGELOG.md`, `docs/ai/usage-guide.md`, `docs/human/graphene-for-beginners.md`, `PACKAGE_READINESS_PLAN.md`.
+- Проверки: README содержит установку по immutable tag, публичные imports, CSS и темы; consumer-инструкции не требуют импортов из `src/`; `npm run pack:check` включает README и root `dist/`.
+- Осталось: шаг 9 — выпуск и проверка первого тега.
+- Блокеры/решения владельца: для шага 9 нужны явные команды на release commit и tag.
 
 ### YYYY-MM-DD — шаг N
 
