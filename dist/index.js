@@ -1,0 +1,1311 @@
+import { Fragment as e, Teleport as t, computed as n, createBlock as r, createCommentVNode as i, createElementBlock as a, createElementVNode as o, createSlots as s, createTextVNode as c, createVNode as l, defineComponent as u, guardReactiveProps as d, mergeProps as f, nextTick as p, normalizeClass as m, normalizeProps as h, normalizeStyle as g, onBeforeUnmount as _, onMounted as v, onUnmounted as y, openBlock as b, ref as x, renderList as S, renderSlot as C, resolveDynamicComponent as w, toDisplayString as T, unref as E, useSlots as ee, vModelSelect as D, watch as O, withCtx as k, withDirectives as A, withModifiers as j } from "vue";
+//#region src/components/base/BaseButton.vue?vue&type=script&setup=true&lang.ts
+var M = ["type", "disabled"], N = /*@__PURE__*/ u({
+	__name: "BaseButton",
+	props: {
+		variant: { default: "secondary" },
+		size: { default: "md" },
+		type: { default: "button" },
+		disabled: {
+			type: Boolean,
+			default: !1
+		}
+	},
+	emits: ["click"],
+	setup(e, { emit: t }) {
+		let n = t;
+		return (t, r) => (b(), a("button", {
+			class: m(["g-base-button", [`g-base-button--${e.variant}`, `g-base-button--${e.size}`]]),
+			type: e.type,
+			disabled: e.disabled,
+			onClick: r[0] ||= (e) => n("click", e)
+		}, [C(t.$slots, "default", {}, void 0, !0)], 10, M));
+	}
+}), P = (e, t) => {
+	let n = e.__vccOpts || e;
+	for (let [e, r] of t) n[e] = r;
+	return n;
+}, F = /*#__PURE__*/ P(N, [["__scopeId", "data-v-4fdaa05d"]]), I = [
+	"checked",
+	"disabled",
+	"aria-label"
+], L = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseCheckbox",
+	props: {
+		modelValue: {
+			type: Boolean,
+			default: !1
+		},
+		disabled: {
+			type: Boolean,
+			default: !1
+		},
+		ariaLabel: { default: "" }
+	},
+	emits: ["update:modelValue", "change"],
+	setup(e, { emit: t }) {
+		let n = t;
+		function r(e) {
+			let t = e.target.checked;
+			n("update:modelValue", t), n("change", e);
+		}
+		return (t, n) => (b(), a("label", { class: m(["g-base-checkbox", { "g-base-checkbox--disabled": e.disabled }]) }, [o("input", {
+			class: "g-base-checkbox__control",
+			type: "checkbox",
+			checked: e.modelValue,
+			disabled: e.disabled,
+			"aria-label": e.ariaLabel || void 0,
+			onChange: r
+		}, null, 40, I), n[0] ||= o("span", {
+			class: "g-base-checkbox__box",
+			"aria-hidden": "true"
+		}, [o("svg", {
+			class: "g-base-checkbox__mark",
+			viewBox: "0 0 10 10",
+			focusable: "false"
+		}, [o("path", { d: "M2 5.2 4.1 7.3 8 2.7" })])], -1)], 2));
+	}
+}), [["__scopeId", "data-v-4872bbb8"]]), R = {
+	key: 0,
+	class: "g-base-input__label"
+}, z = { class: "g-base-input__field" }, te = [
+	"value",
+	"type",
+	"placeholder",
+	"disabled",
+	"readonly",
+	"aria-invalid"
+], ne = {
+	key: 0,
+	class: "g-base-input__trailing"
+}, B = {
+	key: 1,
+	class: "g-base-input__helper"
+}, re = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseInput",
+	props: {
+		modelValue: { default: "" },
+		label: { default: "" },
+		helperText: { default: "" },
+		placeholder: { default: "" },
+		type: { default: "text" },
+		size: { default: "md" },
+		disabled: {
+			type: Boolean,
+			default: !1
+		},
+		readonly: {
+			type: Boolean,
+			default: !1
+		},
+		invalid: {
+			type: Boolean,
+			default: !1
+		}
+	},
+	emits: [
+		"update:modelValue",
+		"input",
+		"change",
+		"focus",
+		"blur"
+	],
+	setup(e, { emit: t }) {
+		let n = e, r = t;
+		function s(e) {
+			r("input", e), r("update:modelValue", e.target.value);
+		}
+		return (e, t) => (b(), a("label", { class: m(["g-base-input", [`g-base-input--${n.size}`, {
+			"g-base-input--filled": n.modelValue.length > 0,
+			"g-base-input--disabled": n.disabled,
+			"g-base-input--invalid": n.invalid
+		}]]) }, [
+			n.label ? (b(), a("span", R, T(n.label), 1)) : i("", !0),
+			o("span", z, [o("input", {
+				class: "g-base-input__control",
+				value: n.modelValue,
+				type: n.type,
+				placeholder: n.placeholder,
+				disabled: n.disabled,
+				readonly: n.readonly,
+				"aria-invalid": n.invalid || void 0,
+				onInput: s,
+				onChange: t[0] ||= (e) => r("change", e),
+				onFocus: t[1] ||= (e) => r("focus", e),
+				onBlur: t[2] ||= (e) => r("blur", e)
+			}, null, 40, te), e.$slots.trailing ? (b(), a("span", ne, [C(e.$slots, "trailing", {}, void 0, !0)])) : i("", !0)]),
+			n.helperText ? (b(), a("span", B, T(n.helperText), 1)) : i("", !0)
+		], 2));
+	}
+}), [["__scopeId", "data-v-101f853c"]]), ie = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseLink",
+	props: {
+		href: { default: "" },
+		target: { default: "_self" },
+		rel: { default: "" },
+		disabled: {
+			type: Boolean,
+			default: !1
+		}
+	},
+	emits: ["click"],
+	setup(e, { emit: t }) {
+		let i = e, a = t, o = n(() => i.disabled || !i.href ? "span" : "a"), s = n(() => i.rel ? i.rel : i.target === "_blank" ? "noopener noreferrer" : void 0), c = n(() => o.value === "a" ? {
+			href: i.href,
+			target: i.target,
+			rel: s.value
+		} : {
+			role: i.disabled ? "link" : void 0,
+			"aria-disabled": i.disabled || void 0
+		});
+		function l(e) {
+			if (o.value !== "a") {
+				e.preventDefault(), e.stopPropagation();
+				return;
+			}
+			a("click", e);
+		}
+		return (t, n) => (b(), r(w(o.value), f({ class: ["g-base-link", { "g-base-link--disabled": e.disabled }] }, c.value, { onClick: l }), {
+			default: k(() => [C(t.$slots, "default", {}, void 0, !0)]),
+			_: 3
+		}, 16, ["class"]));
+	}
+}), [["__scopeId", "data-v-1baf3b65"]]), V = [
+	"checked",
+	"value",
+	"name",
+	"disabled",
+	"aria-label"
+], H = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseRadio",
+	props: {
+		modelValue: {
+			type: [
+				String,
+				Number,
+				Boolean
+			],
+			default: ""
+		},
+		value: {
+			type: [
+				String,
+				Number,
+				Boolean
+			],
+			default: "on"
+		},
+		name: { default: "" },
+		disabled: {
+			type: Boolean,
+			default: !1
+		},
+		ariaLabel: { default: "" }
+	},
+	emits: ["update:modelValue", "change"],
+	setup(e, { emit: t }) {
+		let r = e, i = t, s = n(() => r.modelValue === r.value);
+		function c(e) {
+			i("update:modelValue", r.value), i("change", e);
+		}
+		return (e, t) => (b(), a("label", { class: m(["g-base-radio", { "g-base-radio--disabled": r.disabled }]) }, [o("input", {
+			class: "g-base-radio__control",
+			type: "radio",
+			checked: s.value,
+			value: String(r.value),
+			name: r.name || void 0,
+			disabled: r.disabled,
+			"aria-label": r.ariaLabel || void 0,
+			onChange: c
+		}, null, 40, V), t[0] ||= o("span", {
+			class: "g-base-radio__box",
+			"aria-hidden": "true"
+		}, [o("span", { class: "g-base-radio__mark" })], -1)], 2));
+	}
+}), [["__scopeId", "data-v-1a38267d"]]), U = "﻿<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\">\r\n  <g transform=\"translate(-72 -72)\">\r\n<path id=\"Icon\" d=\"M90 81L84 88.5L78 81L90 81Z\" fill=\"currentColor\" fill-rule=\"nonzero\" />\r\n  </g>\r\n</svg>\r\n\r\n", W = "﻿<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\">\r\n  <g transform=\"translate(-576 -72)\">\r\n<path id=\"Icon\" d=\"M589.06 84L594 79.0605L592.94 78L588 82.9395L583.06 78L582 79.0605L586.94 84L582 88.9395L583.06 90L588 85.0605L592.94 90L594 88.9395L589.06 84Z\" fill=\"currentColor\" fill-rule=\"nonzero\" />\r\n  </g>\r\n</svg>\r\n\r\n", G = {
+	key: 0,
+	class: "g-base-select__label"
+}, K = { class: "g-base-select__field" }, q = [
+	"multiple",
+	"disabled",
+	"aria-invalid",
+	"aria-readonly",
+	"aria-busy"
+], J = {
+	key: 0,
+	value: "",
+	disabled: ""
+}, Y = ["value", "disabled"], X = ["innerHTML"], Z = {
+	key: 1,
+	class: "g-base-select__loader",
+	"aria-hidden": "true"
+}, ae = ["innerHTML"], oe = {
+	key: 1,
+	class: "g-base-select__helper"
+}, se = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseSelect",
+	props: {
+		modelValue: { default: "" },
+		options: { default: () => [] },
+		label: { default: "" },
+		helperText: { default: "" },
+		placeholder: { default: "" },
+		size: { default: "md" },
+		disabled: {
+			type: Boolean,
+			default: !1
+		},
+		readonly: {
+			type: Boolean,
+			default: !1
+		},
+		invalid: {
+			type: Boolean,
+			default: !1
+		},
+		loading: {
+			type: Boolean,
+			default: !1
+		},
+		clearable: {
+			type: Boolean,
+			default: !1
+		},
+		multiple: {
+			type: Boolean,
+			default: !1
+		}
+	},
+	emits: [
+		"update:modelValue",
+		"change",
+		"focus",
+		"blur",
+		"clear"
+	],
+	setup(t, { emit: r }) {
+		let s = t, c = r, l = n(() => (Array.isArray(s.modelValue), s.modelValue.length > 0)), u = n(() => s.multiple ? Array.isArray(s.modelValue) ? s.modelValue : [] : Array.isArray(s.modelValue) ? s.modelValue[0] ?? "" : s.modelValue), d = n({
+			get: () => u.value,
+			set: (e) => {
+				s.readonly || c("update:modelValue", e);
+			}
+		}), f = n(() => s.clearable && l.value && !s.disabled && !s.readonly && !s.loading);
+		function p(e) {
+			c("change", e);
+		}
+		function h() {
+			f.value && (c("update:modelValue", s.multiple ? [] : ""), c("clear"));
+		}
+		return (t, n) => (b(), a("label", { class: m(["g-base-select", [`g-base-select--${s.size}`, {
+			"g-base-select--filled": l.value,
+			"g-base-select--disabled": s.disabled,
+			"g-base-select--readonly": s.readonly,
+			"g-base-select--invalid": s.invalid,
+			"g-base-select--loading": s.loading,
+			"g-base-select--multiple": s.multiple,
+			"g-base-select--clearable": f.value
+		}]]) }, [
+			s.label ? (b(), a("span", G, T(s.label), 1)) : i("", !0),
+			o("span", K, [
+				A(o("select", {
+					"onUpdate:modelValue": n[0] ||= (e) => d.value = e,
+					class: "g-base-select__control",
+					multiple: s.multiple,
+					disabled: s.disabled || s.loading,
+					"aria-invalid": s.invalid || void 0,
+					"aria-readonly": s.readonly || void 0,
+					"aria-busy": s.loading || void 0,
+					onChange: p,
+					onFocus: n[1] ||= (e) => c("focus", e),
+					onBlur: n[2] ||= (e) => c("blur", e)
+				}, [s.placeholder && !s.multiple ? (b(), a("option", J, T(s.placeholder), 1)) : i("", !0), (b(!0), a(e, null, S(s.options, (e) => (b(), a("option", {
+					key: e.value,
+					value: e.value,
+					disabled: e.disabled
+				}, T(e.label), 9, Y))), 128))], 40, q), [[D, d.value]]),
+				f.value ? (b(), a("button", {
+					key: 0,
+					class: "g-base-select__clear",
+					type: "button",
+					"aria-label": "Clear selected value",
+					onClick: j(h, ["prevent"])
+				}, [o("span", {
+					"aria-hidden": "true",
+					innerHTML: E(W)
+				}, null, 8, X)])) : i("", !0),
+				s.loading ? (b(), a("span", Z)) : s.multiple ? i("", !0) : (b(), a("span", {
+					key: 2,
+					class: "g-base-select__indicator",
+					"aria-hidden": "true",
+					innerHTML: E(U)
+				}, null, 8, ae))
+			]),
+			s.helperText ? (b(), a("span", oe, T(s.helperText), 1)) : i("", !0)
+		], 2));
+	}
+}), [["__scopeId", "data-v-ebc5594a"]]), Q = [
+	"value",
+	"min",
+	"max",
+	"step",
+	"disabled",
+	"aria-label"
+], $ = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseSlider",
+	props: {
+		modelValue: { default: 0 },
+		min: { default: 0 },
+		max: { default: 100 },
+		step: { default: 1 },
+		disabled: {
+			type: Boolean,
+			default: !1
+		},
+		ariaLabel: { default: "" }
+	},
+	emits: [
+		"update:modelValue",
+		"input",
+		"change"
+	],
+	setup(e, { emit: t }) {
+		let n = e, r = t;
+		function i(e) {
+			r("input", e), r("update:modelValue", Number(e.target.value));
+		}
+		function s(e) {
+			r("change", e);
+		}
+		return (e, t) => (b(), a("span", { class: m(["g-base-slider", { "g-base-slider--disabled": n.disabled }]) }, [o("input", {
+			class: "g-base-slider__control",
+			type: "range",
+			value: n.modelValue,
+			min: n.min,
+			max: n.max,
+			step: n.step,
+			disabled: n.disabled,
+			"aria-label": n.ariaLabel || void 0,
+			onInput: i,
+			onChange: s
+		}, null, 40, Q)], 2));
+	}
+}), [["__scopeId", "data-v-2f632190"]]), ce = [
+	"checked",
+	"disabled",
+	"aria-label"
+], le = {
+	class: "g-base-switch__track",
+	"aria-hidden": "true"
+}, ue = { class: "g-base-switch__thumb" }, de = {
+	key: 0,
+	class: "g-base-switch__icon",
+	viewBox: "0 0 10 10",
+	focusable: "false"
+}, fe = {
+	key: 1,
+	class: "g-base-switch__icon",
+	viewBox: "0 0 10 10",
+	focusable: "false"
+}, pe = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseSwitch",
+	props: {
+		modelValue: {
+			type: Boolean,
+			default: !1
+		},
+		disabled: {
+			type: Boolean,
+			default: !1
+		},
+		ariaLabel: { default: "" }
+	},
+	emits: ["update:modelValue", "change"],
+	setup(e, { emit: t }) {
+		let n = t;
+		function r(e) {
+			let t = e.target.checked;
+			n("update:modelValue", t), n("change", e);
+		}
+		return (t, n) => (b(), a("label", { class: m(["g-base-switch", {
+			"g-base-switch--checked": e.modelValue,
+			"g-base-switch--disabled": e.disabled
+		}]) }, [o("input", {
+			class: "g-base-switch__control",
+			type: "checkbox",
+			checked: e.modelValue,
+			disabled: e.disabled,
+			"aria-label": e.ariaLabel || void 0,
+			onChange: r
+		}, null, 40, ce), o("span", le, [o("span", ue, [e.modelValue ? (b(), a("svg", de, [...n[0] ||= [o("path", { d: "M1.5 5.2 3.9 7.5 8.5 2.8" }, null, -1)]])) : (b(), a("svg", fe, [...n[1] ||= [o("path", { d: "M2 2 8 8" }, null, -1), o("path", { d: "M8 2 2 8" }, null, -1)]]))])])], 2));
+	}
+}), [["__scopeId", "data-v-e454f138"]]), me = {
+	key: 0,
+	class: "g-base-textarea__label"
+}, he = [
+	"value",
+	"placeholder",
+	"rows",
+	"disabled",
+	"readonly",
+	"aria-invalid"
+], ge = {
+	key: 1,
+	class: "g-base-textarea__helper"
+}, _e = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseTextarea",
+	props: {
+		modelValue: { default: "" },
+		label: { default: "" },
+		helperText: { default: "" },
+		placeholder: { default: "" },
+		rows: { default: 4 },
+		disabled: {
+			type: Boolean,
+			default: !1
+		},
+		readonly: {
+			type: Boolean,
+			default: !1
+		},
+		invalid: {
+			type: Boolean,
+			default: !1
+		}
+	},
+	emits: [
+		"update:modelValue",
+		"input",
+		"change",
+		"focus",
+		"blur"
+	],
+	setup(e, { emit: t }) {
+		let n = e, r = t;
+		function s(e) {
+			r("input", e), r("update:modelValue", e.target.value);
+		}
+		return (e, t) => (b(), a("label", { class: m(["g-base-textarea", {
+			"g-base-textarea--filled": n.modelValue.length > 0,
+			"g-base-textarea--disabled": n.disabled,
+			"g-base-textarea--invalid": n.invalid
+		}]) }, [
+			n.label ? (b(), a("span", me, T(n.label), 1)) : i("", !0),
+			o("textarea", {
+				class: "g-base-textarea__control",
+				value: n.modelValue,
+				placeholder: n.placeholder,
+				rows: n.rows,
+				disabled: n.disabled,
+				readonly: n.readonly,
+				"aria-invalid": n.invalid || void 0,
+				onInput: s,
+				onChange: t[0] ||= (e) => r("change", e),
+				onFocus: t[1] ||= (e) => r("focus", e),
+				onBlur: t[2] ||= (e) => r("blur", e)
+			}, null, 40, he),
+			n.helperText ? (b(), a("span", ge, T(n.helperText), 1)) : i("", !0)
+		], 2));
+	}
+}), [["__scopeId", "data-v-1bb373c8"]]), ve = { class: "g-data-list" }, ye = { class: "g-data-list__item" }, be = { class: "g-data-list__content" }, xe = { class: "g-data-list__title" }, Se = {
+	key: 0,
+	class: "g-data-list__supporting"
+}, Ce = {
+	key: 0,
+	class: "g-data-list__aside"
+}, we = {
+	key: 0,
+	class: "g-data-list__meta"
+}, Te = {
+	key: 1,
+	class: "g-data-list__meta"
+}, Ee = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "DataList",
+	props: { items: {} },
+	setup(t) {
+		let n = t;
+		function r(e, t) {
+			return e.key ?? `${e.title}-${t}`;
+		}
+		return (t, s) => (b(), a("ul", ve, [(b(!0), a(e, null, S(n.items, (e, t) => (b(), a("li", {
+			key: r(e, t),
+			class: "g-data-list__row"
+		}, [o("div", ye, [o("div", be, [o("p", xe, T(e.title), 1), e.supportingText ? (b(), a("p", Se, T(e.supportingText), 1)) : i("", !0)]), e.meta || e.trailing ? (b(), a("div", Ce, [e.meta ? (b(), a("p", we, T(e.meta), 1)) : i("", !0), e.trailing ? (b(), a("p", Te, T(e.trailing), 1)) : i("", !0)])) : i("", !0)])]))), 128))]));
+	}
+}), [["__scopeId", "data-v-c4a016fb"]]), De = { class: "g-data-table__table" }, Oe = { class: "g-data-table__head" }, ke = { class: "g-data-table__head-row" }, Ae = ["title"], je = { class: "g-data-table__head-label" }, Me = { class: "g-data-table__body" }, Ne = ["colspan"], Pe = { class: "g-data-table__section-text" }, Fe = ["title"], Ie = { class: "g-data-table__cell-text" }, Le = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "DataTable",
+	props: {
+		columns: {},
+		rows: {},
+		layout: { default: "fit" },
+		rowHover: {
+			type: Boolean,
+			default: !0
+		}
+	},
+	setup(t) {
+		let n = t;
+		function r(e, t) {
+			return e.key ?? `${c(e)}-row-${t}`;
+		}
+		function i(e, t) {
+			return e[t];
+		}
+		function s(e) {
+			return e == null ? "" : String(e);
+		}
+		function c(e) {
+			return e.kind ?? "default";
+		}
+		function l(e) {
+			return c(e) === "section";
+		}
+		function u(e) {
+			return typeof e.textColor == "string" && e.textColor.trim().length > 0;
+		}
+		function d(e) {
+			return typeof e.label == "string" ? e.label : "";
+		}
+		function p(e) {
+			if (u(e)) return { "--g-data-table-row-accent-text": e.textColor };
+		}
+		function h(e) {
+			return Math.max(e.length, 1);
+		}
+		function _(e) {
+			return e.align ?? "left";
+		}
+		function v(e) {
+			return e.overflow ?? "ellipsis";
+		}
+		function y(e) {
+			if (!(!e.width && !e.minWidth)) return {
+				width: e.width,
+				minWidth: e.minWidth ?? e.width
+			};
+		}
+		function x(e, t) {
+			return {
+				column: e,
+				columnIndex: t
+			};
+		}
+		function w(e, t, n, r) {
+			let a = i(e, t.key);
+			return {
+				column: t,
+				columnIndex: r,
+				row: e,
+				rowIndex: n,
+				value: a,
+				text: s(a)
+			};
+		}
+		return (t, E) => (b(), a("div", { class: m(["g-data-table", [`g-data-table--layout-${n.layout}`, { "g-data-table--row-hover": n.rowHover }]]) }, [o("table", De, [
+			o("colgroup", null, [(b(!0), a(e, null, S(n.columns, (e) => (b(), a("col", {
+				key: e.key,
+				style: g(y(e))
+			}, null, 4))), 128))]),
+			o("thead", Oe, [o("tr", ke, [(b(!0), a(e, null, S(n.columns, (e, n) => (b(), a("th", {
+				key: e.key,
+				class: m(["g-data-table__head-cell", [
+					`g-data-table__head-cell--${_(e)}`,
+					`g-data-table__head-cell--overflow-${v(e)}`,
+					{ "g-data-table__head-cell--muted": e.muted }
+				]]),
+				scope: "col",
+				title: v(e) === "ellipsis" ? e.label : void 0
+			}, [C(t.$slots, `header-${e.key}`, f({ ref_for: !0 }, x(e, n)), () => [C(t.$slots, "header", f({ ref_for: !0 }, x(e, n)), () => [o("span", je, T(e.label), 1)], !0)], !0)], 10, Ae))), 128))])]),
+			o("tbody", Me, [(b(!0), a(e, null, S(n.rows, (y, x) => (b(), a(e, { key: r(y, x) }, [l(y) ? (b(), a("tr", {
+				key: 0,
+				class: m(["g-data-table__row g-data-table__row--section", { "g-data-table__row--tinted": u(y) }]),
+				style: g(p(y))
+			}, [o("td", {
+				class: "g-data-table__section-cell",
+				colspan: h(n.columns)
+			}, [C(t.$slots, "section", {
+				row: y,
+				rowIndex: x,
+				label: d(y)
+			}, () => [o("span", Pe, T(d(y)), 1)], !0)], 8, Ne)], 6)) : (b(), a("tr", {
+				key: 1,
+				class: m(["g-data-table__row", [`g-data-table__row--${c(y)}`, { "g-data-table__row--tinted": u(y) }]]),
+				style: g(p(y))
+			}, [(b(!0), a(e, null, S(n.columns, (e, n) => (b(), a("td", {
+				key: e.key,
+				class: m(["g-data-table__cell", [
+					`g-data-table__cell--${_(e)}`,
+					`g-data-table__cell--overflow-${v(e)}`,
+					{ "g-data-table__cell--muted": e.muted }
+				]]),
+				title: v(e) === "ellipsis" && s(i(y, e.key)) || void 0
+			}, [C(t.$slots, `cell-${e.key}`, f({ ref_for: !0 }, w(y, e, x, n)), () => [C(t.$slots, "cell", f({ ref_for: !0 }, w(y, e, x, n)), () => [o("span", Ie, T(s(i(y, e.key))), 1)], !0)], !0)], 10, Fe))), 128))], 6))], 64))), 128))])
+		])], 2));
+	}
+}), [["__scopeId", "data-v-2b807707"]]), Re = { class: "g-data-grid" }, ze = {
+	key: 0,
+	class: "g-data-grid__toolbar"
+}, Be = {
+	key: 0,
+	class: "g-data-grid__filters"
+}, Ve = {
+	key: 1,
+	class: "g-data-grid__visibility"
+}, He = { class: "g-data-grid__visibility-list" }, Ue = { class: "g-data-grid__toolbar-actions" }, We = {
+	key: 1,
+	class: "g-data-grid__empty"
+}, Ge = { class: "g-data-grid__head-content" }, Ke = ["aria-label", "onClick"], qe = { class: "g-data-grid__head-label" }, Je = {
+	class: "g-data-grid__sort-indicator",
+	"aria-hidden": "true"
+}, Ye = {
+	key: 1,
+	class: "g-data-grid__head-label"
+}, Xe = ["onKeydown", "onPointerdown"], Ze = { class: "g-data-table__cell-text" }, Qe = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "DataGrid",
+	props: {
+		columns: {},
+		rows: {},
+		layout: { default: "scroll" },
+		rowHover: {
+			type: Boolean,
+			default: !0
+		},
+		sort: { default: null },
+		filters: { default: () => ({}) },
+		hiddenColumnKeys: { default: () => [] },
+		columnWidths: { default: () => ({}) }
+	},
+	emits: [
+		"update:sort",
+		"update:filters",
+		"update:hiddenColumnKeys",
+		"update:columnWidths"
+	],
+	setup(t, { emit: u }) {
+		let f = t, p = u, g = ee(), v = x(f.sort), y = x({ ...f.filters }), w = x(I(f.columns, f.hiddenColumnKeys)), E = x({ ...f.columnWidths }), D = x(null);
+		O(() => f.sort, (e) => {
+			v.value = e ?? null;
+		}), O(() => f.filters, (e) => {
+			y.value = { ...e };
+		}, { deep: !0 }), O(() => f.hiddenColumnKeys, (e) => {
+			w.value = I(f.columns, e);
+		}, { deep: !0 }), O(() => f.columnWidths, (e) => {
+			E.value = { ...e };
+		}, { deep: !0 }), O(() => f.columns, (e) => {
+			w.value = I(e, w.value);
+		}, { deep: !0 });
+		let A = n(() => f.columns.filter((e) => !w.value.includes(e.key)).map((e) => ({
+			...e,
+			width: E.value[e.key] ?? e.width
+		}))), j = n(() => A.value.filter((e) => e.filterable)), M = n(() => f.columns.filter((e) => e.hideable)), N = n(() => !!g.toolbar || j.value.length > 0 || M.value.length > 0), P = n(() => ne(f.rows.filter((e) => z(e, y.value)), v.value));
+		_(() => {
+			$();
+		});
+		function I(e, t = []) {
+			let n = new Set(t);
+			for (let t of e) t.defaultHidden && n.add(t.key);
+			return [...n];
+		}
+		function R(e) {
+			return e == null ? "" : String(e).trim().toLowerCase();
+		}
+		function z(e, t) {
+			return Object.entries(t).every(([t, n]) => {
+				let r = R(n);
+				return !r || R(e[t]).includes(r);
+			});
+		}
+		function te(e, t) {
+			return typeof e == "number" && typeof t == "number" ? e - t : typeof e == "boolean" && typeof t == "boolean" ? Number(e) - Number(t) : R(e).localeCompare(R(t), "ru");
+		}
+		function ne(e, t) {
+			if (!t) return e;
+			let n = t.direction === "asc" ? 1 : -1;
+			return e.map((e, t) => ({
+				row: e,
+				index: t
+			})).sort((e, r) => {
+				let i = te(e.row[t.key], r.row[t.key]);
+				return i === 0 ? e.index - r.index : i * n;
+			}).map((e) => e.row);
+		}
+		function B(e) {
+			return v.value?.key === e ? v.value.direction : null;
+		}
+		function ie(e) {
+			let t = B(e);
+			return t === "asc" ? "↑" : t === "desc" ? "↓" : "↕";
+		}
+		function V(e) {
+			v.value = e, p("update:sort", e);
+		}
+		function H(e) {
+			if (!e.sortable) return;
+			let t = v.value;
+			if (!t || t.key !== e.key) {
+				V({
+					key: e.key,
+					direction: "asc"
+				});
+				return;
+			}
+			if (t.direction === "asc") {
+				V({
+					key: e.key,
+					direction: "desc"
+				});
+				return;
+			}
+			V(null);
+		}
+		function U(e, t) {
+			let n = { ...y.value };
+			t.trim() ? n[e] = t : delete n[e], y.value = n, p("update:filters", n);
+		}
+		function W(e) {
+			w.value = e, p("update:hiddenColumnKeys", e);
+		}
+		function G(e, t) {
+			let n = new Set(w.value);
+			t ? n.delete(e) : n.add(e), W([...n]);
+		}
+		function K(e) {
+			E.value = e, p("update:columnWidths", e);
+		}
+		function q() {
+			J({});
+		}
+		function J(e) {
+			y.value = e, p("update:filters", e);
+		}
+		function Y() {
+			V(null), J({}), W(I(f.columns)), K({});
+		}
+		function X(e) {
+			if (!e) return null;
+			let t = e.trim();
+			if (!t.endsWith("px")) return null;
+			let n = Number.parseFloat(t);
+			return Number.isFinite(n) ? n : null;
+		}
+		function Z(e) {
+			return X(e.minWidth) ?? X(e.width) ?? X(E.value[e.key]) ?? 96;
+		}
+		function ae(e) {
+			return X(E.value[e.key]) ?? X(e.width) ?? Z(e);
+		}
+		function oe(e, t) {
+			let n = Math.max(Z(e), ae(e) + t);
+			K({
+				...E.value,
+				[e.key]: `${Math.round(n)}px`
+			});
+		}
+		function se(e, t) {
+			let n = e.currentTarget.closest("th");
+			n && (D.value = {
+				columnKey: t.key,
+				minWidth: Z(t),
+				pointerId: e.pointerId,
+				startWidth: n.getBoundingClientRect().width,
+				startX: e.clientX
+			}, window.addEventListener("pointermove", Q), window.addEventListener("pointerup", $), window.addEventListener("pointercancel", $), e.preventDefault(), e.stopPropagation());
+		}
+		function Q(e) {
+			let t = D.value;
+			if (!t || e.pointerId !== t.pointerId) return;
+			let n = Math.max(t.minWidth, t.startWidth + e.clientX - t.startX);
+			K({
+				...E.value,
+				[t.columnKey]: `${Math.round(n)}px`
+			});
+		}
+		function $(e) {
+			e && D.value && e.pointerId !== D.value.pointerId || (D.value = null, window.removeEventListener("pointermove", Q), window.removeEventListener("pointerup", $), window.removeEventListener("pointercancel", $));
+		}
+		function ce(e, t) {
+			e.key === "ArrowLeft" && (e.preventDefault(), oe(t, -16)), e.key === "ArrowRight" && (e.preventDefault(), oe(t, 16));
+		}
+		function le() {
+			return {
+				columnWidths: E.value,
+				columns: f.columns,
+				filters: y.value,
+				hiddenColumnKeys: w.value,
+				resetGrid: Y,
+				setColumnVisibility: G,
+				setFilter: U,
+				setSort: V,
+				sort: v.value,
+				toggleSort: H,
+				visibleColumns: A.value
+			};
+		}
+		function ue(e, t) {
+			return {
+				...e,
+				sort: v.value,
+				sortDirection: B(t.key),
+				toggleSort: H
+			};
+		}
+		function de(e) {
+			return {
+				...e,
+				sort: v.value
+			};
+		}
+		return (t, n) => (b(), a("section", Re, [N.value ? (b(), a("div", ze, [C(t.$slots, "toolbar", h(d(le())), () => [
+			j.value.length > 0 ? (b(), a("div", Be, [(b(!0), a(e, null, S(j.value, (e) => (b(), r(re, {
+				key: e.key,
+				label: e.label,
+				"model-value": y.value[e.key] ?? "",
+				placeholder: "Фильтр",
+				size: "sm",
+				"onUpdate:modelValue": (t) => U(e.key, t)
+			}, null, 8, [
+				"label",
+				"model-value",
+				"onUpdate:modelValue"
+			]))), 128))])) : i("", !0),
+			M.value.length > 0 ? (b(), a("div", Ve, [n[0] ||= o("p", { class: "g-data-grid__toolbar-title" }, "Колонки", -1), o("div", He, [(b(!0), a(e, null, S(M.value, (e) => (b(), a("div", {
+				key: e.key,
+				class: "g-data-grid__visibility-item"
+			}, [l(L, {
+				"model-value": !w.value.includes(e.key),
+				"aria-label": `Показать колонку ${e.label}`,
+				"onUpdate:modelValue": (t) => G(e.key, t)
+			}, null, 8, [
+				"model-value",
+				"aria-label",
+				"onUpdate:modelValue"
+			]), o("span", null, T(e.label), 1)]))), 128))])])) : i("", !0),
+			o("div", Ue, [l(F, {
+				size: "sm",
+				onClick: Y
+			}, {
+				default: k(() => [...n[1] ||= [c("Сбросить вид", -1)]]),
+				_: 1
+			}), Object.keys(y.value).length > 0 ? (b(), r(F, {
+				key: 0,
+				size: "sm",
+				variant: "secondary",
+				onClick: q
+			}, {
+				default: k(() => [...n[2] ||= [c(" Очистить фильтры ", -1)]]),
+				_: 1
+			})) : i("", !0)])
+		], !0)])) : i("", !0), A.value.length === 0 ? (b(), a("div", We, " Скрыты все колонки. Покажите хотя бы одну колонку в настройках вида. ")) : (b(), r(Le, {
+			key: 2,
+			columns: A.value,
+			layout: f.layout,
+			"row-hover": f.rowHover,
+			rows: P.value
+		}, s({ _: 2 }, [S(A.value, (e) => ({
+			name: `header-${e.key}`,
+			fn: k((n) => [C(t.$slots, `header-${e.key}`, h(d(ue(n, e))), () => [C(t.$slots, "header", h(d(ue(n, e))), () => [o("div", Ge, [e.sortable ? (b(), a("button", {
+				key: 0,
+				type: "button",
+				class: m(["g-data-grid__sort-button", { "g-data-grid__sort-button--active": B(e.key) !== null }]),
+				"aria-label": `Сменить сортировку по колонке ${e.label}`,
+				onClick: (t) => H(e)
+			}, [o("span", qe, T(e.label), 1), o("span", Je, T(ie(e.key)), 1)], 10, Ke)) : (b(), a("span", Ye, T(e.label), 1)), e.resizable ? (b(), a("span", {
+				key: 2,
+				class: "g-data-grid__resize-handle",
+				"aria-label": "Изменить ширину колонки",
+				role: "separator",
+				tabindex: "0",
+				onKeydown: (t) => ce(t, e),
+				onPointerdown: (t) => se(t, e)
+			}, null, 40, Xe)) : i("", !0)])], !0)], !0)])
+		})), S(A.value, (e) => ({
+			name: `cell-${e.key}`,
+			fn: k((n) => [C(t.$slots, `cell-${e.key}`, h(d(de(n))), () => [C(t.$slots, "cell", h(d(de(n))), () => [o("span", Ze, T(n.text), 1)], !0)], !0)])
+		}))]), 1032, [
+			"columns",
+			"layout",
+			"row-hover",
+			"rows"
+		]))]));
+	}
+}), [["__scopeId", "data-v-17871d20"]]), $e = { class: "g-property-list" }, et = { class: "g-property-list__label" }, tt = { class: "g-property-list__value" }, nt = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "PropertyList",
+	props: { items: {} },
+	setup(t) {
+		let n = t;
+		function r(e, t) {
+			return e.key ?? `${e.label}-${t}`;
+		}
+		return (t, i) => (b(), a("dl", $e, [(b(!0), a(e, null, S(n.items, (e, t) => (b(), a("div", {
+			key: r(e, t),
+			class: "g-property-list__row"
+		}, [o("dt", et, T(e.label), 1), o("dd", tt, T(e.value), 1)]))), 128))]));
+	}
+}), [["__scopeId", "data-v-100011a3"]]), rt = ["aria-labelledby", "aria-label"], it = {
+	key: 0,
+	class: "g-base-dialog__header"
+}, at = ["aria-label"], ot = { class: "g-base-dialog__body" }, st = {
+	key: 1,
+	class: "g-base-dialog__footer"
+}, ct = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "BaseDialog",
+	props: {
+		modelValue: {
+			type: Boolean,
+			default: !1
+		},
+		title: { default: "" },
+		ariaLabel: { default: "" },
+		closeOnBackdrop: {
+			type: Boolean,
+			default: !0
+		},
+		closeOnEscape: {
+			type: Boolean,
+			default: !0
+		},
+		showCloseButton: {
+			type: Boolean,
+			default: !0
+		}
+	},
+	emits: ["update:modelValue", "close"],
+	setup(e, { emit: s }) {
+		let l = 0, u = "", d = 0, f = [], m = /* @__PURE__ */ new Map(), h = ++d, g = `g-base-dialog-title-${h}`, _ = e, S = s, w = ee(), E = x(null), D = x(null), k = x(!1), A = x(!1), M = null, N = n(() => !!(_.title || w.title)), P = n(() => N.value || _.showCloseButton), F = n(() => !!w.footer), I = n(() => N.value ? void 0 : _.ariaLabel || "Dialog");
+		function L() {
+			return f[f.length - 1] === h;
+		}
+		function R() {
+			if (!E.value) return [];
+			let e = [
+				"a[href]",
+				"button:not([disabled])",
+				"input:not([disabled])",
+				"select:not([disabled])",
+				"textarea:not([disabled])",
+				"[tabindex]:not([tabindex=\"-1\"])"
+			].join(", ");
+			return Array.from(E.value.querySelectorAll(e)).filter((e) => e instanceof HTMLElement && !e.hasAttribute("hidden") && e.tabIndex >= 0);
+		}
+		function z() {
+			if (_.showCloseButton && D.value) {
+				D.value.focus();
+				return;
+			}
+			let [e] = R();
+			if (e) {
+				e.focus();
+				return;
+			}
+			E.value?.focus();
+		}
+		function te() {
+			let e = f[f.length - 1];
+			m.get(e)?.();
+		}
+		function ne(e) {
+			if (!E.value) return;
+			let t = R();
+			if (t.length === 0) {
+				e.preventDefault(), E.value.focus();
+				return;
+			}
+			let n = t[0], r = t[t.length - 1], i = document.activeElement, a = i instanceof Node && E.value.contains(i);
+			if (e.shiftKey) {
+				(!a || i === n || i === E.value) && (e.preventDefault(), r.focus());
+				return;
+			}
+			(!a || i === r || i === E.value) && (e.preventDefault(), n.focus());
+		}
+		function B() {
+			typeof document > "u" || k.value || (l === 0 && (u = document.body.style.overflow), l += 1, document.body.style.overflow = "hidden", k.value = !0);
+		}
+		function re() {
+			A.value ||= (f.push(h), !0);
+		}
+		function ie() {
+			typeof document > "u" || !k.value || (l = Math.max(0, l - 1), l === 0 && (document.body.style.overflow = u), k.value = !1);
+		}
+		function V() {
+			if (!A.value) return;
+			let e = f.lastIndexOf(h);
+			e !== -1 && f.splice(e, 1), A.value = !1;
+		}
+		function H() {
+			let e = M;
+			M = null, p(() => {
+				if (e?.isConnected) {
+					e.focus();
+					return;
+				}
+				te();
+			});
+		}
+		function U() {
+			typeof document < "u" && !A.value && (M = document.activeElement instanceof HTMLElement ? document.activeElement : null), re(), B();
+		}
+		function W() {
+			let e = L();
+			V(), ie(), e && H();
+		}
+		function G(e) {
+			S("update:modelValue", !1), S("close", e);
+		}
+		function K() {
+			_.closeOnBackdrop && G("backdrop");
+		}
+		function q(e) {
+			if (!(!_.modelValue || !L())) {
+				if (e.key === "Tab") {
+					ne(e);
+					return;
+				}
+				e.key === "Escape" && _.closeOnEscape && (e.preventDefault(), G("escape"));
+			}
+		}
+		return O(() => _.modelValue, async (e, t) => {
+			if (e) {
+				U(), await p(), z();
+				return;
+			}
+			t && W();
+		}, { immediate: !0 }), v(() => {
+			m.set(h, z), document.addEventListener("keydown", q);
+		}), y(() => {
+			m.delete(h), document.removeEventListener("keydown", q), W();
+		}), (n, s) => (b(), r(t, { to: "body" }, [e.modelValue ? (b(), a("div", {
+			key: 0,
+			class: "g-base-dialog",
+			onClick: j(K, ["self"])
+		}, [s[2] ||= o("div", {
+			class: "g-base-dialog__backdrop",
+			"aria-hidden": "true"
+		}, null, -1), o("section", {
+			ref_key: "panelRef",
+			ref: E,
+			class: "g-base-dialog__panel",
+			role: "dialog",
+			"aria-modal": "true",
+			"aria-labelledby": N.value ? g : void 0,
+			"aria-label": I.value,
+			tabindex: "-1"
+		}, [
+			P.value ? (b(), a("header", it, [N.value ? (b(), a("h2", {
+				key: 0,
+				id: g,
+				class: "g-base-dialog__title"
+			}, [C(n.$slots, "title", {}, () => [c(T(e.title), 1)], !0)])) : i("", !0), e.showCloseButton ? (b(), a("button", {
+				key: 1,
+				ref_key: "closeButtonRef",
+				ref: D,
+				class: "g-base-dialog__close",
+				type: "button",
+				"aria-label": N.value ? "Close dialog" : "Close",
+				onClick: s[0] ||= (e) => G("close-button")
+			}, [...s[1] ||= [o("span", {
+				class: "g-base-dialog__close-icon",
+				"aria-hidden": "true"
+			}, null, -1)]], 8, at)) : i("", !0)])) : i("", !0),
+			o("div", ot, [C(n.$slots, "default", {}, void 0, !0)]),
+			F.value ? (b(), a("footer", st, [C(n.$slots, "footer", {}, void 0, !0)])) : i("", !0)
+		], 8, rt)])) : i("", !0)]));
+	}
+}), [["__scopeId", "data-v-218519b0"]]), lt = { class: "g-confirm-dialog" }, ut = {
+	key: 0,
+	class: "g-confirm-dialog__description"
+}, dt = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "ConfirmDialog",
+	props: {
+		modelValue: {
+			type: Boolean,
+			default: !1
+		},
+		title: { default: "" },
+		description: { default: "" },
+		ariaLabel: { default: "" },
+		confirmText: { default: "Confirm" },
+		cancelText: { default: "Cancel" },
+		confirmVariant: { default: "primary" },
+		confirmDisabled: {
+			type: Boolean,
+			default: !1
+		},
+		cancelDisabled: {
+			type: Boolean,
+			default: !1
+		},
+		closeOnBackdrop: {
+			type: Boolean,
+			default: !0
+		},
+		closeOnEscape: {
+			type: Boolean,
+			default: !0
+		},
+		showCloseButton: {
+			type: Boolean,
+			default: !0
+		}
+	},
+	emits: [
+		"update:modelValue",
+		"confirm",
+		"cancel",
+		"close"
+	],
+	setup(e, { emit: t }) {
+		let n = t;
+		function s() {
+			n("cancel"), n("update:modelValue", !1);
+		}
+		function u() {
+			n("confirm"), n("update:modelValue", !1);
+		}
+		function d(e) {
+			n("close", e);
+		}
+		return (t, f) => (b(), r(ct, {
+			"model-value": e.modelValue,
+			title: e.title,
+			"aria-label": e.ariaLabel,
+			"close-on-backdrop": e.closeOnBackdrop,
+			"close-on-escape": e.closeOnEscape,
+			"show-close-button": e.showCloseButton,
+			"onUpdate:modelValue": f[0] ||= (e) => n("update:modelValue", e),
+			onClose: d
+		}, {
+			footer: k(() => [C(t.$slots, "footer", {}, () => [l(F, {
+				disabled: e.cancelDisabled,
+				onClick: s
+			}, {
+				default: k(() => [c(T(e.cancelText), 1)]),
+				_: 1
+			}, 8, ["disabled"]), l(F, {
+				variant: e.confirmVariant,
+				disabled: e.confirmDisabled,
+				onClick: u
+			}, {
+				default: k(() => [c(T(e.confirmText), 1)]),
+				_: 1
+			}, 8, ["variant", "disabled"])], !0)]),
+			default: k(() => [o("div", lt, [e.description ? (b(), a("p", ut, T(e.description), 1)) : i("", !0), C(t.$slots, "default", {}, void 0, !0)])]),
+			_: 3
+		}, 8, [
+			"model-value",
+			"title",
+			"aria-label",
+			"close-on-backdrop",
+			"close-on-escape",
+			"show-close-button"
+		]));
+	}
+}), [["__scopeId", "data-v-6102c5ae"]]), ft = ["id", "aria-busy"], pt = {
+	key: 0,
+	class: "g-form-dialog__description"
+}, mt = { class: "g-form-dialog__body" }, ht = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "FormDialog",
+	props: {
+		modelValue: {
+			type: Boolean,
+			default: !1
+		},
+		title: { default: "" },
+		description: { default: "" },
+		ariaLabel: { default: "" },
+		submitText: { default: "Save" },
+		cancelText: { default: "Cancel" },
+		submitDisabled: {
+			type: Boolean,
+			default: !1
+		},
+		cancelDisabled: {
+			type: Boolean,
+			default: !1
+		},
+		submitting: {
+			type: Boolean,
+			default: !1
+		},
+		formId: { default: "" },
+		closeOnBackdrop: {
+			type: Boolean,
+			default: !0
+		},
+		closeOnEscape: {
+			type: Boolean,
+			default: !0
+		},
+		showCloseButton: {
+			type: Boolean,
+			default: !0
+		}
+	},
+	emits: [
+		"update:modelValue",
+		"submit",
+		"cancel",
+		"close"
+	],
+	setup(e, { emit: t }) {
+		let s = 0, u = ++s, d = e, f = t, p = n(() => d.formId || `g-form-dialog-form-${u}`), m = n(() => d.submitDisabled || d.submitting), h = n(() => d.cancelDisabled || d.submitting);
+		function g() {
+			h.value || (f("cancel"), f("update:modelValue", !1));
+		}
+		function _(e) {
+			m.value || f("submit", e);
+		}
+		function v(e) {
+			f("close", e);
+		}
+		return (t, n) => (b(), r(ct, {
+			"model-value": e.modelValue,
+			title: e.title,
+			"aria-label": e.ariaLabel,
+			"close-on-backdrop": e.closeOnBackdrop,
+			"close-on-escape": e.closeOnEscape,
+			"show-close-button": e.showCloseButton,
+			"onUpdate:modelValue": n[0] ||= (e) => f("update:modelValue", e),
+			onClose: v
+		}, {
+			footer: k(() => [C(t.$slots, "footer", {}, () => [l(F, {
+				disabled: h.value,
+				onClick: g
+			}, {
+				default: k(() => [c(T(e.cancelText), 1)]),
+				_: 1
+			}, 8, ["disabled"]), l(F, {
+				variant: "primary",
+				type: "submit",
+				form: p.value,
+				disabled: m.value
+			}, {
+				default: k(() => [c(T(e.submitText), 1)]),
+				_: 1
+			}, 8, ["form", "disabled"])], !0)]),
+			default: k(() => [o("form", {
+				id: p.value,
+				class: "g-form-dialog",
+				"aria-busy": e.submitting || void 0,
+				onSubmit: j(_, ["prevent"])
+			}, [e.description ? (b(), a("p", pt, T(e.description), 1)) : i("", !0), o("div", mt, [C(t.$slots, "default", {}, void 0, !0)])], 40, ft)]),
+			_: 3
+		}, 8, [
+			"model-value",
+			"title",
+			"aria-label",
+			"close-on-backdrop",
+			"close-on-escape",
+			"show-close-button"
+		]));
+	}
+}), [["__scopeId", "data-v-ba80d46e"]]), gt = /*#__PURE__*/ P(/* @__PURE__ */ u({
+	__name: "Panel",
+	props: { as: { default: "section" } },
+	setup(e) {
+		return (t, n) => (b(), r(w(e.as), { class: "g-panel" }, {
+			default: k(() => [C(t.$slots, "default", {}, void 0, !0)]),
+			_: 3
+		}));
+	}
+}), [["__scopeId", "data-v-92e98c4c"]]);
+//#endregion
+export { F as BaseButton, L as BaseCheckbox, ct as BaseDialog, re as BaseInput, ie as BaseLink, H as BaseRadio, se as BaseSelect, $ as BaseSlider, pe as BaseSwitch, _e as BaseTextarea, dt as ConfirmDialog, Qe as DataGrid, Ee as DataList, Le as DataTable, ht as FormDialog, gt as Panel, nt as PropertyList };
